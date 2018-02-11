@@ -1,24 +1,24 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-11 14:41:44
+/* Smarty version 3.1.32-dev-38, created on 2018-02-11 15:17:36
   from '/home/oj_web/templates/home.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a7fe5a86eb823_98761950',
+  'unifunc' => 'content_5a7fee10daa0f1_77317102',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '244d8275923d09835e27c8964ae86b26ca698eaf' => 
     array (
       0 => '/home/oj_web/templates/home.html',
-      1 => 1518331301,
+      1 => 1518333454,
       2 => 'file',
     ),
   ),
   'cache_lifetime' => 3600,
 ),true)) {
-function content_5a7fe5a86eb823_98761950 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a7fee10daa0f1_77317102 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -56,10 +56,10 @@ function content_5a7fe5a86eb823_98761950 (Smarty_Internal_Template $_smarty_tpl)
         <li class="active"><a href="#">Head<span class="sr-only">(current)</span></a></li>
         <li><a href="#">Problem</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
+            <li><a href="#">my submit status</a></li>
+            <li><a href="#">my info</a></li>
             <li><a href="#">Something else here</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">Separated link</a></li>
@@ -91,7 +91,9 @@ function content_5a7fe5a86eb823_98761950 (Smarty_Internal_Template $_smarty_tpl)
   </div><!-- /.container-fluid -->
 </nav>
 
-
+<p class="lead text-center">
+Welcome to OJ!
+</p>
 </body>
 
 </html>

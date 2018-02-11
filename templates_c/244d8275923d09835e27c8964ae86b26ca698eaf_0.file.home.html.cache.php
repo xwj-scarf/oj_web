@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-11 14:41:44
+/* Smarty version 3.1.32-dev-38, created on 2018-02-11 15:17:36
   from '/home/oj_web/templates/home.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a7fe5a86e95f8_28278268',
+  'unifunc' => 'content_5a7fee10da7c89_38347347',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '244d8275923d09835e27c8964ae86b26ca698eaf' => 
     array (
       0 => '/home/oj_web/templates/home.html',
-      1 => 1518331301,
+      1 => 1518333454,
       2 => 'file',
     ),
   ),
@@ -20,8 +20,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a7fe5a86e95f8_28278268 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->compiled->nocache_hash = '1955231975a7fe5a86e7b32_03353463';
+function content_5a7fee10da7c89_38347347 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->compiled->nocache_hash = '14682177075a7fee10da66e0_31852320';
 ?>
 <html>
 <head>
@@ -64,10 +64,10 @@ $_smarty_tpl->compiled->nocache_hash = '1955231975a7fe5a86e7b32_03353463';
         <li class="active"><a href="#">Head<span class="sr-only">(current)</span></a></li>
         <li><a href="#">Problem</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
+            <li><a href="#">my submit status</a></li>
+            <li><a href="#">my info</a></li>
             <li><a href="#">Something else here</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">Separated link</a></li>
@@ -99,7 +99,9 @@ $_smarty_tpl->compiled->nocache_hash = '1955231975a7fe5a86e7b32_03353463';
   </div><!-- /.container-fluid -->
 </nav>
 
-
+<p class="lead text-center">
+Welcome to OJ!
+</p>
 </body>
 
 </html>
