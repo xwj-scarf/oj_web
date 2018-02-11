@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-11 15:17:36
+/* Smarty version 3.1.32-dev-38, created on 2018-02-11 16:07:45
   from '/home/oj_web/templates/home.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a7fee10da7c89_38347347',
+  'unifunc' => 'content_5a7ff9d13e5b02_97899286',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '244d8275923d09835e27c8964ae86b26ca698eaf' => 
     array (
       0 => '/home/oj_web/templates/home.html',
-      1 => 1518333454,
+      1 => 1518336427,
       2 => 'file',
     ),
   ),
@@ -20,8 +20,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a7fee10da7c89_38347347 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->compiled->nocache_hash = '14682177075a7fee10da66e0_31852320';
+function content_5a7ff9d13e5b02_97899286 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->compiled->nocache_hash = '5412397955a7ff9d13e3528_76820740';
 ?>
 <html>
 <head>
@@ -62,7 +62,7 @@ $_smarty_tpl->compiled->nocache_hash = '14682177075a7fee10da66e0_31852320';
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Head<span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Problem</a></li>
+        <li><a href="problem/index.php">Problem</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About <span class="caret"></span></a>
           <ul class="dropdown-menu">
