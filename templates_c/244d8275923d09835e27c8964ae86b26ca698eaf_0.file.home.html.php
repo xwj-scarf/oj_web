@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-12 21:53:54
+/* Smarty version 3.1.32-dev-38, created on 2018-02-12 21:57:47
   from '/home/oj_web/templates/home.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a819c7268b402_40378318',
+  'unifunc' => 'content_5a819d5bc3fc44_44697212',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -16,21 +16,27 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
       2 => 'file',
     ),
   ),
-  'cache_lifetime' => 3600,
-),true)) {
-function content_5a819c7268b402_40378318 (Smarty_Internal_Template $_smarty_tpl) {
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5a819d5bc3fc44_44697212 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <title>OJ_WEB</title>
-	<script src="bootstrap/jquery-3.2.1.min.js"></script>
+	<?php echo '<script'; ?>
+ src="bootstrap/jquery-3.2.1.min.js"><?php echo '</script'; ?>
+>
 
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="bootstrap/css/bootstrap-theme.css" rel="stylesheet">
-	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<?php echo '<script'; ?>
+ src="bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
+>
 
 </head>
 
@@ -75,10 +81,13 @@ function content_5a819c7268b402_40378318 (Smarty_Internal_Template $_smarty_tpl)
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">weijunweijunweijun</a></li>
+        <li><a href="#"><?php echo $_smarty_tpl->tpl_vars['name']->value;?>
+</a></li>
         <li>  <a href="#" >
-		 退出
-			  </a>
+		<?php if ($_smarty_tpl->tpl_vars['is_login']->value == 1) {?> 退出
+		<?php } else { ?> 注册/登录
+		<?php }?>
+	  </a>
 	</li>
       </ul>
     </div><!-- /.navbar-collapse -->

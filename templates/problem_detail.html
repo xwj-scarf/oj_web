@@ -1,50 +1,21 @@
-<?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-11 17:52:42
-  from '/home/oj_web/templates/problem.html' */
-
-/* @var Smarty_Internal_Template $_smarty_tpl */
-if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a80126a88e568_86435005',
-  'has_nocache_code' => false,
-  'file_dependency' => 
-  array (
-    '829eaa40d77477474e2d9286781f7458bda96ceb' => 
-    array (
-      0 => '/home/oj_web/templates/problem.html',
-      1 => 1518342760,
-      2 => 'file',
-    ),
-  ),
-  'includes' => 
-  array (
-  ),
-),false)) {
-function content_5a80126a88e568_86435005 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->compiled->nocache_hash = '5856606045a80126a88b4a8_92076785';
-?>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <title>OJ_WEB</title>
-	<?php echo '<script'; ?>
- src="../bootstrap/jquery-3.2.1.min.js"><?php echo '</script'; ?>
->
+	<script src="../bootstrap/jquery-3.2.1.min.js"></script>
 
     <!-- Bootstrap -->
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../bootstrap/css/bootstrap-theme.css" rel="stylesheet">
-	<?php echo '<script'; ?>
- src="../bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
->
+	<script src="../bootstrap/js/bootstrap.min.js"></script>
 
 </head>
 
 <body>
 
-<!-- dao hang lan -->
+<!-- 导航栏 -->
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -99,53 +70,59 @@ $_smarty_tpl->compiled->nocache_hash = '5856606045a80126a88b4a8_92076785';
   </div><!-- /.container-fluid -->
 </nav>
 
+<!-- 题目描述-->
 <div class="container ">
 <div class="row">
 <div class="col-md9" role="main">
-<p class="lead text-center">
 
-Problem
-</p>
+	<div class="panel panel-primary">
+  		<div class="panel-heading">
+    		<h3 class="panel-title">题目</h3>
+  		</div>
+  		<div class="panel-body">
+    	{$data.problem_name}
+  		</div>
+	</div>
+
+	<div class="panel panel-success">
+  		<div class="panel-heading">
+    		<h3 class="panel-title">描述</h3>
+  		</div>
+  		<div class="panel-body">
+    	{$data.description}
+  		</div>
+	</div>
+
+	<div class="panel panel-info">
+  		<div class="panel-heading">
+    		<h3 class="panel-title">input</h3>
+  		</div>
+  		<div class="panel-body">
+    	{$data.problem_input}
+  		</div>
+	</div>
 
 
-<table class="table table-striped ">
-	<thead>
-		<tr>
-			<th>#</th>
-			<th>id</th>	
-			<th>name</th>	
-			<th>pass num</th>	
-		</tr>
-	</thead>
+	<div class="panel panel-warning">
+  		<div class="panel-heading">
+    		<h3 class="panel-title">output</h3>
+  		</div>
+  		<div class="panel-body">
+    	{$data.problem_output}
+  		</div>
+	</div>
+	
+	<h3>提交代码</h3>
+	<form action="/oj_web/problem/submit.php" method="post">
+  		<div class="form-group">
+			<textarea class="form-control" rows="10" name="submit_code"></textarea>
+		</div>
+	 	 <button type="submit" class="btn btn-default">Submit</button>
+	</form>
 
-	<?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['data']->value, 'item', false, 'key');
-if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_vars['item']->value) {
-?>
-      <tbody>
-        <tr>
-          <th scope="row"><?php echo $_smarty_tpl->tpl_vars['key']->value;?>
-</th>
-          <td><?php echo $_smarty_tpl->tpl_vars['key']->value;?>
-</td>
-          <td><?php echo $_smarty_tpl->tpl_vars['item']->value['name'];?>
-</td>
-          <td><?php echo $_smarty_tpl->tpl_vars['item']->value['pass'];?>
-</td>
-        </tr>
-	<?php
-}
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-     </tbody>
-
-</table>
 </div>
 </div>
 </div>
 </body>
 
 </html>
-<?php }
-}

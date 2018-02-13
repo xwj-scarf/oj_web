@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-11 16:07:45
-  from '/home/oj_web/templates/home.html' */
+/* Smarty version 3.1.32-dev-38, created on 2018-02-13 19:21:12
+  from '/home/oj_web/templates/problem_detail.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a7ff9d13e5b02_97899286',
+  'unifunc' => 'content_5a82ca28e9fb71_50292316',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '244d8275923d09835e27c8964ae86b26ca698eaf' => 
+    '66d9f09f2d3ec14c2ff43c987418aa473618471f' => 
     array (
-      0 => '/home/oj_web/templates/home.html',
-      1 => 1518336427,
+      0 => '/home/oj_web/templates/problem_detail.html',
+      1 => 1518520747,
       2 => 'file',
     ),
   ),
@@ -20,31 +20,29 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a7ff9d13e5b02_97899286 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->compiled->nocache_hash = '5412397955a7ff9d13e3528_76820740';
-?>
-<html>
+function content_5a82ca28e9fb71_50292316 (Smarty_Internal_Template $_smarty_tpl) {
+?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <title>OJ_WEB</title>
 	<?php echo '<script'; ?>
- src="bootstrap/jquery-3.2.1.min.js"><?php echo '</script'; ?>
+ src="../bootstrap/jquery-3.2.1.min.js"><?php echo '</script'; ?>
 >
 
     <!-- Bootstrap -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="bootstrap/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap-theme.css" rel="stylesheet">
 	<?php echo '<script'; ?>
- src="bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
+ src="../bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
 >
 
 </head>
 
 <body>
 
-<!-- dao hang lan -->
+<!-- 导航栏 -->
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -62,7 +60,7 @@ $_smarty_tpl->compiled->nocache_hash = '5412397955a7ff9d13e3528_76820740';
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Head<span class="sr-only">(current)</span></a></li>
-        <li><a href="problem/index.php">Problem</a></li>
+        <li><a href="problem/1.php">Problem</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -99,9 +97,63 @@ $_smarty_tpl->compiled->nocache_hash = '5412397955a7ff9d13e3528_76820740';
   </div><!-- /.container-fluid -->
 </nav>
 
-<p class="lead text-center">
-Welcome to OJ!
-</p>
+<!-- 题目描述-->
+<div class="container ">
+<div class="row">
+<div class="col-md9" role="main">
+
+	<div class="panel panel-primary">
+  		<div class="panel-heading">
+    		<h3 class="panel-title">题目</h3>
+  		</div>
+  		<div class="panel-body">
+    	<?php echo $_smarty_tpl->tpl_vars['data']->value['problem_name'];?>
+
+  		</div>
+	</div>
+
+	<div class="panel panel-success">
+  		<div class="panel-heading">
+    		<h3 class="panel-title">描述</h3>
+  		</div>
+  		<div class="panel-body">
+    	<?php echo $_smarty_tpl->tpl_vars['data']->value['description'];?>
+
+  		</div>
+	</div>
+
+	<div class="panel panel-info">
+  		<div class="panel-heading">
+    		<h3 class="panel-title">input</h3>
+  		</div>
+  		<div class="panel-body">
+    	<?php echo $_smarty_tpl->tpl_vars['data']->value['problem_input'];?>
+
+  		</div>
+	</div>
+
+
+	<div class="panel panel-warning">
+  		<div class="panel-heading">
+    		<h3 class="panel-title">output</h3>
+  		</div>
+  		<div class="panel-body">
+    	<?php echo $_smarty_tpl->tpl_vars['data']->value['problem_output'];?>
+
+  		</div>
+	</div>
+	
+	<h3>提交代码</h3>
+	<form action="/oj_web/problem/submit.php" method="post">
+  		<div class="form-group">
+			<textarea class="form-control" rows="10" name="submit_code"></textarea>
+		</div>
+	 	 <button type="submit" class="btn btn-default">Submit</button>
+	</form>
+
+</div>
+</div>
+</div>
 </body>
 
 </html>

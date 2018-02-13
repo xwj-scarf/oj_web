@@ -1,9 +1,13 @@
 <?php
-define('INCLUDE_PATH','/home/oj_web/include/');
-define('CONFIG_PATH','/home/oj_web/include/config.php');
-define('ROOT_PATH','/home/oj_web');
 
-define('SMARTY_DIR', '/usr/local/lib/smarty-master/libs/');
-require_once(INCLUDE_PATH . 'smarty.php');
+$db_config = array(
+    'db_host' => 'localhost',
+    'db_user' => 'root',
+    'db_password' => '123456',
+    'db_name' => 'oj',
+    'db_port' => '3306',
+	'db_charset' => 'utf8',
+);
+
 
 ?>

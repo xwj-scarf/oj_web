@@ -15,7 +15,7 @@
 
 <body>
 
-<!-- dao hang lan -->
+<!-- 导航栏 -->
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -70,11 +70,11 @@
   </div><!-- /.container-fluid -->
 </nav>
 
+<!-- 题目-->
 <div class="container ">
 <div class="row">
 <div class="col-md9" role="main">
 <p class="lead text-center">
-
 Problem
 </p>
 
@@ -93,8 +93,8 @@ Problem
       <tbody>
         <tr>
           <th scope="row">{$key}</th>
-          <td>{$key}</td>
-          <td>{$item.name}</td>
+	  <td>{$item.pid}</td>
+          <td><a href="detail.php?pid={$item.pid}">{$item.problem_name}</a></td>
           <td>{$item.pass}</td>
         </tr>
 	{/foreach}

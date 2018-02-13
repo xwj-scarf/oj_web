@@ -11,7 +11,7 @@ class Smarty_Oj extends Smarty {
         $this->setCompileDir('/home/oj_web/templates_c/');
         $this->setConfigDir('/home/oj_web/configs/');
         $this->setCacheDir('/home/oj_web/cache/');
-        $this->caching = Smarty::CACHING_LIFETIME_CURRENT;
+        $this->caching = false;
    }
 }
 
