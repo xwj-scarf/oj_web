@@ -1,42 +1,15 @@
-<?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-14 15:35:23
-  from '/home/oj_web/templates/home.html' */
-
-/* @var Smarty_Internal_Template $_smarty_tpl */
-if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a83e6bb4752f6_08074134',
-  'has_nocache_code' => false,
-  'file_dependency' => 
-  array (
-    '244d8275923d09835e27c8964ae86b26ca698eaf' => 
-    array (
-      0 => '/home/oj_web/templates/home.html',
-      1 => 1518593660,
-      2 => 'file',
-    ),
-  ),
-  'includes' => 
-  array (
-  ),
-),false)) {
-function content_5a83e6bb4752f6_08074134 (Smarty_Internal_Template $_smarty_tpl) {
-?><html>
+<html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <title>OJ_WEB</title>
-	<?php echo '<script'; ?>
- src="bootstrap/jquery-3.2.1.min.js"><?php echo '</script'; ?>
->
+	<script src="bootstrap/jquery-3.2.1.min.js"></script>
 
     <!-- Bootstrap -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="bootstrap/css/bootstrap-theme.css" rel="stylesheet">
-	<?php echo '<script'; ?>
- src="bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
->
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap-theme.css" rel="stylesheet">
+	<script src="../bootstrap/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -60,8 +33,8 @@ function content_5a83e6bb4752f6_08074134 (Smarty_Internal_Template $_smarty_tpl)
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Head<span class="sr-only">(current)</span></a></li>
-        <li><a href="problem/index.php">Problem</a></li>
-		<li><a href="status/index.php">Status</a></li>
+        <li><a href="../problem/index.php">Problem</a></li>
+		<li><a href="#">Status</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -82,12 +55,11 @@ function content_5a83e6bb4752f6_08074134 (Smarty_Internal_Template $_smarty_tpl)
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><?php echo $_smarty_tpl->tpl_vars['name']->value;?>
-</a></li>
+        <li><a href="#">{$name}</a></li>
         <li>  <a href="#" >
-		<?php if ($_smarty_tpl->tpl_vars['is_login']->value == 1) {?> 退出
-		<?php } else { ?> 注册/登录
-		<?php }?>
+		{if $is_login == 1} 退出
+		{else} 注册/登录
+		{/if}
 	  </a>
 	</li>
       </ul>
@@ -95,11 +67,52 @@ function content_5a83e6bb4752f6_08074134 (Smarty_Internal_Template $_smarty_tpl)
   </div><!-- /.container-fluid -->
 </nav>
 
+<div class="container ">
+<div class="row">
+<div class="col-md9" role="main">
 <p class="lead text-center">
-Welcome to OJ!
+Status
 </p>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>id</th>
+			<th>pid</th>
+            <th>problem_name</th>
+			<th>user_name</th>
+            <th>status</th>
+        </tr>
+    </thead>
+	
+      <tbody>
+	    {foreach key=key item=item from=$data}
+
+        <tr>
+      	  <td><h5>{$item.id}</h5></td>
+		  <td><h5>1</h5></td>
+		  <td><h5>{$item.problem_name}</h5></td>
+		  <td><h5>weijunweijun</h5></td>
+		  {if $item.status == 0}
+			  <td><h5><span class="label label-default">Judging</span></h5><td>	
+		  {/if}
+		  {if $item.status == 1}
+			  <td><h5><span class="label label-info">Complie Error</span></h5><td>	
+		  {/if}
+		  {if $item.status == 2}
+			  <td><h5><span class="label label-danger">Wrong Answer</span></h5><td>	
+		  {/if}
+		  {if $item.status == 6}
+			  <td><h5><span class="label label-success">Accept</span></h5><td>	
+		  {/if}
+        </tr>
+    {/foreach}
+     </tbody> 
+</table>
+</div>
+</div>
+</div>
 </body>
 
 </html>
-<?php }
-}

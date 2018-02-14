@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-14 15:35:23
-  from '/home/oj_web/templates/home.html' */
+/* Smarty version 3.1.32-dev-38, created on 2018-02-14 16:44:35
+  from '/home/oj_web/templates/status.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a83e6bb4752f6_08074134',
+  'unifunc' => 'content_5a83f6f35a1c04_30775816',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '244d8275923d09835e27c8964ae86b26ca698eaf' => 
+    '59799c4bd157d7d32cfe62d2e4d89afeb5f13b7c' => 
     array (
-      0 => '/home/oj_web/templates/home.html',
-      1 => 1518593660,
+      0 => '/home/oj_web/templates/status.html',
+      1 => 1518597873,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a83e6bb4752f6_08074134 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a83f6f35a1c04_30775816 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -32,10 +32,10 @@ function content_5a83e6bb4752f6_08074134 (Smarty_Internal_Template $_smarty_tpl)
 >
 
     <!-- Bootstrap -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="bootstrap/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap-theme.css" rel="stylesheet">
 	<?php echo '<script'; ?>
- src="bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
+ src="../bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
 >
 
 </head>
@@ -60,8 +60,8 @@ function content_5a83e6bb4752f6_08074134 (Smarty_Internal_Template $_smarty_tpl)
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Head<span class="sr-only">(current)</span></a></li>
-        <li><a href="problem/index.php">Problem</a></li>
-		<li><a href="status/index.php">Status</a></li>
+        <li><a href="../problem/index.php">Problem</a></li>
+		<li><a href="#">Status</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -95,9 +95,61 @@ function content_5a83e6bb4752f6_08074134 (Smarty_Internal_Template $_smarty_tpl)
   </div><!-- /.container-fluid -->
 </nav>
 
+<div class="container ">
+<div class="row">
+<div class="col-md9" role="main">
 <p class="lead text-center">
-Welcome to OJ!
+Status
 </p>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>id</th>
+			<th>pid</th>
+            <th>problem_name</th>
+			<th>user_name</th>
+            <th>status</th>
+        </tr>
+    </thead>
+	
+      <tbody>
+	    <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['data']->value, 'item', false, 'key');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_vars['item']->value) {
+?>
+
+        <tr>
+      	  <td><h5><?php echo $_smarty_tpl->tpl_vars['item']->value['id'];?>
+</h5></td>
+		  <td><h5>1</h5></td>
+		  <td><h5><?php echo $_smarty_tpl->tpl_vars['item']->value['problem_name'];?>
+</h5></td>
+		  <td><h5>weijunweijun</h5></td>
+		  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 0) {?>
+			  <td><h5><span class="label label-default">Judging</span></h5><td>	
+		  <?php }?>
+		  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 1) {?>
+			  <td><h5><span class="label label-info">Complie Error</span></h5><td>	
+		  <?php }?>
+		  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 2) {?>
+			  <td><h5><span class="label label-danger">Wrong Answer</span></h5><td>	
+		  <?php }?>
+		  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 6) {?>
+			  <td><h5><span class="label label-success">Accept</span></h5><td>	
+		  <?php }?>
+        </tr>
+    <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+     </tbody> 
+</table>
+</div>
+</div>
+</div>
 </body>
 
 </html>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-13 19:21:12
+/* Smarty version 3.1.32-dev-38, created on 2018-02-14 15:43:57
   from '/home/oj_web/templates/problem_detail.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a82ca28e9fb71_50292316',
+  'unifunc' => 'content_5a83e8bdf27892_77968609',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '66d9f09f2d3ec14c2ff43c987418aa473618471f' => 
     array (
       0 => '/home/oj_web/templates/problem_detail.html',
-      1 => 1518520747,
+      1 => 1518594173,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a82ca28e9fb71_50292316 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a83e8bdf27892_77968609 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -60,7 +60,8 @@ function content_5a82ca28e9fb71_50292316 (Smarty_Internal_Template $_smarty_tpl)
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Head<span class="sr-only">(current)</span></a></li>
-        <li><a href="problem/1.php">Problem</a></li>
+        <li><a href="../problem/index.php">Problem</a></li>
+		<li><a href="../status/index.php">Status</a></li> 
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About <span class="caret"></span></a>
           <ul class="dropdown-menu">
