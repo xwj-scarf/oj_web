@@ -14,24 +14,27 @@ mysqli_set_charset($conn,"utf8");
 $redis = new Redis();
 $redis->connect('127.0.0.1',6379);
 
-var_dump($redis);
 
-//查询数据库
-$result = mysqli_query($conn, "SELECT * FROM problem where pid = '{$pid}'");
-$tmp_data = [];
-while($row = mysqli_fetch_assoc($result)) {//mysqli_fetch_array
-    $tmp_data[] = $row;
-}
+$code = json_encode($submit_code);
 
-$data = array(
-    'problem_name' => $tmp_data[0]['problem_name'],
-    'description' => $tmp_data[0]['description'],
-    'problem_input' => $tmp_data[0]['sample_input'],
-    'problem_output' => $tmp_data[0]['sample_output'],
+var_dump($code);
+
+$now = strtotime(date('Y-m-d H:i:s'));
+$conn->query("insert into submit_info (uid,pid,status,update_time) values('1','1',0,'{$now}')");
+
+$sid = $conn->insert_id;
+$pid = 1;
+$uid = 1;
+
+$submit_info = array(
+	'code' => $_REQUEST['submit_code'],
+	'sid' => $sid,
+	'pid' => $pid,
+	'uid' => $uid,
 );
-$smarty->assign('data',$data);
+$submit = json_encode($submit_info);
 
-$smarty->display('problem_detail.html');
+$redis->lpush('test',$submit);
 
-
+var_dump($submit_code);
 ?>

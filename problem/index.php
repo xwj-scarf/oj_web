@@ -11,7 +11,7 @@ mysqli_set_charset($conn,"utf8");
 
 
 //查询数据库
-$result = mysqli_query($conn, "SELECT * FROM problem");
+$result = mysqli_query($conn, "SELECT * FROM problem_info");
 $data = [];
 while($row = mysqli_fetch_assoc($result)) {//mysqli_fetch_array
     $data[] = $row;
