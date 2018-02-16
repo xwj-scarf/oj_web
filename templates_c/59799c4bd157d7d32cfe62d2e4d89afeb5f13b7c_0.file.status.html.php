@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-14 16:44:35
+/* Smarty version 3.1.32-dev-38, created on 2018-02-16 20:30:36
   from '/home/oj_web/templates/status.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a83f6f35a1c04_30775816',
+  'unifunc' => 'content_5a86ceecad9688_86631766',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '59799c4bd157d7d32cfe62d2e4d89afeb5f13b7c' => 
     array (
       0 => '/home/oj_web/templates/status.html',
-      1 => 1518597873,
+      1 => 1518784234,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a83f6f35a1c04_30775816 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a86ceecad9688_86631766 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -106,11 +106,12 @@ Status
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>id</th>
-			<th>pid</th>
-            <th>problem_name</th>
-			<th>user_name</th>
-            <th>status</th>
+            <th class="text-center">提交编号</th>
+			<th class="text-center">用户名</th>
+            <th class="text-center">problem_name</th>
+			<th class="text-center">time_use</th>
+			<th class="text-center">memory_use</th>
+			<th class="text-center">status</th>
         </tr>
     </thead>
 	
@@ -122,24 +123,31 @@ foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_var
 ?>
 
         <tr>
-      	  <td><h5><?php echo $_smarty_tpl->tpl_vars['item']->value['id'];?>
+      	  <td><h5 class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['id'];?>
 </h5></td>
-		  <td><h5>1</h5></td>
-		  <td><h5><?php echo $_smarty_tpl->tpl_vars['item']->value['problem_name'];?>
+		  <td><h5 class="text-center">weijun</h5></td>
+		  <td><h5 class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['problem_name'];?>
 </h5></td>
-		  <td><h5>weijunweijun</h5></td>
-		  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 0) {?>
-			  <td><h5><span class="label label-default">Judging</span></h5><td>	
+		  <td><h5 class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['time_use'];?>
+MS</h5></td>
+		  <td><h5 class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['memory_use'];?>
+KB</h5></td>
+	  	  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 0) {?>
+			  <td><h5 class="text-center"><span class="label label-default">Judging</span></h5><td>	
 		  <?php }?>
 		  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 1) {?>
-			  <td><h5><span class="label label-info">Complie Error</span></h5><td>	
+			  <td><h5 class="text-center"><span class="label label-info">Complie Error</span></h5><td>	
 		  <?php }?>
 		  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 2) {?>
-			  <td><h5><span class="label label-danger">Wrong Answer</span></h5><td>	
+			  <td><h5 class="text-center"><span class="label label-danger">Wrong Answer</span></h5><td>	
 		  <?php }?>
 		  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 6) {?>
-			  <td><h5><span class="label label-success">Accept</span></h5><td>	
+			  <td><h5 class="text-center"><span class="label label-success">Accept</span></h5><td>	
 		  <?php }?>
+	  	  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 404) {?>
+			  <td><h5 class="text-center"><span class="label label-danger">submit failed</span></h5><td>	
+		  <?php }?>
+
         </tr>
     <?php
 }
