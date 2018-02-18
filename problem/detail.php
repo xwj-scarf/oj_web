@@ -24,7 +24,17 @@ $data = array(
 	'problem_output' => $tmp_data[0]['problem_sample_output'], 
 );
 $smarty->assign('data',$data);
+$is_login = 0;
+if (isset($_SESSION['is_login'])) {
+    $is_login = 1;
+}
 
+$user_name = '游客';
+if (isset($_SESSION['user_name'])) {
+    $user_name = $_SESSION['user_name'];
+}
+$smarty->assign('is_login',$is_login);
+$smarty->assign('name',$user_name);
 $smarty->display('problem_detail.html');
 
 ?>
