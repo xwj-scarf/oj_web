@@ -9,7 +9,11 @@ mysqli_set_charset($conn,"utf8");
 
 
 //查询数据库
-$result = mysqli_query($conn, "SELECT * FROM submit_info, problem_info where submit_info.pid = problem_info.pid");
+$result = mysqli_query($conn, "SELECT submit_info.id as id ,problem_info.problem_name as problem_name,
+									  user_info.user_name as user_name, submit_info.time_use as time_use,
+									  submit_info.memory_use as memory_use, submit_info.status as status 
+									 FROM submit_info, problem_info,user_info 
+							   where submit_info.pid = problem_info.pid and submit_info.uid = user_info.id ");
 $data = [];
 while($row = mysqli_fetch_assoc($result)) {//mysqli_fetch_array
     $data[] = $row;

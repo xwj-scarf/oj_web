@@ -13,14 +13,14 @@ $redis->connect('127.0.0.1',6379);
 
 $code = json_encode($submit_code);
 
-var_dump($code);
 
 $now = strtotime(date('Y-m-d H:i:s'));
-$conn->query("insert into submit_info (uid,pid,status,time_use,memory_use,update_time) values('1','1',0,0,0,'{$now}')");
+$conn->query("insert into submit_info (uid,pid,status,time_use,memory_use,update_time) values('{$_SESSION['user_id']}','1',0,0,0,'{$now}')");
 
 $sid = $conn->insert_id;
 $pid = 1;
-$uid = 1;
+$uid = intval($_SESSION['user_id']);
+
 
 $submit_info = array(
 	'code' => $_REQUEST['submit_code'],
