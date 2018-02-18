@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-18 18:54:36
+/* Smarty version 3.1.32-dev-38, created on 2018-02-18 19:12:57
   from '/home/oj_web/templates/problem_detail.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a895b6c1f9675_43814182',
+  'unifunc' => 'content_5a895fb95a6311_68605057',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '66d9f09f2d3ec14c2ff43c987418aa473618471f' => 
     array (
       0 => '/home/oj_web/templates/problem_detail.html',
-      1 => 1518951273,
+      1 => 1518952369,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a895b6c1f9675_43814182 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a895fb95a6311_68605057 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -87,9 +87,9 @@ function content_5a895b6c1f9675_43814182 (Smarty_Internal_Template $_smarty_tpl)
 </a></li>
         <li>
         <?php if ($_smarty_tpl->tpl_vars['is_login']->value == 1) {?>
-            <a href="logout.php">退出</a>
+            <a href="../logout.php">退出</a>
         <?php } else { ?>
-            <a href="login.php"> 注册/登录</a>
+            <a href="../login.php"> 注册/登录</a>
         <?php }?>
         </li>
       </ul>

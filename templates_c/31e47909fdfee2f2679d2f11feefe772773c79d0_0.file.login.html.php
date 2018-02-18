@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-17 22:30:08
+/* Smarty version 3.1.32-dev-38, created on 2018-02-18 19:12:13
   from '/home/oj_web/templates/login.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a883c708a2c57_11874686',
+  'unifunc' => 'content_5a895f8dd1bce5_20174305',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '31e47909fdfee2f2679d2f11feefe772773c79d0' => 
     array (
       0 => '/home/oj_web/templates/login.html',
-      1 => 1518877111,
+      1 => 1518952175,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a883c708a2c57_11874686 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a895f8dd1bce5_20174305 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -88,7 +88,7 @@ aret"></span></a>
 </a></li>
         <li>
         <?php if ($_smarty_tpl->tpl_vars['is_login']->value == 1) {?>
-            <a href="#">退出</a>
+            <a href="logout.php">退出</a>
         <?php } else { ?>
             <a href="login.php"> 注册/登录</a>
         <?php }?>

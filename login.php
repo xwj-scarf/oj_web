@@ -21,7 +21,7 @@ if (isset($user_name) && !empty($user_name) && isset($password) && !empty($passw
 		$_SESSION['user_name'] = $name;
 		$_SESSION['is_login'] = 1;
 		echo "<script> alert('登陆成功'); </script>"; 
-		echo "<meta http-equiv='Refresh' content='0;URL=/oj_web/'>"; 
+		echo "<meta http-equiv='Refresh' content='0;URL=.'>"; 
 		exit;	
 	} else {
 		echo "<script> alert('账号或密码错误，请重新输入'); </script>"; 
