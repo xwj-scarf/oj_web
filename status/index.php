@@ -13,7 +13,9 @@ $result = mysqli_query($conn, "SELECT submit_info.id as id ,problem_info.problem
 									  user_info.user_name as user_name, submit_info.time_use as time_use,
 									  submit_info.memory_use as memory_use, submit_info.status as status 
 									 FROM submit_info, problem_info,user_info 
-							   where submit_info.pid = problem_info.pid and submit_info.uid = user_info.id ");
+							   where submit_info.pid = problem_info.pid and submit_info.uid = user_info.id 
+					  		   ORDER BY submit_info.id DESC
+					  ");
 $data = [];
 while($row = mysqli_fetch_assoc($result)) {//mysqli_fetch_array
     $data[] = $row;
@@ -30,7 +32,6 @@ if (isset($_SESSION['user_name'])) {
 }
 $smarty->assign('is_login',$is_login);
 $smarty->assign('name',$user_name);
-
 
 $smarty->assign('data',$data);
 $smarty->display('status.html');
