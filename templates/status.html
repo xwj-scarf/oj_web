@@ -84,6 +84,7 @@ Status
             <th class="text-center">problem_name</th>
 			<th class="text-center">time_use</th>
 			<th class="text-center">memory_use</th>
+			<th class="text-center">提交时间</th>
 			<th class="text-center">status</th>
         </tr>
     </thead>
@@ -95,8 +96,10 @@ Status
       	  <td><h5 class="text-center">{$item.id}</h5></td>
 		  <td><h5 class="text-center">{$item.user_name}</h5></td>
 		  <td><h5 class="text-center">{$item.problem_name}</h5></td>
-		  <td><h5 class="text-center">{$item.time_use}MS</h5></td>
-		  <td><h5 class="text-center">{$item.memory_use}KB</h5></td>
+		  <td><h5 class="text-center">{$item.time_use} MS</h5></td>
+		  <td><h5 class="text-center">{$item.memory_use} KB</h5></td>
+		  <td><h5 class="text-center">{$item.add_time}</h5></td>
+
 	  	  {if $item.status == 0}
 			  <td><h5 class="text-center"><span class="label label-default">Judging</span></h5><td>	
 		  {/if}
@@ -114,7 +117,7 @@ Status
 		  {/if}
 
         </tr>
-    {/foreach}
+    	{/foreach}
      </tbody> 
 </table>
 </div>

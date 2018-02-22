@@ -73,7 +73,7 @@
 <!-- 题目-->
 <div class="container ">
 <div class="row">
-<div class="col-md9" role="main">
+<div class="col-md9" role="main"> 
 <p class="lead text-center">
 Problem
 </p>
@@ -82,20 +82,18 @@ Problem
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th>#</th>
-			<th>id</th>	
-			<th>name</th>	
-			<th>pass num</th>	
+			<th class="text-center">题目编号</th>	
+			<th class="text-center">题目名称</th>	
+			<th class="text-center">通过</th>	
 		</tr>
 	</thead>
 
 	{foreach key=key item=item from=$data}
       <tbody>
         <tr>
-          <th scope="row">{$key}</th>
-	  <td>{$item.pid}</td>
-          <td><a href="detail.php?pid={$item.pid}">{$item.problem_name}</a></td>
-          <td>{$item.pass}</td>
+	  	  <td class="text-center">{$item.pid}</td>
+          <td class="text-center"><a href="detail.php?pid={$item.pid}">{$item.problem_name}</a></td>
+          <td class="text-center">{$item.pass}</td>
         </tr>
 	{/foreach}
      </tbody>

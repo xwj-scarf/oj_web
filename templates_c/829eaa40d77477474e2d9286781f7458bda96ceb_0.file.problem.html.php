@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-18 19:12:52
+/* Smarty version 3.1.32-dev-38, created on 2018-02-19 17:52:32
   from '/home/oj_web/templates/problem.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a895fb4595c72_00935929',
+  'unifunc' => 'content_5a8a9e60c3e749_22738451',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '829eaa40d77477474e2d9286781f7458bda96ceb' => 
     array (
       0 => '/home/oj_web/templates/problem.html',
-      1 => 1518952330,
+      1 => 1519033950,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a895fb4595c72_00935929 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a8a9e60c3e749_22738451 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -101,7 +101,7 @@ function content_5a895fb4595c72_00935929 (Smarty_Internal_Template $_smarty_tpl)
 <!-- 题目-->
 <div class="container ">
 <div class="row">
-<div class="col-md9" role="main">
+<div class="col-md9" role="main"> 
 <p class="lead text-center">
 Problem
 </p>
@@ -110,10 +110,9 @@ Problem
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th>#</th>
-			<th>id</th>	
-			<th>name</th>	
-			<th>pass num</th>	
+			<th class="text-center">题目编号</th>	
+			<th class="text-center">题目名称</th>	
+			<th class="text-center">通过</th>	
 		</tr>
 	</thead>
 
@@ -124,14 +123,12 @@ foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_var
 ?>
       <tbody>
         <tr>
-          <th scope="row"><?php echo $_smarty_tpl->tpl_vars['key']->value;?>
-</th>
-	  <td><?php echo $_smarty_tpl->tpl_vars['item']->value['pid'];?>
+	  	  <td class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['pid'];?>
 </td>
-          <td><a href="detail.php?pid=<?php echo $_smarty_tpl->tpl_vars['item']->value['pid'];?>
+          <td class="text-center"><a href="detail.php?pid=<?php echo $_smarty_tpl->tpl_vars['item']->value['pid'];?>
 "><?php echo $_smarty_tpl->tpl_vars['item']->value['problem_name'];?>
 </a></td>
-          <td><?php echo $_smarty_tpl->tpl_vars['item']->value['pass'];?>
+          <td class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['pass'];?>
 </td>
         </tr>
 	<?php

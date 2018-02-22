@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-18 23:09:21
+/* Smarty version 3.1.32-dev-38, created on 2018-02-21 11:18:20
   from '/home/oj_web/templates/status.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a899721910f75_30618349',
+  'unifunc' => 'content_5a8ce4fcc57705_47253943',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '59799c4bd157d7d32cfe62d2e4d89afeb5f13b7c' => 
     array (
       0 => '/home/oj_web/templates/status.html',
-      1 => 1518966523,
+      1 => 1519183098,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a899721910f75_30618349 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a8ce4fcc57705_47253943 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -112,6 +112,7 @@ Status
             <th class="text-center">problem_name</th>
 			<th class="text-center">time_use</th>
 			<th class="text-center">memory_use</th>
+			<th class="text-center">提交时间</th>
 			<th class="text-center">status</th>
         </tr>
     </thead>
@@ -131,9 +132,12 @@ foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_var
 		  <td><h5 class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['problem_name'];?>
 </h5></td>
 		  <td><h5 class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['time_use'];?>
-MS</h5></td>
+ MS</h5></td>
 		  <td><h5 class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['memory_use'];?>
-KB</h5></td>
+ KB</h5></td>
+		  <td><h5 class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['add_time'];?>
+</h5></td>
+
 	  	  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 0) {?>
 			  <td><h5 class="text-center"><span class="label label-default">Judging</span></h5><td>	
 		  <?php }?>
@@ -151,7 +155,7 @@ KB</h5></td>
 		  <?php }?>
 
         </tr>
-    <?php
+    	<?php
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
