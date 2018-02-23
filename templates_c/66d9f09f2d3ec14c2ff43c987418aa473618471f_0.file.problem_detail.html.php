@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-19 17:41:53
+/* Smarty version 3.1.32-dev-38, created on 2018-02-23 15:25:22
   from '/home/oj_web/templates/problem_detail.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a8a9be1373fd2_99029282',
+  'unifunc' => 'content_5a8fc1e20c3cf0_20052867',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '66d9f09f2d3ec14c2ff43c987418aa473618471f' => 
     array (
       0 => '/home/oj_web/templates/problem_detail.html',
-      1 => 1519033277,
+      1 => 1519370675,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a8a9be1373fd2_99029282 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a8fc1e20c3cf0_20052867 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -63,17 +63,19 @@ function content_5a8a9be1373fd2_99029282 (Smarty_Internal_Template $_smarty_tpl)
         <li><a href="../problem/index.php">Problem</a></li>
 		<li><a href="../status/index.php">Status</a></li> 
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About <span class="caret"></span></a>
+        
+
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Add <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">my submit status</a></li>
-            <li><a href="#">my info</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
+            <li><a href="../problem/add_problem.php">Add Problem</a></li>
+            <li><a href="#">Add Context</a></li>
+            <!-- <li role="separator" class="divider"></li>
             <li><a href="#">Separated link</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
+            <li><a href="#">One more separated link</a></li> -->
           </ul>
-        </li>
+
+		</li>
       </ul>
       <form class="navbar-form navbar-left">
         <div class="form-group">

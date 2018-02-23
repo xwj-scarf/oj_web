@@ -33,10 +33,11 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Head<span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Problem</a></li>
-		<li><a href="../status/index.php">Status</a></li>
+        <li><a href="../problem/index.php">Problem</a></li>
+		<li><a href="../status/index.php">Status</a></li> 
         <li class="dropdown">
-	
+        
+
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Add <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="../problem/add_problem.php">Add Problem</a></li>
@@ -46,6 +47,7 @@
             <li role="separator" class="divider"></li>
             <li><a href="#">One more separated link</a></li> -->
           </ul>
+
 		</li>
       </ul>
       <form class="navbar-form navbar-left">
@@ -54,6 +56,7 @@
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
+
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><{$name}></a></li>
         <li>
@@ -64,41 +67,95 @@
         <{/if}>
         </li>
       </ul>
-
-
-    </div><!-- /.navbar-collapse -->
+   </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
-<!-- 题目-->
+<!-- 题目描述-->
 <div class="container ">
 <div class="row">
-<div class="col-md9" role="main"> 
-<p class="lead text-center">
-Problem
-</p>
+<div class="col-md9" role="main">
+
+<h1 class="text-center">Add Problem</h1>
+
+<form action="/oj_web/problem/add_problem.php" method="post" enctype="multipart/form-data">
+	<div class="panel panel-primary">
+  		<div class="panel-heading">
+    		<h3 class="panel-title">请输入题目</h3>
+  		</div>
+  		<div class="panel-body">
+    	<textarea class="form-control" name="title"></textarea>
+  		</div>
+	</div>
+
+	<div class="panel panel-success">
+  		<div class="panel-heading">
+    		<h3 class="panel-title">描述</h3>
+  		</div>
+  		<div class="panel-body">
+  		        <textarea class="form-control" rows="8" name="description"></textarea>
+		</div>
+	</div>
+
+	<div class="panel panel-success">
+  		<div class="panel-heading">
+    		<h3 class="panel-title">time_limit</h3>
+  		</div>
+  		<div class="panel-body">
+  		        <textarea class="form-control" name="time_limit"></textarea>
+		</div>
+	</div>
+
+	<div class="panel panel-success">
+  		<div class="panel-heading">
+    		<h3 class="panel-title">memory_limit</h3>
+  		</div>
+  		<div class="panel-body">
+  		        <textarea class="form-control" name="memory_limit"></textarea>
+		</div>
+	</div>
+
+	<div class="panel panel-info">
+  		<div class="panel-heading">
+    		<h3 class="panel-title">input</h3>
+  		</div>
+  		<div class="panel-body">
+    	        <textarea class="form-control" rows="6" name="sample_input"></textarea>
+  		</div>
+	</div>
 
 
-<table class="table table-striped">
-	<thead>
-		<tr>
-			<th class="text-center">题目编号</th>	
-			<th class="text-center">题目名称</th>	
-			<th class="text-center">通过</th>	
-		</tr>
-	</thead>
+	<div class="panel panel-warning">
+  		<div class="panel-heading">
+    		<h3 class="panel-title">output</h3>
+  		</div>
+  		<div class="panel-body">
+    	        <textarea class="form-control" rows="6" name="sample_output"></textarea>
+  		</div>
+	</div>
 
-	<{foreach key=key item=item from=$data}>
-      <tbody>
-        <tr>
-	  	  <td class="text-center"><{$item.pid}></td>
-          <td class="text-center"><a href="detail.php?pid=<{$item.pid}>"><{$item.problem_name}></a></td>
-          <td class="text-center"><{$item.pass}></td>
-        </tr>
-	<{/foreach}>
-     </tbody>
+	<div class="panel panel-info">
+  		<div class="panel-heading">
+    		<h3 class="panel-title">Judge Input</h3>
+  		</div>
+  		<div class="panel-body">
+			<input type="file" name="judge_input" value="上传文件"/>
+  		</div>
+	</div>
 
-</table>
+	<div class="panel panel-info">
+  		<div class="panel-heading">
+    		<h3 class="panel-title">Judge Output</h3>
+  		</div>
+  		<div class="panel-body">
+			<input type="file" name="judge_output" value="上传文件"/>
+  		</div>
+	</div>
+
+	
+  	<button type="submit" class="btn btn-default">Submit</button>
+</form>
+
 </div>
 </div>
 </div>

@@ -1,15 +1,42 @@
-<html>
+<?php
+/* Smarty version 3.1.32-dev-38, created on 2018-02-23 14:28:37
+  from '/home/oj_web/templates/add_problem.html' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.32-dev-38',
+  'unifunc' => 'content_5a8fb495e68e97_51181373',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '18a6ba07bba35d5095ce0b9ff48c469384d0592e' => 
+    array (
+      0 => '/home/oj_web/templates/add_problem.html',
+      1 => 1519367313,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5a8fb495e68e97_51181373 (Smarty_Internal_Template $_smarty_tpl) {
+?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <title>OJ_WEB</title>
-	<script src="../bootstrap/jquery-3.2.1.min.js"></script>
+	<?php echo '<script'; ?>
+ src="../bootstrap/jquery-3.2.1.min.js"><?php echo '</script'; ?>
+>
 
     <!-- Bootstrap -->
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../bootstrap/css/bootstrap-theme.css" rel="stylesheet">
-	<script src="../bootstrap/js/bootstrap.min.js"></script>
+	<?php echo '<script'; ?>
+ src="../bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
+>
 
 </head>
 
@@ -58,13 +85,14 @@
       </form>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><{$name}></a></li>
+        <li><a href="#"><?php echo $_smarty_tpl->tpl_vars['name']->value;?>
+</a></li>
         <li>
-        <{if $is_login == 1}>
+        <?php if ($_smarty_tpl->tpl_vars['is_login']->value == 1) {?>
             <a href="../logout.php">退出</a>
-        <{else}>
+        <?php } else { ?>
             <a href="../login.php"> 注册/登录</a>
-        <{/if}>
+        <?php }?>
         </li>
       </ul>
    </div><!-- /.navbar-collapse -->
@@ -76,12 +104,15 @@
 <div class="row">
 <div class="col-md9" role="main">
 
+<h1 class="text-center">Add Problem</h1>
+
+<form action="/oj_web/problem/add_problem.php" method="post" enctype="multipart/form-data">
 	<div class="panel panel-primary">
   		<div class="panel-heading">
-    		<h3 class="panel-title">题目</h3>
+    		<h3 class="panel-title">请输入题目</h3>
   		</div>
   		<div class="panel-body">
-    	<{$data.problem_name}>
+    	<textarea class="form-control" name="title"></textarea>
   		</div>
 	</div>
 
@@ -90,8 +121,26 @@
     		<h3 class="panel-title">描述</h3>
   		</div>
   		<div class="panel-body">
-    	<{$data.description}>
+  		        <textarea class="form-control" rows="8" name="description"></textarea>
+		</div>
+	</div>
+
+	<div class="panel panel-success">
+  		<div class="panel-heading">
+    		<h3 class="panel-title">time_limit</h3>
   		</div>
+  		<div class="panel-body">
+  		        <textarea class="form-control" name="time_limit"></textarea>
+		</div>
+	</div>
+
+	<div class="panel panel-success">
+  		<div class="panel-heading">
+    		<h3 class="panel-title">memory_limit</h3>
+  		</div>
+  		<div class="panel-body">
+  		        <textarea class="form-control" name="memory_limit"></textarea>
+		</div>
 	</div>
 
 	<div class="panel panel-info">
@@ -99,7 +148,7 @@
     		<h3 class="panel-title">input</h3>
   		</div>
   		<div class="panel-body">
-    	<{$data.problem_input}>
+    	        <textarea class="form-control" rows="6" name="sample_input"></textarea>
   		</div>
 	</div>
 
@@ -109,17 +158,31 @@
     		<h3 class="panel-title">output</h3>
   		</div>
   		<div class="panel-body">
-    	<{$data.problem_output}>
+    	        <textarea class="form-control" rows="6" name="sample_output"></textarea>
   		</div>
 	</div>
+
+	<div class="panel panel-info">
+  		<div class="panel-heading">
+    		<h3 class="panel-title">Judge Input</h3>
+  		</div>
+  		<div class="panel-body">
+			<input type="file" name="judge_input" value="上传文件"/>
+  		</div>
+	</div>
+
+	<div class="panel panel-info">
+  		<div class="panel-heading">
+    		<h3 class="panel-title">Judge Output</h3>
+  		</div>
+  		<div class="panel-body">
+			<input type="file" name="judge_output" value="上传文件"/>
+  		</div>
+	</div>
+
 	
-	<h3>提交代码</h3>
-	<form action="/oj_web/problem/submit.php?problem_id=<{$problem_id}>" method="post">
-  		<div class="form-group">
-			<textarea class="form-control" rows="10" name="submit_code"></textarea>
-		</div>
-	 	 <button type="submit" class="btn btn-default">Submit</button>
-	</form>
+  	<button type="submit" class="btn btn-default">Submit</button>
+</form>
 
 </div>
 </div>
@@ -127,3 +190,5 @@
 </body>
 
 </html>
+<?php }
+}

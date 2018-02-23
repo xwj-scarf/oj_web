@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-18 18:15:22
+/* Smarty version 3.1.32-dev-38, created on 2018-02-23 11:01:54
   from '/home/oj_web/templates/home.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a89523abb72d6_22447341',
+  'unifunc' => 'content_5a8f8422900827_90552003',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '244d8275923d09835e27c8964ae86b26ca698eaf' => 
     array (
       0 => '/home/oj_web/templates/home.html',
-      1 => 1518948895,
+      1 => 1519354480,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a89523abb72d6_22447341 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a8f8422900827_90552003 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -63,15 +63,14 @@ function content_5a89523abb72d6_22447341 (Smarty_Internal_Template $_smarty_tpl)
         <li><a href="problem/index.php">Problem</a></li>
 		<li><a href="status/index.php">Status</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Add <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">my submit status</a></li>
-            <li><a href="#">my info</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
+            <li><a href="./problem/add_problem.php">Add Problem</a></li>
+            <li><a href="#">Add Context</a></li>
+            <!-- <li role="separator" class="divider"></li>
             <li><a href="#">Separated link</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
+            <li><a href="#">One more separated link</a></li> -->
           </ul>
         </li>
       </ul>
