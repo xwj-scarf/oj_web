@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-23 14:28:37
+/* Smarty version 3.1.32-dev-38, created on 2018-02-23 17:50:07
   from '/home/oj_web/templates/add_problem.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a8fb495e68e97_51181373',
+  'unifunc' => 'content_5a8fe3cfb0b227_19956596',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '18a6ba07bba35d5095ce0b9ff48c469384d0592e' => 
     array (
       0 => '/home/oj_web/templates/add_problem.html',
-      1 => 1519367313,
+      1 => 1519379361,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a8fb495e68e97_51181373 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a8fe3cfb0b227_19956596 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -112,7 +112,8 @@ function content_5a8fb495e68e97_51181373 (Smarty_Internal_Template $_smarty_tpl)
     		<h3 class="panel-title">请输入题目</h3>
   		</div>
   		<div class="panel-body">
-    	<textarea class="form-control" name="title"></textarea>
+    	<textarea class="form-control" name="title"><?php echo $_smarty_tpl->tpl_vars['request']->value['title'];?>
+</textarea>
   		</div>
 	</div>
 
@@ -127,7 +128,7 @@ function content_5a8fb495e68e97_51181373 (Smarty_Internal_Template $_smarty_tpl)
 
 	<div class="panel panel-success">
   		<div class="panel-heading">
-    		<h3 class="panel-title">time_limit</h3>
+    		<h3 class="panel-title">time_limit (单位MS)</h3>
   		</div>
   		<div class="panel-body">
   		        <textarea class="form-control" name="time_limit"></textarea>
@@ -136,7 +137,7 @@ function content_5a8fb495e68e97_51181373 (Smarty_Internal_Template $_smarty_tpl)
 
 	<div class="panel panel-success">
   		<div class="panel-heading">
-    		<h3 class="panel-title">memory_limit</h3>
+    		<h3 class="panel-title">memory_limit (单位KB)</h3>
   		</div>
   		<div class="panel-body">
   		        <textarea class="form-control" name="memory_limit"></textarea>

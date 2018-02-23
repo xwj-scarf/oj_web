@@ -17,6 +17,16 @@ while($row = mysqli_fetch_assoc($result)) {//mysqli_fetch_array
     $data[] = $row;
 }
 
+if ($data) {
+	foreach($data as $k => $v) {
+		if ($v['total_num'] != 0) {
+			$data[$k]['pass_percent'] = round($v['ac_num'] / $v['total_num'] * 100,2);
+		} else {
+			$data[$k]['pass_percent'] = 0;
+		}
+	}
+}
+
 $is_login = 0;
 if (isset($_SESSION['is_login'])) {
     $is_login = 1;

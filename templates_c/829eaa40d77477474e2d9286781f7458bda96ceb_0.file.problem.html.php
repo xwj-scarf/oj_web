@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-23 11:08:26
+/* Smarty version 3.1.32-dev-38, created on 2018-02-23 18:26:29
   from '/home/oj_web/templates/problem.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a8f85aa3bf530_80801524',
+  'unifunc' => 'content_5a8fec554176e1_58755889',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '829eaa40d77477474e2d9286781f7458bda96ceb' => 
     array (
       0 => '/home/oj_web/templates/problem.html',
-      1 => 1519355294,
+      1 => 1519381587,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a8f85aa3bf530_80801524 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a8fec554176e1_58755889 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -112,7 +112,7 @@ Problem
 		<tr>
 			<th class="text-center">题目编号</th>	
 			<th class="text-center">题目名称</th>	
-			<th class="text-center">通过</th>	
+			<th class="text-center">通过率</th>	
 		</tr>
 	</thead>
 
@@ -128,8 +128,10 @@ foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_var
           <td class="text-center"><a href="detail.php?pid=<?php echo $_smarty_tpl->tpl_vars['item']->value['pid'];?>
 "><?php echo $_smarty_tpl->tpl_vars['item']->value['problem_name'];?>
 </a></td>
-          <td class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['pass'];?>
-</td>
+          <td class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['ac_num'];?>
+/<?php echo $_smarty_tpl->tpl_vars['item']->value['total_num'];?>
+ (<?php echo $_smarty_tpl->tpl_vars['item']->value['pass_percent'];?>
+%)</td>
         </tr>
 	<?php
 }

@@ -25,6 +25,9 @@ $now = strtotime(date('Y-m-d H:i:s'));
 $conn->query("insert into submit_info (uid,pid,status,time_use,memory_use,add_time,update_time) values('{$_SESSION['user_id']}','{$_REQUEST['problem_id']}',0,0,0,'{$now}','{$now}')");
 
 $sid = $conn->insert_id;
+
+$conn->query("update problem_info set total_num = total_num + 1 where pid = '{$_REQUEST['problem_id']}'");
+
 $pid = intval($_REQUEST['problem_id']);
 $uid = intval($_SESSION['user_id']);
 

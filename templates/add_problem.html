@@ -84,7 +84,7 @@
     		<h3 class="panel-title">请输入题目</h3>
   		</div>
   		<div class="panel-body">
-    	<textarea class="form-control" name="title"></textarea>
+    	<textarea class="form-control" name="title"><{$request.title}></textarea>
   		</div>
 	</div>
 
@@ -99,7 +99,7 @@
 
 	<div class="panel panel-success">
   		<div class="panel-heading">
-    		<h3 class="panel-title">time_limit</h3>
+    		<h3 class="panel-title">time_limit (单位MS)</h3>
   		</div>
   		<div class="panel-body">
   		        <textarea class="form-control" name="time_limit"></textarea>
@@ -108,7 +108,7 @@
 
 	<div class="panel panel-success">
   		<div class="panel-heading">
-    		<h3 class="panel-title">memory_limit</h3>
+    		<h3 class="panel-title">memory_limit (单位KB)</h3>
   		</div>
   		<div class="panel-body">
   		        <textarea class="form-control" name="memory_limit"></textarea>

@@ -84,7 +84,7 @@ Problem
 		<tr>
 			<th class="text-center">题目编号</th>	
 			<th class="text-center">题目名称</th>	
-			<th class="text-center">通过</th>	
+			<th class="text-center">通过率</th>	
 		</tr>
 	</thead>
 
@@ -93,7 +93,7 @@ Problem
         <tr>
 	  	  <td class="text-center"><{$item.pid}></td>
           <td class="text-center"><a href="detail.php?pid=<{$item.pid}>"><{$item.problem_name}></a></td>
-          <td class="text-center"><{$item.pass}></td>
+          <td class="text-center"><{$item.ac_num}>/<{$item.total_num}> (<{$item.pass_percent}>%)</td>
         </tr>
 	<{/foreach}>
      </tbody>
