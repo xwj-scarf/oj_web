@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-23 17:50:07
+/* Smarty version 3.1.32-dev-38, created on 2018-02-24 14:38:45
   from '/home/oj_web/templates/add_problem.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a8fe3cfb0b227_19956596',
+  'unifunc' => 'content_5a91087503a344_63738762',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '18a6ba07bba35d5095ce0b9ff48c469384d0592e' => 
     array (
       0 => '/home/oj_web/templates/add_problem.html',
-      1 => 1519379361,
+      1 => 1519454322,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a8fe3cfb0b227_19956596 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a91087503a344_63738762 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -53,7 +53,7 @@ function content_5a8fe3cfb0b227_19956596 (Smarty_Internal_Template $_smarty_tpl)
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">OJ</a>
+      <a class="navbar-brand" href="/oj_web/">OJ</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -146,7 +146,25 @@ function content_5a8fe3cfb0b227_19956596 (Smarty_Internal_Template $_smarty_tpl)
 
 	<div class="panel panel-info">
   		<div class="panel-heading">
-    		<h3 class="panel-title">input</h3>
+    		<h3 class="panel-title">Input</h3>
+  		</div>
+  		<div class="panel-body">
+    	        <textarea class="form-control" rows="6" name="input"></textarea>
+  		</div>
+	</div>
+
+	<div class="panel panel-info">
+  		<div class="panel-heading">
+    		<h3 class="panel-title">Output</h3>
+  		</div>
+  		<div class="panel-body">
+    	        <textarea class="form-control" rows="6" name="output"></textarea>
+  		</div>
+	</div>
+
+	<div class="panel panel-info">
+  		<div class="panel-heading">
+    		<h3 class="panel-title">Sample Input</h3>
   		</div>
   		<div class="panel-body">
     	        <textarea class="form-control" rows="6" name="sample_input"></textarea>
@@ -156,7 +174,7 @@ function content_5a8fe3cfb0b227_19956596 (Smarty_Internal_Template $_smarty_tpl)
 
 	<div class="panel panel-warning">
   		<div class="panel-heading">
-    		<h3 class="panel-title">output</h3>
+    		<h3 class="panel-title">Sample Output</h3>
   		</div>
   		<div class="panel-body">
     	        <textarea class="form-control" rows="6" name="sample_output"></textarea>

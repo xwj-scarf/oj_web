@@ -24,6 +24,8 @@ $data = array(
 	'problem_output' => $tmp_data[0]['problem_sample_output'], 
     'time_limit' => $tmp_data[0]['time_limit'],
     'memory_limit' => $tmp_data[0]['memory_limit'],
+	'input' => $tmp_data[0]['input'],
+	'output' => $tmp_data[0]['output'],
 );
 $smarty->assign('data',$data);
 $is_login = 0;

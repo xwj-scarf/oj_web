@@ -10,14 +10,18 @@ if (!isset($_SESSION['user_name']) || empty($_SESSION['user_name'])) {
 }
 
 if (!empty($_REQUEST)) {
+
+	//@file_put_contents('/tmp/weijun.log',var_export($_REQUEST,true)."\n",FILE_APPEND);
 	$title = $_REQUEST['title'];
 	$desc = $_REQUEST['description'];
 	$sample_input = $_REQUEST['sample_input'];
 	$sample_output = $_REQUEST['sample_output'];
 	$time_limit = $_REQUEST['time_limit'];
 	$memory_limit = $_REQUEST['memory_limit'];
+	$input = $_REQUEST['input'];
+	$output = $_REQUEST['output'];
 
-	if (empty($title) || empty($desc) || empty($sample_input) || empty($sample_output) || empty($time_limit) || empty($memory_limit)) {
+	if (empty($title) || empty($desc) || empty($sample_input) || empty($sample_output) || empty($time_limit) || empty($memory_limit) || empty($input) || empty($output)) {
 		echo "<script> alert('请完善所有内容后再提交');</script>";
 		echo "<meta http-equiv='Refresh' content='0;URL=./add_problem.php'>";
 		exit;
@@ -51,6 +55,8 @@ if (!empty($_REQUEST)) {
 	//替换空格为<br>存入数据库中	
 	$title = str_replace("\n","<br>",$title);
 	$desc = str_replace("\n","<br>",$desc);
+	$input = str_replace("\n","<br>",$input);
+	$output = str_replace("\n","<br>",$output);
 	$sample_input = str_replace("\n","<br>",$sample_input);
 	$sample_output = str_replace("\n","<br>",$sample_output);
 
@@ -59,9 +65,9 @@ if (!empty($_REQUEST)) {
 
 	$conn->begin_transaction();
 
-	$result = $conn->query("insert into problem_info (problem_name,problem_description,time_limit,memory_limit,problem_sample_input,problem_sample_output) 
-							values('{$title}','{$desc}','{$time_limit}','{$memory_limit}','{$sample_input}','{$sample_output}')");
-
+	$result = $conn->query("insert into problem_info (problem_name,problem_description,time_limit,memory_limit,input,output,problem_sample_input,problem_sample_output) 
+							values('{$title}','{$desc}','{$time_limit}','{$memory_limit}','{$input}','{$output}','{$sample_input}','{$sample_output}')");
+	
 	if (!$result) {
 		$conn->rollback();
         echo "<script> alert('写入数据库失败，请稍后再试'); </script>";

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-24 11:03:20
+/* Smarty version 3.1.32-dev-38, created on 2018-02-24 14:35:05
   from '/home/oj_web/templates/problem_edit.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a90d5f88811e7_27926795',
+  'unifunc' => 'content_5a910799234267_73062310',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3fc0183f7f6c570684a7c561ea2af60edfdaece0' => 
     array (
       0 => '/home/oj_web/templates/problem_edit.html',
-      1 => 1519441352,
+      1 => 1519454102,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a90d5f88811e7_27926795 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a910799234267_73062310 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -135,10 +135,30 @@ function content_5a90d5f88811e7_27926795 (Smarty_Internal_Template $_smarty_tpl)
 
 	<div class="panel panel-info">
   		<div class="panel-heading">
-    		<h3 class="panel-title">input</h3>
+    		<h3 class="panel-title">Input</h3>
   		</div>
   		<div class="panel-body">
-    	<textarea class="form-control" name="input"><?php echo $_smarty_tpl->tpl_vars['data']->value['problem_input'];?>
+    	<textarea class="form-control" name="input"><?php echo $_smarty_tpl->tpl_vars['data']->value['input'];?>
+</textarea>
+  		</div>
+	</div>
+
+	<div class="panel panel-info">
+  		<div class="panel-heading">
+    		<h3 class="panel-title">Output</h3>
+  		</div>
+  		<div class="panel-body">
+    	<textarea class="form-control" name="output"><?php echo $_smarty_tpl->tpl_vars['data']->value['output'];?>
+</textarea>
+  		</div>
+	</div>
+
+	<div class="panel panel-info">
+  		<div class="panel-heading">
+    		<h3 class="panel-title">Sample Input</h3>
+  		</div>
+  		<div class="panel-body">
+    	<textarea class="form-control" name="sample_input"><?php echo $_smarty_tpl->tpl_vars['data']->value['problem_input'];?>
 </textarea>
   		</div>
 	</div>
@@ -146,10 +166,10 @@ function content_5a90d5f88811e7_27926795 (Smarty_Internal_Template $_smarty_tpl)
 
 	<div class="panel panel-warning">
   		<div class="panel-heading">
-    		<h3 class="panel-title">output</h3>
+    		<h3 class="panel-title">Sample Output</h3>
   		</div>
   		<div class="panel-body">
-    	<textarea class="form-control" name="output"><?php echo $_smarty_tpl->tpl_vars['data']->value['problem_output'];?>
+    	<textarea class="form-control" name="sample_output"><?php echo $_smarty_tpl->tpl_vars['data']->value['problem_output'];?>
 </textarea>
   		</div>
 	</div>

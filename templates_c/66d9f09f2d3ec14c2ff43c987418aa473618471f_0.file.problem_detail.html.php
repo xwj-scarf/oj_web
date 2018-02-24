@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-24 11:03:15
+/* Smarty version 3.1.32-dev-38, created on 2018-02-24 14:30:25
   from '/home/oj_web/templates/problem_detail.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a90d5f3e98539_09000327',
+  'unifunc' => 'content_5a910681e88124_58120028',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '66d9f09f2d3ec14c2ff43c987418aa473618471f' => 
     array (
       0 => '/home/oj_web/templates/problem_detail.html',
-      1 => 1519441341,
+      1 => 1519453805,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a90d5f3e98539_09000327 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a910681e88124_58120028 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -131,7 +131,27 @@ function content_5a90d5f3e98539_09000327 (Smarty_Internal_Template $_smarty_tpl)
 
 	<div class="panel panel-info">
   		<div class="panel-heading">
-    		<h3 class="panel-title">input</h3>
+    		<h3 class="panel-title">Input</h3>
+  		</div>
+  		<div class="panel-body">
+    	<?php echo $_smarty_tpl->tpl_vars['data']->value['input'];?>
+
+  		</div>
+	</div>
+
+	<div class="panel panel-danger">
+  		<div class="panel-heading">
+    		<h3 class="panel-title">Output</h3>
+  		</div>
+  		<div class="panel-body">
+    	<?php echo $_smarty_tpl->tpl_vars['data']->value['output'];?>
+
+  		</div>
+	</div>
+
+	<div class="panel panel-info">
+  		<div class="panel-heading">
+    		<h3 class="panel-title">Sample Input</h3>
   		</div>
   		<div class="panel-body">
     	<?php echo $_smarty_tpl->tpl_vars['data']->value['problem_input'];?>
@@ -142,7 +162,7 @@ function content_5a90d5f3e98539_09000327 (Smarty_Internal_Template $_smarty_tpl)
 
 	<div class="panel panel-warning">
   		<div class="panel-heading">
-    		<h3 class="panel-title">output</h3>
+    		<h3 class="panel-title">Sample Output</h3>
   		</div>
   		<div class="panel-body">
     	<?php echo $_smarty_tpl->tpl_vars['data']->value['problem_output'];?>

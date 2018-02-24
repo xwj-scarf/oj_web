@@ -13,15 +13,18 @@ mysqli_set_charset($conn,"utf8");
 
 //@file_put_contents('/tmp/weijun.log',var_export($_REQUEST,true)."\n",FILE_APPEND);
 if (isset($_REQUEST['op']) && !empty($_REQUEST['op'])) {
-	//@file_put_contents('/tmp/weijun.log',var_export('asd',true)."\n",FILE_APPEND);
-	$input = str_replace("\n","<br>",$_REQUEST['input']);
+	$sample_input = str_replace("\n","<br>",$_REQUEST['sample_input']);
+	$sample_output = str_replace("\n","<br>",$_REQUEST['sample_output']);
 	$output = str_replace("\n","<br>",$_REQUEST['output']);
-	
+	$input = str_replace("\n","<br>",$_REQUEST['input']);
+	$description = str_replace("\n","<br>",$_REQUEST['description']);
+
 	$time = is_numeric($_REQUEST['time']) ? $_REQUEST['time'] : 0;
 	$memory = is_numeric($_REQUEST['memory']) ? $_REQUEST['memory'] : 0;
 	
-	$conn->query("update problem_info set problem_name = '{$_REQUEST['problem_name']}', problem_description = '{$_REQUEST['description']}',
-				problem_sample_input = '{$input}', problem_sample_output = '{$output}',time_limit = '{$time}',memory_limit = '{$memory}',is_show = '{$_REQUEST['is_show']}' 
+	$conn->query("update problem_info set problem_name = '{$_REQUEST['problem_name']}', problem_description = '{$description}',
+					input = '{$input}' , output = '{$output}',
+				problem_sample_input = '{$sample_input}', problem_sample_output = '{$sample_output}',time_limit = '{$time}',memory_limit = '{$memory}',is_show = '{$_REQUEST['is_show']}' 
 				 where pid = '{$_REQUEST['problem_id']}'");
 
 	echo "<script> alert('编辑成功'); </script>";
@@ -44,11 +47,15 @@ $data = array(
     'problem_output' => $tmp_data[0]['problem_sample_output'],
 	'time_limit' => $tmp_data[0]['time_limit'],
 	'memory_limit' => $tmp_data[0]['memory_limit'],
+	'input' => $tmp_data[0]['input'],
+	'output' => $tmp_data[0]['output'],
 ); 
 
 if ($data) {
-	$data['problem_input'] = str_replace("<br>","",$data['problem_input']);
-	$data['problem_output'] = str_replace("<br>","",$data['problem_output']);
+	foreach($data as $k => $v) {
+		$data[$k] = str_replace("<br>","",$v);
+	}
+	
 }
 
 $smarty->assign('data',$data);
