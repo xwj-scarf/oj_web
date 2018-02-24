@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-24 17:14:25
-  from '/home/oj_web/templates/problem.html' */
+/* Smarty version 3.1.32-dev-38, created on 2018-02-24 17:14:00
+  from '/home/oj_web/templates/contest.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a912cf15ad2f4_28478129',
+  'unifunc' => 'content_5a912cd87636d1_23277718',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '829eaa40d77477474e2d9286781f7458bda96ceb' => 
+    '833de10fe82d52460a1f021bed4c395788283c1b' => 
     array (
-      0 => '/home/oj_web/templates/problem.html',
-      1 => 1519463662,
+      0 => '/home/oj_web/templates/contest.html',
+      1 => 1519463638,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a912cf15ad2f4_28478129 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a912cd87636d1_23277718 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -34,10 +34,9 @@ function content_5a912cf15ad2f4_28478129 (Smarty_Internal_Template $_smarty_tpl)
     <!-- Bootstrap -->
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../bootstrap/css/bootstrap-theme.css" rel="stylesheet">
-	<?php echo '<script'; ?>
+    <?php echo '<script'; ?>
  src="../bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
 >
-
 </head>
 
 <body>
@@ -60,7 +59,7 @@ function content_5a912cf15ad2f4_28478129 (Smarty_Internal_Template $_smarty_tpl)
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Head<span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Problem</a></li>
+        <li><a href="../problem/index.php">Problem</a></li>
 		<li><a href="../status/index.php">Status</a></li>
 		<li><a href="../contest/index.php">Contest</a></li>
 
@@ -100,42 +99,52 @@ function content_5a912cf15ad2f4_28478129 (Smarty_Internal_Template $_smarty_tpl)
   </div><!-- /.container-fluid -->
 </nav>
 
-<!-- 题目-->
+<!-- 比赛列表-->
 <div class="container ">
 <div class="row">
 <div class="col-md9" role="main"> 
+
 <p class="lead text-center">
-<h1 class="text-center">Problem</h1>
+<h1 class="text-center">Contest</h1>
 </p>
 
 
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th class="text-center">题目编号</th>	
-			<th class="text-center">题目名称</th>	
-			<th class="text-center">通过率</th>	
+			<th class="text-center">比赛编号</th>	
+			<th class="text-center">比赛名称</th>	
+			<th class="text-center">开始时间</th>
+			<th class="text-center">结束时间</th>
+			<th class="text-center">类型</th>
+			<th class="text-center">状态</th>	
 		</tr>
 	</thead>
 
 	<tbody>
-	<?php
+		<?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['data']->value, 'item', false, 'key');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_vars['item']->value) {
 ?>
         <tr>
-	  	  <td class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['pid'];?>
+	  	  <td class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['contest_id'];?>
 </td>
-          <td class="text-center"><a href="detail.php?pid=<?php echo $_smarty_tpl->tpl_vars['item']->value['pid'];?>
-"><?php echo $_smarty_tpl->tpl_vars['item']->value['problem_name'];?>
+          <td class="text-center"><a href="detail.php?cid=<?php echo $_smarty_tpl->tpl_vars['item']->value['contest_id'];?>
+&cname=<?php echo $_smarty_tpl->tpl_vars['item']->value['contest_name'];?>
+"><?php echo $_smarty_tpl->tpl_vars['item']->value['contest_name'];?>
 </a></td>
-          <td class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['ac_num'];?>
-/<?php echo $_smarty_tpl->tpl_vars['item']->value['total_num'];?>
- (<?php echo $_smarty_tpl->tpl_vars['item']->value['pass_percent'];?>
-%)</td>
+		  <td class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['start_time'];?>
+</td>
+		  <td class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['end_time'];?>
+</td>
+		  <td class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['type'];?>
+</td>
+		  <td class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['status'];?>
+</td>
+
         </tr>
-	<?php
+		<?php
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>

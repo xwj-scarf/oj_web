@@ -1,42 +1,15 @@
-<?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-24 17:06:42
-  from '/home/oj_web/templates/problem_detail.html' */
-
-/* @var Smarty_Internal_Template $_smarty_tpl */
-if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a912b22ce8318_20394635',
-  'has_nocache_code' => false,
-  'file_dependency' => 
-  array (
-    '66d9f09f2d3ec14c2ff43c987418aa473618471f' => 
-    array (
-      0 => '/home/oj_web/templates/problem_detail.html',
-      1 => 1519463196,
-      2 => 'file',
-    ),
-  ),
-  'includes' => 
-  array (
-  ),
-),false)) {
-function content_5a912b22ce8318_20394635 (Smarty_Internal_Template $_smarty_tpl) {
-?><html>
+<html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <title>OJ_WEB</title>
-	<?php echo '<script'; ?>
- src="../bootstrap/jquery-3.2.1.min.js"><?php echo '</script'; ?>
->
+	<script src="../bootstrap/jquery-3.2.1.min.js"></script>
 
     <!-- Bootstrap -->
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../bootstrap/css/bootstrap-theme.css" rel="stylesheet">
-	<?php echo '<script'; ?>
- src="../bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
->
+	<script src="../bootstrap/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -86,14 +59,13 @@ function content_5a912b22ce8318_20394635 (Smarty_Internal_Template $_smarty_tpl)
       </form>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><?php echo $_smarty_tpl->tpl_vars['name']->value;?>
-</a></li>
+        <li><a href="#"><{$name}></a></li>
         <li>
-        <?php if ($_smarty_tpl->tpl_vars['is_login']->value == 1) {?>
+        <{if $is_login == 1}>
             <a href="../logout.php">退出</a>
-        <?php } else { ?>
+        <{else}>
             <a href="../login.php"> 注册/登录</a>
-        <?php }?>
+        <{/if}>
         </li>
       </ul>
    </div><!-- /.navbar-collapse -->
@@ -110,23 +82,19 @@ function content_5a912b22ce8318_20394635 (Smarty_Internal_Template $_smarty_tpl)
     		<h3 class="panel-title">题目</h3>
   		</div>
   		<div class="panel-body">
-    	<?php echo $_smarty_tpl->tpl_vars['data']->value['problem_name'];?>
-
+    	<{$data.problem_name}>
   		</div>
 	</div>
 
-    <div class="alert alert-danger" role="alert">Time Limit <?php echo $_smarty_tpl->tpl_vars['data']->value['time_limit'];?>
- MS</div>
-    <div class="alert alert-warning" role="alert">Memory Limit <?php echo $_smarty_tpl->tpl_vars['data']->value['memory_limit'];?>
- KB</div>
+    <div class="alert alert-danger" role="alert">Time Limit <{$data.time_limit}> MS</div>
+    <div class="alert alert-warning" role="alert">Memory Limit <{$data.memory_limit}> KB</div>
 
 	<div class="panel panel-success">
   		<div class="panel-heading">
     		<h3 class="panel-title">描述</h3>
   		</div>
   		<div class="panel-body">
-    	<?php echo $_smarty_tpl->tpl_vars['data']->value['description'];?>
-
+    	<{$data.description}>
   		</div>
 	</div>
 
@@ -135,8 +103,7 @@ function content_5a912b22ce8318_20394635 (Smarty_Internal_Template $_smarty_tpl)
     		<h3 class="panel-title">Input</h3>
   		</div>
   		<div class="panel-body">
-    	<?php echo $_smarty_tpl->tpl_vars['data']->value['input'];?>
-
+    	<{$data.input}>
   		</div>
 	</div>
 
@@ -145,8 +112,7 @@ function content_5a912b22ce8318_20394635 (Smarty_Internal_Template $_smarty_tpl)
     		<h3 class="panel-title">Output</h3>
   		</div>
   		<div class="panel-body">
-    	<?php echo $_smarty_tpl->tpl_vars['data']->value['output'];?>
-
+    	<{$data.output}>
   		</div>
 	</div>
 
@@ -155,8 +121,7 @@ function content_5a912b22ce8318_20394635 (Smarty_Internal_Template $_smarty_tpl)
     		<h3 class="panel-title">Sample Input</h3>
   		</div>
   		<div class="panel-body">
-    	<?php echo $_smarty_tpl->tpl_vars['data']->value['problem_input'];?>
-
+    	<{$data.problem_input}>
   		</div>
 	</div>
 
@@ -166,26 +131,17 @@ function content_5a912b22ce8318_20394635 (Smarty_Internal_Template $_smarty_tpl)
     		<h3 class="panel-title">Sample Output</h3>
   		</div>
   		<div class="panel-body">
-    	<?php echo $_smarty_tpl->tpl_vars['data']->value['problem_output'];?>
-
+    	<{$data.problem_output}>
   		</div>
 	</div>
 	
 	<h3>提交代码</h3>
-	<form action="/oj_web/problem/submit.php?problem_id=<?php echo $_smarty_tpl->tpl_vars['problem_id']->value;?>
-" method="post">
+	<form action="/oj_web/contest/submit.php?pid=<{$problem_id}>" method="post">
   		<div class="form-group">
 			<textarea class="form-control" rows="10" name="submit_code"></textarea>
 		</div>
 	 	 <button type="submit" class="btn btn-default">Submit</button>
 	</form>
-
-	<?php if ($_smarty_tpl->tpl_vars['is_admin']->value == 1) {?>
-	<form action="/oj_web/problem/edit_problem.php?problem_id=<?php echo $_smarty_tpl->tpl_vars['problem_id']->value;?>
-" method="post">
-  		<button type="submit" class="btn btn-default">编辑题目</button>
-	</form>
-	<?php }?>
 
 </div>
 </div>
@@ -193,5 +149,3 @@ function content_5a912b22ce8318_20394635 (Smarty_Internal_Template $_smarty_tpl)
 </body>
 
 </html>
-<?php }
-}

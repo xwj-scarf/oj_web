@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-23 11:08:50
+/* Smarty version 3.1.32-dev-38, created on 2018-02-24 15:29:41
   from '/home/oj_web/templates/login.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a8f85c262e0b8_64300441',
+  'unifunc' => 'content_5a9114655b91c9_75288386',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '31e47909fdfee2f2679d2f11feefe772773c79d0' => 
     array (
       0 => '/home/oj_web/templates/login.html',
-      1 => 1519354541,
+      1 => 1519441327,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a8f85c262e0b8_64300441 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a9114655b91c9_75288386 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -54,7 +54,7 @@ e">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">OJ</a>
+      <a class="navbar-brand" href="/oj_web/">OJ</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->

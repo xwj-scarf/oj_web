@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-24 17:14:25
-  from '/home/oj_web/templates/problem.html' */
+/* Smarty version 3.1.32-dev-38, created on 2018-02-24 17:25:47
+  from '/home/oj_web/templates/contest_detail.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a912cf15ad2f4_28478129',
+  'unifunc' => 'content_5a912f9b1c5741_23675960',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '829eaa40d77477474e2d9286781f7458bda96ceb' => 
+    'ca6358de1749dc7a599cabf7272d609d90b48cc5' => 
     array (
-      0 => '/home/oj_web/templates/problem.html',
-      1 => 1519463662,
+      0 => '/home/oj_web/templates/contest_detail.html',
+      1 => 1519464271,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a912cf15ad2f4_28478129 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a912f9b1c5741_23675960 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -104,10 +104,11 @@ function content_5a912cf15ad2f4_28478129 (Smarty_Internal_Template $_smarty_tpl)
 <div class="container ">
 <div class="row">
 <div class="col-md9" role="main"> 
-<p class="lead text-center">
-<h1 class="text-center">Problem</h1>
-</p>
 
+<p >
+<h1 class="text-center"><?php echo $_smarty_tpl->tpl_vars['contest_name']->value;?>
+</h1>
+</p>
 
 <table class="table table-striped">
 	<thead>
@@ -127,7 +128,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_var
         <tr>
 	  	  <td class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['pid'];?>
 </td>
-          <td class="text-center"><a href="detail.php?pid=<?php echo $_smarty_tpl->tpl_vars['item']->value['pid'];?>
+          <td class="text-center"><a href="contest_problem_detail.php?pid=<?php echo $_smarty_tpl->tpl_vars['item']->value['pid'];?>
+&cid=<?php echo $_smarty_tpl->tpl_vars['cid']->value;?>
 "><?php echo $_smarty_tpl->tpl_vars['item']->value['problem_name'];?>
 </a></td>
           <td class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['ac_num'];?>

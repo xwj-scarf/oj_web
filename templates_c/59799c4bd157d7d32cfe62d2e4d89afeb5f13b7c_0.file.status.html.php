@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-24 11:14:42
+/* Smarty version 3.1.32-dev-38, created on 2018-02-24 17:17:51
   from '/home/oj_web/templates/status.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a90d8a2ca50c5_67536785',
+  'unifunc' => 'content_5a912dbfa31578_77773284',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '59799c4bd157d7d32cfe62d2e4d89afeb5f13b7c' => 
     array (
       0 => '/home/oj_web/templates/status.html',
-      1 => 1519442082,
+      1 => 1519463770,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a90d8a2ca50c5_67536785 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a912dbfa31578_77773284 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -64,6 +64,8 @@ function content_5a90d8a2ca50c5_67536785 (Smarty_Internal_Template $_smarty_tpl)
         <li class="active"><a href="#">Head<span class="sr-only">(current)</span></a></li>
         <li><a href="../problem/index.php">Problem</a></li>
         <li><a href="../status/index.php">Status</a></li>
+        <li><a href="../contest/index.php">Contest</a></li>
+
         <li class="dropdown">
 
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Add <span class="caret"></span></a>
@@ -104,9 +106,8 @@ function content_5a90d8a2ca50c5_67536785 (Smarty_Internal_Template $_smarty_tpl)
 <div class="row">
 <div class="col-md9" role="main">
 <p class="lead text-center">
-Status
+<h1 class="text-center">Status</h1>
 </p>
-
 
 <table class="table table-striped">
     <thead>
