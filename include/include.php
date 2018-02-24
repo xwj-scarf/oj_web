@@ -12,4 +12,5 @@ define('UTILS_PATH','/home/oj_web/utils/');
 require_once(UTILS_PATH . 'db.php');
 require_once(UTILS_PATH . 'file.php');
 
+require_once(CONFIG_PATH);
 ?>

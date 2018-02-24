@@ -2,7 +2,6 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="refresh" content="2">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <title>OJ_WEB</title>
 	<script src="../bootstrap/jquery-3.2.1.min.js"></script>
@@ -16,7 +15,6 @@
 
 <body>
 
-<!-- dao hang lan -->
 <!-- 导航栏 -->
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -36,8 +34,9 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Head<span class="sr-only">(current)</span></a></li>
         <li><a href="../problem/index.php">Problem</a></li>
-        <li><a href="../status/index.php">Status</a></li>
+		<li><a href="../status/index.php">Status</a></li> 
         <li class="dropdown">
+        
 
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Add <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -48,7 +47,8 @@
             <li role="separator" class="divider"></li>
             <li><a href="#">One more separated link</a></li> -->
           </ul>
-        </li>
+
+		</li>
       </ul>
       <form class="navbar-form navbar-left">
         <div class="form-group">
@@ -56,6 +56,7 @@
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
+
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><{$name}></a></li>
         <li>
@@ -66,69 +67,76 @@
         <{/if}>
         </li>
       </ul>
-
-
-    </div><!-- /.navbar-collapse -->
+   </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
+<!-- 题目描述-->
 <div class="container ">
 <div class="row">
 <div class="col-md9" role="main">
-<p class="lead text-center">
-Status
-</p>
+
+<form action="/oj_web/problem/edit_problem.php?problem_id=<{$problem_id}>&op=edit" method="post">
+
+<div class="form-group">
+	<div class="panel panel-primary">
+  		<div class="panel-heading">
+    		<h3 class="panel-title">题目</h3>
+  		</div>
+		<div class="panel-body">
+    	<textarea class="form-control" name="problem_name"><{$data.problem_name}></textarea>
+  		</div>
+	</div>
+
+    <div class="alert alert-danger" role="alert">Time Limit <textarea class="form-control" name="time"><{$data.time_limit}></textarea>MS</div>
+    <div class="alert alert-warning" role="alert">Memory Limit <textarea class="form-control" name="memory"><{$data.memory_limit}></textarea> KB</div>
+
+	<div class="panel panel-success">
+  		<div class="panel-heading">
+    		<h3 class="panel-title">描述</h3>
+  		</div>
+  		<div class="panel-body">
+    	<textarea class="form-control" name="description"><{$data.description}></textarea>
+  		</div>
+	</div>
+
+	<div class="panel panel-info">
+  		<div class="panel-heading">
+    		<h3 class="panel-title">input</h3>
+  		</div>
+  		<div class="panel-body">
+    	<textarea class="form-control" name="input"><{$data.problem_input}></textarea>
+  		</div>
+	</div>
 
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th class="text-center">提交编号</th>
-			<th class="text-center">用户名</th>
-            <th class="text-center">problem_name</th>
-			<th class="text-center">time_use</th>
-			<th class="text-center">memory_use</th>
-			<th class="text-center">status</th>
-			<th class="text-center">提交时间</th>
-        </tr>
-    </thead>
-	
-      <tbody>
-	    <{foreach key=key item=item from=$data}>
+	<div class="panel panel-warning">
+  		<div class="panel-heading">
+    		<h3 class="panel-title">output</h3>
+  		</div>
+  		<div class="panel-body">
+    	<textarea class="form-control" name="output"><{$data.problem_output}></textarea>
+  		</div>
+	</div>
 
-        <tr>
-      	  <td><h5 class="text-center"><{$item.id}></h5></td>
-		  <td><h5 class="text-center"><{$item.user_name}></h5></td>
-		  <td><a href="/oj_web/problem/detail.php?pid=<{$item.pid}>"><h5 class="text-center"><{$item.problem_name}></h5></a></td>
-		  <td><h5 class="text-center"><{$item.time_use}> MS</h5></td>
-		  <td><h5 class="text-center"><{$item.memory_use}> KB</h5></td>
+	<div class="radio">
+	  <label>
+		<input type="radio" name="is_show" id="optionsRadios1" value="1" checked>
+			显示该题目
+	  </label>
+	</div>
+	<div class="radio">
+	<label>
+		<input type="radio" name="is_show" id="optionsRadios2" value="0">
+			隐藏该题目
+	</label>
+	</div>
 
-	  	  <{if $item.status == 0}>
-			  <td><h5 class="text-center"><span class="label label-default">Judging...</span></h5></td>	
-		  <{/if}>
+	<button type="submit" class="btn btn-default">Submit</button>
+</div>
 
-		  <{if $item.status == 1}>
-			  <td><h5 class="text-center"><span class="label label-info">Complie Error</span></h5></td>	
-		  <{/if}>
+</form>
 
-		  <{if $item.status == 2}>
-			  <td><h5 class="text-center"><span class="label label-danger">Wrong Answer</span></h5></td>	
-		  <{/if}>
-
-		  <{if $item.status == 6}>
-			  <td><h5 class="text-center"><span class="label label-success">Accept</span></h5></td>	
-		  <{/if}>
-
-	  	  <{if $item.status == 404}>
-			  <td><h5 class="text-center"><span class="label label-danger">Submit Failed</span></h5></td>	
-		  <{/if}>
-
-		  <td><h5 class="text-center"><{$item.add_time}></h5></td>
-        </tr>
-
-    	<{/foreach}>
-     </tbody> 
-</table>
 </div>
 </div>
 </div>

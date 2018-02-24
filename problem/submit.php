@@ -42,5 +42,8 @@ $submit = json_encode($submit_info);
 
 $redis->lpush('test',$submit);
 
-var_dump($submit_code);
+echo "<script> alert('提交成功'); </script>";
+echo "<meta http-equiv='Refresh' content='0;URL=/oj_web/status/index.php'>";
+exit;
+//var_dump($submit_code);
 ?>

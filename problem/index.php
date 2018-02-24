@@ -11,7 +11,12 @@ mysqli_set_charset($conn,"utf8");
 
 
 //查询数据库
-$result = mysqli_query($conn, "SELECT * FROM problem_info");
+if (in_array($_SESSION['user_name'],$admin_arr)) {
+    $result = mysqli_query($conn, "SELECT * FROM problem_info");
+} else {
+	$result = mysqli_query($conn, "SELECT * FROM problem_info where is_show = 1");
+}
+
 $data = [];
 while($row = mysqli_fetch_assoc($result)) {//mysqli_fetch_array
     $data[] = $row;

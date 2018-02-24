@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-23 15:25:22
+/* Smarty version 3.1.32-dev-38, created on 2018-02-24 11:03:15
   from '/home/oj_web/templates/problem_detail.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a8fc1e20c3cf0_20052867',
+  'unifunc' => 'content_5a90d5f3e98539_09000327',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '66d9f09f2d3ec14c2ff43c987418aa473618471f' => 
     array (
       0 => '/home/oj_web/templates/problem_detail.html',
-      1 => 1519370675,
+      1 => 1519441341,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a8fc1e20c3cf0_20052867 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a90d5f3e98539_09000327 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -53,7 +53,7 @@ function content_5a8fc1e20c3cf0_20052867 (Smarty_Internal_Template $_smarty_tpl)
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">OJ</a>
+      <a class="navbar-brand" href="/oj_web/">OJ</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -114,6 +114,11 @@ function content_5a8fc1e20c3cf0_20052867 (Smarty_Internal_Template $_smarty_tpl)
   		</div>
 	</div>
 
+    <div class="alert alert-danger" role="alert">Time Limit <?php echo $_smarty_tpl->tpl_vars['data']->value['time_limit'];?>
+ MS</div>
+    <div class="alert alert-warning" role="alert">Memory Limit <?php echo $_smarty_tpl->tpl_vars['data']->value['memory_limit'];?>
+ KB</div>
+
 	<div class="panel panel-success">
   		<div class="panel-heading">
     		<h3 class="panel-title">描述</h3>
@@ -153,6 +158,13 @@ function content_5a8fc1e20c3cf0_20052867 (Smarty_Internal_Template $_smarty_tpl)
 		</div>
 	 	 <button type="submit" class="btn btn-default">Submit</button>
 	</form>
+
+	<?php if ($_smarty_tpl->tpl_vars['is_admin']->value == 1) {?>
+	<form action="/oj_web/problem/edit_problem.php?problem_id=<?php echo $_smarty_tpl->tpl_vars['problem_id']->value;?>
+" method="post">
+  		<button type="submit" class="btn btn-default">编辑题目</button>
+	</form>
+	<?php }?>
 
 </div>
 </div>

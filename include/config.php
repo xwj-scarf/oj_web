@@ -9,5 +9,7 @@ $db_config = array(
 	'db_charset' => 'utf8',
 );
 
-
+$admin_arr = array(
+	'admin',
+);
 ?>
