@@ -73,37 +73,42 @@
 </nav>
 
 <!-- 题目-->
+<section class="content-wrap">
 <div class="container ">
 <div class="row">
-<div class="col-md9" role="main"> 
-<p class="lead text-center">
-<h1 class="text-center">Problem</h1>
-</p>
+
+	<div class="col-md-9" role="main"> 
+		<p class="lead text-center">
+		<h1 class="text-center">Problem</h1>
+		</p>
 
 
-<table class="table table-striped">
-	<thead>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th class="text-center">题目编号</th>	
+					<th class="text-center">题目名称</th>	
+					<th class="text-center">通过率</th>	
+				</tr>
+			</thead>
+
+		<tbody>
+		<{foreach key=key item=item from=$data}>
 		<tr>
-			<th class="text-center">题目编号</th>	
-			<th class="text-center">题目名称</th>	
-			<th class="text-center">通过率</th>	
-		</tr>
-	</thead>
-
-	<tbody>
-	<{foreach key=key item=item from=$data}>
-        <tr>
 	  	  <td class="text-center"><{$item.pid}></td>
           <td class="text-center"><a href="detail.php?pid=<{$item.pid}>"><{$item.problem_name}></a></td>
           <td class="text-center"><{$item.ac_num}>/<{$item.total_num}> (<{$item.pass_percent}>%)</td>
         </tr>
-	<{/foreach}>
-     </tbody>
+		<{/foreach}>
+		</tbody>
 
-</table>
+		</table>
+	</div>
+
+
 </div>
 </div>
-</div>
+</section>
 </body>
 
 </html>

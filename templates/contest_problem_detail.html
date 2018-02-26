@@ -34,8 +34,9 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Head<span class="sr-only">(current)</span></a></li>
         <li><a href="../problem/index.php">Problem</a></li>
-		<li><a href="../status/index.php">Status</a></li> 
+		<li><a href="../contest/status.php?cid=<{$cid}>">Contest Status</a></li> 
 		<li><a href="../contest/index.php">Contest</a></li> 
+        <li><a href="../contest/rank.php?cid=<{$cid}>">Rank</a></li>
         <li class="dropdown">
         
 
@@ -136,7 +137,7 @@
 	</div>
 	
 	<h3>提交代码</h3>
-	<form action="/oj_web/contest/submit.php?pid=<{$problem_id}>" method="post">
+	<form action="/oj_web/contest/submit.php?pid=<{$problem_id}>&cid=<{$cid}>" method="post">
   		<div class="form-group">
 			<textarea class="form-control" rows="10" name="submit_code"></textarea>
 		</div>

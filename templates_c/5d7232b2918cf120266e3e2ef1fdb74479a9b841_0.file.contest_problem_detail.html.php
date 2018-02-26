@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-24 17:34:29
+/* Smarty version 3.1.32-dev-38, created on 2018-02-26 11:45:50
   from '/home/oj_web/templates/contest_problem_detail.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a9131a53dad02_39450725',
+  'unifunc' => 'content_5a9382ee9d8528_27254236',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5d7232b2918cf120266e3e2ef1fdb74479a9b841' => 
     array (
       0 => '/home/oj_web/templates/contest_problem_detail.html',
-      1 => 1519464845,
+      1 => 1519616728,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a9131a53dad02_39450725 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a9382ee9d8528_27254236 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -61,8 +61,11 @@ function content_5a9131a53dad02_39450725 (Smarty_Internal_Template $_smarty_tpl)
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Head<span class="sr-only">(current)</span></a></li>
         <li><a href="../problem/index.php">Problem</a></li>
-		<li><a href="../status/index.php">Status</a></li> 
+		<li><a href="../contest/status.php?cid=<?php echo $_smarty_tpl->tpl_vars['cid']->value;?>
+">Contest Status</a></li> 
 		<li><a href="../contest/index.php">Contest</a></li> 
+        <li><a href="../contest/rank.php?cid=<?php echo $_smarty_tpl->tpl_vars['cid']->value;?>
+">Rank</a></li>
         <li class="dropdown">
         
 
@@ -173,6 +176,7 @@ function content_5a9131a53dad02_39450725 (Smarty_Internal_Template $_smarty_tpl)
 	
 	<h3>提交代码</h3>
 	<form action="/oj_web/contest/submit.php?pid=<?php echo $_smarty_tpl->tpl_vars['problem_id']->value;?>
+&cid=<?php echo $_smarty_tpl->tpl_vars['cid']->value;?>
 " method="post">
   		<div class="form-group">
 			<textarea class="form-control" rows="10" name="submit_code"></textarea>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-26 10:02:07
-  from '/home/oj_web/templates/problem.html' */
+/* Smarty version 3.1.32-dev-38, created on 2018-02-26 14:28:38
+  from '/home/oj_web/templates/contest_status.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a936a9f6f0860_25609856',
+  'unifunc' => 'content_5a93a91650fbf5_20416191',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '829eaa40d77477474e2d9286781f7458bda96ceb' => 
+    'ae9fc828225913bdb9650c910bae57c1b6a6e484' => 
     array (
-      0 => '/home/oj_web/templates/problem.html',
-      1 => 1519610526,
+      0 => '/home/oj_web/templates/contest_status.html',
+      1 => 1519626516,
       2 => 'file',
     ),
   ),
@@ -20,11 +20,12 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a936a9f6f0860_25609856 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a93a91650fbf5_20416191 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="refresh" content="2">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <title>OJ_WEB</title>
 	<?php echo '<script'; ?>
@@ -42,6 +43,7 @@ function content_5a936a9f6f0860_25609856 (Smarty_Internal_Template $_smarty_tpl)
 
 <body>
 
+<!-- dao hang lan -->
 <!-- 导航栏 -->
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -60,12 +62,13 @@ function content_5a936a9f6f0860_25609856 (Smarty_Internal_Template $_smarty_tpl)
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Head<span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Problem</a></li>
-		<li><a href="../status/index.php">Status</a></li>
-		<li><a href="../contest/index.php">Contest</a></li>
-
+        <li><a href="../problem/index.php">Problem</a></li>
+        <li><a href="#">Contest Status</a></li>
+        <li><a href="../contest/index.php">Contest</a></li>
+        <li><a href="../contest/rank.php?cid=<?php echo $_smarty_tpl->tpl_vars['cid']->value;?>
+">Rank</a></li>
         <li class="dropdown">
-	
+
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Add <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="../problem/add_problem.php">Add Problem</a></li>
@@ -75,7 +78,7 @@ function content_5a936a9f6f0860_25609856 (Smarty_Internal_Template $_smarty_tpl)
             <li role="separator" class="divider"></li>
             <li><a href="#">One more separated link</a></li> -->
           </ul>
-		</li>
+        </li>
       </ul>
       <form class="navbar-form navbar-left">
         <div class="form-group">
@@ -100,56 +103,80 @@ function content_5a936a9f6f0860_25609856 (Smarty_Internal_Template $_smarty_tpl)
   </div><!-- /.container-fluid -->
 </nav>
 
-<!-- 题目-->
-<section class="content-wrap">
 <div class="container ">
 <div class="row">
+<div class="col-md9" role="main">
+<p class="lead text-center">
+<h1 class="text-center">Status</h1>
+</p>
 
-	<div class="col-md-9" role="main"> 
-		<p class="lead text-center">
-		<h1 class="text-center">Problem</h1>
-		</p>
-
-
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<th class="text-center">题目编号</th>	
-					<th class="text-center">题目名称</th>	
-					<th class="text-center">通过率</th>	
-				</tr>
-			</thead>
-
-		<tbody>
-		<?php
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th class="text-center">提交编号</th>
+			<th class="text-center">用户名</th>
+            <th class="text-center">problem_name</th>
+			<th class="text-center">time_use</th>
+			<th class="text-center">memory_use</th>
+			<th class="text-center">status</th>
+			<th class="text-center">提交时间</th>
+        </tr>
+    </thead>
+	
+      <tbody>
+	    <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['data']->value, 'item', false, 'key');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_vars['item']->value) {
 ?>
-		<tr>
-	  	  <td class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['pid'];?>
-</td>
-          <td class="text-center"><a href="detail.php?pid=<?php echo $_smarty_tpl->tpl_vars['item']->value['pid'];?>
-"><?php echo $_smarty_tpl->tpl_vars['item']->value['problem_name'];?>
-</a></td>
-          <td class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['ac_num'];?>
-/<?php echo $_smarty_tpl->tpl_vars['item']->value['total_num'];?>
- (<?php echo $_smarty_tpl->tpl_vars['item']->value['pass_percent'];?>
-%)</td>
+
+        <tr>
+      	  <td><h5 class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['id'];?>
+</h5></td>
+		  <td><h5 class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['user_name'];?>
+</h5></td>
+		  <td><a href="/oj_web/contest/contest_problem_detail.php?pid=<?php echo $_smarty_tpl->tpl_vars['item']->value['pid'];?>
+&cid=<?php echo $_smarty_tpl->tpl_vars['cid']->value;?>
+"><h5 class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['problem_name'];?>
+</h5></a></td>
+		  <td><h5 class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['time_use'];?>
+ MS</h5></td>
+		  <td><h5 class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['memory_use'];?>
+ KB</h5></td>
+
+	  	  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 0) {?>
+			  <td><h5 class="text-center"><span class="label label-default">Judging...</span></h5></td>	
+		  <?php }?>
+
+		  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 1) {?>
+			  <td><h5 class="text-center"><span class="label label-info">Complie Error</span></h5></td>	
+		  <?php }?>
+
+		  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 2) {?>
+			  <td><h5 class="text-center"><span class="label label-danger">Wrong Answer</span></h5></td>	
+		  <?php }?>
+
+		  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 6) {?>
+			  <td><h5 class="text-center"><span class="label label-success">Accept</span></h5></td>	
+		  <?php }?>
+
+	  	  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 404) {?>
+			  <td><h5 class="text-center"><span class="label label-danger">Submit Failed</span></h5></td>	
+		  <?php }?>
+
+		  <td><h5 class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['add_time'];?>
+</h5></td>
         </tr>
-		<?php
+
+    	<?php
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-		</tbody>
-
-		</table>
-	</div>
-
-
+     </tbody> 
+</table>
 </div>
 </div>
-</section>
+</div>
 </body>
 
 </html>

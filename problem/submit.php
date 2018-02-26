@@ -37,6 +37,7 @@ $submit_info = array(
 	'sid' => $sid,
 	'pid' => $pid,
 	'uid' => $uid,
+	'cid' => 0,
 );
 $submit = json_encode($submit_info);
 
