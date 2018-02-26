@@ -1,0 +1,134 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="refresh" content="2">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>OJ_WEB</title>
+	<script src="../bootstrap/jquery-3.2.1.min.js"></script>
+
+    <!-- Bootstrap -->
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap-theme.css" rel="stylesheet">
+	<script src="../bootstrap/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+<!-- dao hang lan -->
+<!-- 导航栏 -->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/oj_web/">OJ</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Head<span class="sr-only">(current)</span></a></li>
+        <li><a href="../problem/index.php">Problem</a></li>
+        <li><a href="#">Contest Status</a></li>
+        <li><a href="../contest/index.php">Contest</a></li>
+        <li><a href="#">Rank</a></li>
+        <li class="dropdown">
+
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Add <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="../problem/add_problem.php">Add Problem</a></li>
+            <li><a href="#">Add Context</a></li>
+            <!-- <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li> -->
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><{$name}></a></li>
+        <li>
+        <{if $is_login == 1}>
+            <a href="../logout.php">退出</a>
+        <{else}>
+            <a href="../login.php"> 注册/登录</a>
+        <{/if}>
+        </li>
+      </ul>
+
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container ">
+<div class="row">
+<div class="col-md9" role="main">
+<p class="lead text-center">
+<h1 class="text-center">Contest Ranklist</h1>
+</p>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th class="text-center">Rank</th>
+			<th class="text-center">Team</th>
+            <th class="text-center">Solved</th>
+			<th class="text-center">Penalty</th>
+			<{foreach key=key item=item from=$problem_list}>
+				<th class="text-center"><{$item.show_pid}></th> 
+			<{/foreach}>
+        </tr>
+    </thead>
+	
+      <tbody>
+	    <{foreach key=key item=item from=$rank}>
+
+        <tr>
+      	  <td><h5 class="text-center"><{$item.rank}></h5></td>
+		  <td><h5 class="text-center"><{$item.user_name}></h5></td>
+		  <td><h5 class="text-center"><{if !isset($item.ac_num)}><{$item.ac_num=0}><{/if}><{$item.ac_num}></h5></td>
+		  <td><h5 class="text-center"><{if !isset($item.time)}><{$item.time=0}><{/if}><{$item.time}></h5></td>
+		
+		  <{foreach key=key1 item=item1 from=$problem_list}>
+			  <{if in_array($item1.show_pid,$pass.<{$key}>)}>
+					<td><h4 class="text-center">
+						<span class="label label-success"><{$pass_time.<{$key}>.<{$item1.show_pid}>}>
+							<{if isset($item.<{$item1.show_pid}>)}>
+								(+<{$item.<{$item1.show_pid}>}>)
+							<{/if}>
+						</span>
+					</h4></td>
+				<{else if in_array($item1.show_pid,$submit.<{$key}>)}>
+					<td>
+						<h4 class="text-center">
+							<span class="label label-danger">(-<{$item.<{$item1.show_pid}>}>)</span>
+						</h4>
+					</td>
+				<{else}><td></td> 
+			 <{/if}>
+		  <{/foreach}>
+        </tr>
+
+    	<{/foreach}>
+     </tbody> 
+</table>
+</div>
+</div>
+</div>
+</body>
+
+</html>
