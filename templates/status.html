@@ -116,6 +116,15 @@
 			  <td><h5 class="text-center"><span class="label label-danger">Wrong Answer</span></h5></td>	
 		  <{/if}>
 
+		  <{if $item.status == 3}>
+			  <td><h5 class="text-center"><span class="label label-danger">Time Limit</span></h5></td>	
+		  <{/if}>
+
+		  <{if $item.status == 4}>
+			  <td><h5 class="text-center"><span class="label label-danger">Memory Limit</span></h5></td>	
+		  <{/if}>
+
+
 		  <{if $item.status == 6}>
 			  <td><h5 class="text-center"><span class="label label-success">Accept</span></h5></td>	
 		  <{/if}>

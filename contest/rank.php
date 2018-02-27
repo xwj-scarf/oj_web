@@ -72,6 +72,7 @@ if (isset($_SESSION['user_name'])) {
     $user_name = $_SESSION['user_name'];
 }
 
+$smarty->assign('cid',$cid);
 $smarty->assign('pass',$pass);
 $smarty->assign('is_login',$is_login);
 $smarty->assign('name',$user_name);

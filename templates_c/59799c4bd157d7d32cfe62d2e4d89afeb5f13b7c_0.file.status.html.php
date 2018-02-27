@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-24 17:17:51
+/* Smarty version 3.1.32-dev-38, created on 2018-02-26 16:51:48
   from '/home/oj_web/templates/status.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a912dbfa31578_77773284',
+  'unifunc' => 'content_5a93caa4193017_26429003',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '59799c4bd157d7d32cfe62d2e4d89afeb5f13b7c' => 
     array (
       0 => '/home/oj_web/templates/status.html',
-      1 => 1519463770,
+      1 => 1519635102,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a912dbfa31578_77773284 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a93caa4193017_26429003 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -153,6 +153,15 @@ foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_var
 		  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 2) {?>
 			  <td><h5 class="text-center"><span class="label label-danger">Wrong Answer</span></h5></td>	
 		  <?php }?>
+
+		  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 3) {?>
+			  <td><h5 class="text-center"><span class="label label-danger">Time Limit</span></h5></td>	
+		  <?php }?>
+
+		  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 4) {?>
+			  <td><h5 class="text-center"><span class="label label-danger">Memory Limit</span></h5></td>	
+		  <?php }?>
+
 
 		  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 6) {?>
 			  <td><h5 class="text-center"><span class="label label-success">Accept</span></h5></td>	

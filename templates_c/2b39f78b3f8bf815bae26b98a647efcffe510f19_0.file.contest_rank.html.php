@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-26 16:41:01
+/* Smarty version 3.1.32-dev-38, created on 2018-02-26 16:45:04
   from '/home/oj_web/templates/contest_rank.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a93c81d8a1773_45700994',
+  'unifunc' => 'content_5a93c910e0e997_83832775',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2b39f78b3f8bf815bae26b98a647efcffe510f19' => 
     array (
       0 => '/home/oj_web/templates/contest_rank.html',
-      1 => 1519634461,
+      1 => 1519634703,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a93c81d8a1773_45700994 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a93c910e0e997_83832775 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -63,7 +63,8 @@ function content_5a93c81d8a1773_45700994 (Smarty_Internal_Template $_smarty_tpl)
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Head<span class="sr-only">(current)</span></a></li>
         <li><a href="../problem/index.php">Problem</a></li>
-        <li><a href="#">Contest Status</a></li>
+        <li><a href="../contest/status.php?cid=<?php echo $_smarty_tpl->tpl_vars['cid']->value;?>
+">Contest Status</a></li>
         <li><a href="../contest/index.php">Contest</a></li>
         <li><a href="#">Rank</a></li>
         <li class="dropdown">
