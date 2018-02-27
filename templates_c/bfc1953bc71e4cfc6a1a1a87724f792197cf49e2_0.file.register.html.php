@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-26 16:20:34
+/* Smarty version 3.1.32-dev-38, created on 2018-02-27 13:50:08
   from '/home/oj_web/templates/register.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a93c352641100_57895207',
+  'unifunc' => 'content_5a94f1902bc225_21150600',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'bfc1953bc71e4cfc6a1a1a87724f792197cf49e2' => 
     array (
       0 => '/home/oj_web/templates/register.html',
-      1 => 1519460271,
+      1 => 1519710606,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a93c352641100_57895207 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a94f1902bc225_21150600 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -70,7 +70,7 @@ e">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Add <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="./problem/add_problem.php">Add Problem</a></li>
-            <li><a href="#">Add Context</a></li>
+            <li><a href="./contest/add_contest.php">Add Context</a></li>
             <!-- <li role="separator" class="divider"></li>
             <li><a href="#">Separated link</a></li>
             <li role="separator" class="divider"></li>
@@ -86,13 +86,14 @@ e">
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">{$name}</a></li>
+        <li><a href="#"><?php echo $_smarty_tpl->tpl_vars['name']->value;?>
+</a></li>
         <li>
-        {if $is_login == 1}
+        <?php if ($_smarty_tpl->tpl_vars['is_login']->value == 1) {?>
             <a href="logout.php">退出</a>
-        {else}
+        <?php } else { ?>
             <a href="login.php"> 注册/登录</a>
-        {/if}
+        <?php }?>
         </li>
       </ul>
     </div><!-- /.navbar-collapse -->

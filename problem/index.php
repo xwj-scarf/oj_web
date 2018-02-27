@@ -22,6 +22,9 @@ while($row = mysqli_fetch_assoc($result)) {//mysqli_fetch_array
     $data[] = $row;
 }
 
+@file_put_contents('/tmp/weijun.log',var_export($data,true)."\n",FILE_APPEND);
+@file_put_contents('/tmp/weijun.log',var_export(count($data),true)."\n",FILE_APPEND);
+
 if ($data) {
 	foreach($data as $k => $v) {
 		if ($v['total_num'] != 0) {

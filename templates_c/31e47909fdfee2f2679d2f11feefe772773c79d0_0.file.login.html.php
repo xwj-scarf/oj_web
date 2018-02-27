@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-24 17:50:17
+/* Smarty version 3.1.32-dev-38, created on 2018-02-27 13:59:29
   from '/home/oj_web/templates/login.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a91355970d995_00847973',
+  'unifunc' => 'content_5a94f3c1b9fd13_23462424',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '31e47909fdfee2f2679d2f11feefe772773c79d0' => 
     array (
       0 => '/home/oj_web/templates/login.html',
-      1 => 1519460191,
+      1 => 1519710706,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a91355970d995_00847973 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a94f3c1b9fd13_23462424 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -69,7 +69,7 @@ e">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Add <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="./problem/add_problem.php">Add Problem</a></li>
-            <li><a href="#">Add Context</a></li>
+            <li><a href="./contest/add_contest.php">Add Context</a></li>
             <!-- <li role="separator" class="divider"></li>
             <li><a href="#">Separated link</a></li>
             <li role="separator" class="divider"></li>
@@ -85,7 +85,8 @@ e">
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">{$name}</a></li>
+        <li><a href="#"><?php echo $_smarty_tpl->tpl_vars['name']->value;?>
+</a></li>
         <li>
         <?php if ($_smarty_tpl->tpl_vars['is_login']->value == 1) {?>
             <a href="logout.php">退出</a>
