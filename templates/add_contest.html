@@ -79,17 +79,28 @@
 	
 	<form>
 	  <div class="form-group">
-		<label>Contest Name</label>
+		<label><h4>Contest Name</h4></label>
 		<input class="form-control" placeholder="Contest Name" name="contest_name">
 	  </div>
 
-		<label>Type</label>
-	  <div class="checkbox">
+		<div class="form-group">	
+		<label><h4> Type</h4> </label>
+		<div class="radio">
+		  <label>
+			<input type="radio" name="is_show" id="optionsRadios1" value="1" checked>
+				公开
+		  </label>
+		</div>
+		<div class="radio">
 		<label>
-		  <input type="checkbox"> Check me out
+			<input type="radio" name="is_show" id="optionsRadios2" value="0">
+				私有
 		</label>
-	  </div>
-	  <button type="submit" class="btn btn-default">Submit</button>
+		</div>
+		</div>
+
+
+	 	<button type="submit" class="btn btn-default">Submit</button>
 	</form>
 
 </div>
