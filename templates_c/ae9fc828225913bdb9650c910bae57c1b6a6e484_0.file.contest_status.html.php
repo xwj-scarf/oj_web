@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-26 16:58:34
+/* Smarty version 3.1.32-dev-38, created on 2018-02-27 17:52:07
   from '/home/oj_web/templates/contest_status.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a93cc3a634097_49791770',
+  'unifunc' => 'content_5a952a473095e9_39269385',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ae9fc828225913bdb9650c910bae57c1b6a6e484' => 
     array (
       0 => '/home/oj_web/templates/contest_status.html',
-      1 => 1519635512,
+      1 => 1519724787,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a93cc3a634097_49791770 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a952a473095e9_39269385 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -72,7 +72,7 @@ function content_5a93cc3a634097_49791770 (Smarty_Internal_Template $_smarty_tpl)
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Add <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="../problem/add_problem.php">Add Problem</a></li>
-            <li><a href="#">Add Context</a></li>
+            <li><a href="../contest/add_contest.php">Add Context</a></li>
             <!-- <li role="separator" class="divider"></li>
             <li><a href="#">Separated link</a></li>
             <li role="separator" class="divider"></li>
@@ -163,6 +163,11 @@ foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_var
           <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 4) {?>
               <td><h5 class="text-center"><span class="label label-danger">Memory Limit</span></h5></td>
           <?php }?>
+
+          <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 5) {?>
+              <td><h5 class="text-center"><span class="label label-danger">RunTime Error</span></h5></td>
+          <?php }?>
+
 
 		  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 6) {?>
 			  <td><h5 class="text-center"><span class="label label-success">Accept</span></h5></td>	

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-27 13:59:15
+/* Smarty version 3.1.32-dev-38, created on 2018-02-27 17:34:11
   from '/home/oj_web/templates/add_contest.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a94f3b370e920_58259986',
+  'unifunc' => 'content_5a9526131275a1_61616861',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd603940b2c52c382d9cc9487d97492dd8720cd67' => 
     array (
       0 => '/home/oj_web/templates/add_contest.html',
-      1 => 1519711153,
+      1 => 1519724049,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a94f3b370e920_58259986 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a9526131275a1_61616861 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -107,17 +107,26 @@ function content_5a94f3b370e920_58259986 (Smarty_Internal_Template $_smarty_tpl)
 	
 	<form>
 	  <div class="form-group">
-		<label>Contest Name</label>
+		<label><h4>Contest Name</h4></label>
 		<input class="form-control" placeholder="Contest Name" name="contest_name">
 	  </div>
 
-		<label>Type</label>
-	  <div class="checkbox">
+		<div class="form-group">	
+		<label><h4> Type</h4> </label>
+		<div class="radio">
+		  <label>
+			<input type="radio" name="is_show" id="optionsRadios1" value="1" checked>
+				公开
+		  </label>
+		</div>
+		<div class="radio">
 		<label>
-		  <input type="checkbox"> Check me out
+			<input type="radio" name="is_show" id="optionsRadios2" value="0">
+				私有
 		</label>
-	  </div>
-	  <button type="submit" class="btn btn-default">Submit</button>
+		</div>
+		</div>
+	 	<button type="submit" class="btn btn-default">Submit</button>
 	</form>
 
 </div>

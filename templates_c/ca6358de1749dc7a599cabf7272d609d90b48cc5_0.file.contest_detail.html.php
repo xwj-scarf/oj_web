@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-26 11:45:44
+/* Smarty version 3.1.32-dev-38, created on 2018-02-27 17:51:41
   from '/home/oj_web/templates/contest_detail.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a9382e83f9b33_24029171',
+  'unifunc' => 'content_5a952a2d151807_70085480',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ca6358de1749dc7a599cabf7272d609d90b48cc5' => 
     array (
       0 => '/home/oj_web/templates/contest_detail.html',
-      1 => 1519616714,
+      1 => 1519710812,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a9382e83f9b33_24029171 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a952a2d151807_70085480 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -72,7 +72,7 @@ function content_5a9382e83f9b33_24029171 (Smarty_Internal_Template $_smarty_tpl)
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Add <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="../problem/add_problem.php">Add Problem</a></li>
-            <li><a href="#">Add Context</a></li>
+            <li><a href="../contest/add_contest.php">Add Context</a></li>
             <!-- <li role="separator" class="divider"></li>
             <li><a href="#">Separated link</a></li>
             <li role="separator" class="divider"></li>

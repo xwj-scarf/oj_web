@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-27 13:47:54
+/* Smarty version 3.1.32-dev-38, created on 2018-02-27 17:46:32
   from '/home/oj_web/templates/status.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a94f10a636539_38462275',
+  'unifunc' => 'content_5a9528f8b004c1_37159007',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '59799c4bd157d7d32cfe62d2e4d89afeb5f13b7c' => 
     array (
       0 => '/home/oj_web/templates/status.html',
-      1 => 1519710306,
+      1 => 1519724761,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a94f10a636539_38462275 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a9528f8b004c1_37159007 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -162,6 +162,9 @@ foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_var
 			  <td><h5 class="text-center"><span class="label label-danger">Memory Limit</span></h5></td>	
 		  <?php }?>
 
+		  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 5) {?>
+			  <td><h5 class="text-center"><span class="label label-danger">RunTime Error</span></h5></td>	
+		  <?php }?>
 
 		  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 6) {?>
 			  <td><h5 class="text-center"><span class="label label-success">Accept</span></h5></td>	
