@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-27 17:34:11
+/* Smarty version 3.1.32-dev-38, created on 2018-02-28 13:59:10
   from '/home/oj_web/templates/add_contest.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a9526131275a1_61616861',
+  'unifunc' => 'content_5a96452ed4aea9_43125157',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd603940b2c52c382d9cc9487d97492dd8720cd67' => 
     array (
       0 => '/home/oj_web/templates/add_contest.html',
-      1 => 1519724049,
+      1 => 1519797534,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a9526131275a1_61616861 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a96452ed4aea9_43125157 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -105,7 +105,7 @@ function content_5a9526131275a1_61616861 (Smarty_Internal_Template $_smarty_tpl)
 <div class="rows">
 <div class="col-md-9" role="main">
 	
-	<form>
+	<form method="post">
 	  <div class="form-group">
 		<label><h4>Contest Name</h4></label>
 		<input class="form-control" placeholder="Contest Name" name="contest_name">
@@ -126,7 +126,26 @@ function content_5a9526131275a1_61616861 (Smarty_Internal_Template $_smarty_tpl)
 		</label>
 		</div>
 		</div>
-	 	<button type="submit" class="btn btn-default">Submit</button>
+
+
+		
+		<div class="form-inline">
+			  <div class="form-group">
+				<label><h5>开始时间</h5></label>
+					<input type="text" class="form-control" name="start_time" placeholder="Y-m-d H:i:s">
+			  </div>
+			<div class="form-group">
+				<label><h5>结束时间</h5></label>
+					<input type="text" class="form-control" name="end_time" placeholder="Y-m-d H:i:s">
+			</div>
+		</div>
+
+		<div id="add" class="form-group">
+			<input id="problem_count" class="btn btn-default" type="button" value="添加题目" onclick="add_problem()"></input>
+		</div>
+	
+		<br>
+	 	<button type="submit" class="btn btn-default">Submit</button> 
 	</form>
 
 </div>
@@ -134,6 +153,20 @@ function content_5a9526131275a1_61616861 (Smarty_Internal_Template $_smarty_tpl)
 </div>
 </body>
 
+<?php echo '<script'; ?>
+>
+var counter = 0;
+function add_problem() {
+	counter ++;
+	var tr;
+	var name = "title" + counter;
+	tr ='<br><input class="form-group" type="text" ' + 'name=' + name + "> </input>"; 
+	$("#add").append(tr);
+}
+<?php echo '</script'; ?>
+>
 </html>
+
+
 <?php }
 }

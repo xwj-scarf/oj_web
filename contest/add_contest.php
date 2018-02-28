@@ -4,6 +4,47 @@ require_once (dirname(dirname(__FILE__)) . "/include/include.php");
 
 $smarty = new Smarty_Oj();
 
+if (!empty($_REQUEST)) {
+
+	@file_put_contents('/tmp/weijun.log',var_export($_REQUEST,true)."\n",FILE_APPEND);
+
+	$contest_name = $_REQUEST['contest_name'];
+	$is_show = $_REQUEST['is_show'];
+	$start_time = $_REQUEST['start_time'];
+	$end_time = $_REQUEST['end_time'];
+
+	if (empty($contest_name)) {
+        echo "<script> alert('Contest名称不能为空');</script>";
+        echo "<meta http-equiv='Refresh' content='0;URL=./add_contest.php'>";
+        exit;
+	}
+
+	if (empty($start_time) || empty($end_time)) {
+        echo "<script> alert('开始时间或结束时间不能为空');</script>";
+        echo "<meta http-equiv='Refresh' content='0;URL=./add_contest.php'>";
+        exit;
+	}
+	
+	if (!checkDateValid($start_time) || !checkDateValid($end_time)) {
+		echo "<script> alert('开始时间或结束时间格式错误');</script>";
+        echo "<meta http-equiv='Refresh' content='0;URL=./add_contest.php'>";
+        exit;
+	}
+
+	if (strtotime($start_time) > strtotime($end_time)) {
+		echo "<script> alert('结束时间早于开始时间');</script>";
+        echo "<meta http-equiv='Refresh' content='0;URL=./add_contest.php'>";
+        exit;
+	}
+
+	if (count($_REQUEST) <= 4) {
+		echo "<script> alert('请添加题目');</script>";
+        echo "<meta http-equiv='Refresh' content='0;URL=./add_contest.php'>";
+        exit;
+	}
+
+			
+}
 
 /*
 //连接数据库
@@ -44,7 +85,6 @@ if ($data) {
     }
 }
 */
-//@file_put_contents('/tmp/weijun.log',var_export($data,true)."\n",FILE_APPEND);
 
 $is_login = 0;
 if (isset($_SESSION['is_login'])) {
