@@ -1,6 +1,6 @@
 <?php
 
-class mysql
+class Db
 {
 	private $mysqli;
 	private $result;

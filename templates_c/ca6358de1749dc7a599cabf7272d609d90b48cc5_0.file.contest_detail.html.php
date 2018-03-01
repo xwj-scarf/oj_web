@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-27 17:51:41
+/* Smarty version 3.1.32-dev-38, created on 2018-03-01 14:32:08
   from '/home/oj_web/templates/contest_detail.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a952a2d151807_70085480',
+  'unifunc' => 'content_5a979e68a212f6_67103696',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ca6358de1749dc7a599cabf7272d609d90b48cc5' => 
     array (
       0 => '/home/oj_web/templates/contest_detail.html',
-      1 => 1519710812,
+      1 => 1519885833,
       2 => 'file',
     ),
   ),
@@ -20,17 +20,16 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a952a2d151807_70085480 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a979e68a212f6_67103696 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
+<head> <meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <title>OJ_WEB</title>
 	<?php echo '<script'; ?>
  src="../bootstrap/jquery-3.2.1.min.js"><?php echo '</script'; ?>
 >
-
+    <meta http-equiv="refresh" content="60">
     <!-- Bootstrap -->
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../bootstrap/css/bootstrap-theme.css" rel="stylesheet">
@@ -108,10 +107,29 @@ function content_5a952a2d151807_70085480 (Smarty_Internal_Template $_smarty_tpl)
 <div class="row">
 <div class="col-md9" role="main"> 
 
-<p >
+<p>
 <h1 class="text-center"><?php echo $_smarty_tpl->tpl_vars['contest_name']->value;?>
+
+<?php if ($_smarty_tpl->tpl_vars['time_rate']->value == 100) {?>(已结束)
+<?php }?>
 </h1>
 </p>
+
+<div class="row">
+<div class="col-md-6">
+<h4>开始时间: <?php echo $_smarty_tpl->tpl_vars['start_time']->value;?>
+</h4></div>
+<div class=" pull-right">
+<h4>结束时间: <?php echo $_smarty_tpl->tpl_vars['end_time']->value;?>
+</h4></div>
+</div>
+
+<div class="progress">
+  <div class="progress-bar progress-bar-striped progress-bar-success active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $_smarty_tpl->tpl_vars['time_rate']->value;?>
+%">
+    <span class="sr-only"></span>
+  </div>
+</div>
 
 <table class="table table-striped">
 	<thead>

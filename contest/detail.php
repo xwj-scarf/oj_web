@@ -29,6 +29,21 @@ if ($data) {
         }
     }
 }
+
+$result = $conn->query("select start_time,end_time from contest_info where contest_id = '{$cid}'");
+$tmp = [];
+while($row = mysqli_fetch_assoc($result)) {
+	$tmp[] = $row;
+}
+
+$now = strtotime(date('Y-m-d H:i:s'));
+if ($now >= $tmp[0]['end_time']) {
+	$time_rate = 100;
+} else {	
+	$time_rate = round(($now-$tmp[0]['start_time']) / ($tmp[0]['end_time']-$tmp[0]['start_time'])*100);
+}
+
+$smarty->assign('time_rate',$time_rate);
 $smarty->assign('contest_name',$cname);
 $smarty->assign('data',$data);
 $is_login = 0;
@@ -44,10 +59,12 @@ if (isset($_SESSION['user_name'])) {
 if (in_array($_SESSION['user_name'],$admin_arr)) {
     $smarty->assign('is_admin',1);
 }
+
+$smarty->assign('start_time',date('Y-m-d H:i:s',$tmp[0]['start_time']));
+$smarty->assign('end_time',date('Y-m-d H:i:s',$tmp[0]['end_time']));
 $smarty->assign('cid',$cid);
 $smarty->assign('is_login',$is_login);
 $smarty->assign('name',$user_name);
-//$smarty->assign('problem_id',$pid);
 $smarty->display('contest_detail.html');
 
 ?>
