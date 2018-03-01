@@ -6,17 +6,9 @@ $smarty = new Smarty_Oj();
 
 
 //连接数据库
-$conn = mysqli_connect($db_config['db_host'],$db_config['db_user'],$db_config['db_password'],$db_config['db_name']) or die('连接数据库失败！');
-mysqli_set_charset($conn,"utf8");
-
-
+$conn = new Db();
 //查询数据库
-$result = $conn->query("SELECT * FROM contest_info");
-
-$data = [];
-while($row = mysqli_fetch_assoc($result)) {//mysqli_fetch_array
-    $data[] = $row;
-}
+$data = $conn->query("SELECT * FROM contest_info");
 
 $type_arr = array(
 	0 => "公开",

@@ -11,26 +11,21 @@ if (!isset($_SESSION['user_name']) || empty($_SESSION['user_name'])) {
 	exit;
 }
 
-//连接数据库
-$conn = mysqli_connect($db_config['db_host'],$db_config['db_user'],$db_config['db_password'],$db_config['db_name']) or die('连接数据库失败！');
-mysqli_set_charset($conn,"utf8");
-
+$conn = new Db();
 $redis = new Redis();
 $redis->connect('127.0.0.1',6379);
 
 $code = json_encode($submit_code);
 
-
 $now = strtotime(date('Y-m-d H:i:s'));
 $conn->query("insert into submit_info (uid,pid,status,time_use,memory_use,add_time,update_time) values('{$_SESSION['user_id']}','{$_REQUEST['problem_id']}',0,0,0,'{$now}','{$now}')");
 
-$sid = $conn->insert_id;
+$sid = $conn->getInsertId();
 
 $conn->query("update problem_info set total_num = total_num + 1 where pid = '{$_REQUEST['problem_id']}'");
 
 $pid = intval($_REQUEST['problem_id']);
 $uid = intval($_SESSION['user_id']);
-
 
 $submit_info = array(
 	'code' => $_REQUEST['submit_code'],

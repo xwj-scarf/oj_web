@@ -60,9 +60,7 @@ if (!empty($_REQUEST)) {
 	$sample_input = str_replace("\n","<br>",$sample_input);
 	$sample_output = str_replace("\n","<br>",$sample_output);
 
-	$conn = mysqli_connect($db_config['db_host'],$db_config['db_user'],$db_config['db_password'],$db_config['db_name']) or die('连接数据库失败！');
-    mysqli_set_charset($conn,"utf8");
-
+	$conn = new Db();
 	$conn->begin_transaction();
 
 	$result = $conn->query("insert into problem_info (problem_name,problem_description,time_limit,memory_limit,input,output,problem_sample_input,problem_sample_output) 
@@ -75,7 +73,7 @@ if (!empty($_REQUEST)) {
         exit;	
 	}
 
-	$pid = $conn->insert_id;
+	$pid = $conn->getInsertId();
 
 	$file_path = PROBLEM_IOP_PATH . $pid;
 	//文件夹已经有了

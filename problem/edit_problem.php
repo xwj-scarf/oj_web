@@ -6,10 +6,7 @@ require_once(dirname(dirname(__FILE__)) . "/include/include.php");
 
 $smarty = new Smarty_Oj();
 
-//连接数据库
-$conn = mysqli_connect($db_config['db_host'],$db_config['db_user'],$db_config['db_password'],$db_config['db_name']) or die('连接数据库失败！');
-mysqli_set_charset($conn,"utf8");
-
+$conn = new Db();
 
 //@file_put_contents('/tmp/weijun.log',var_export($_REQUEST,true)."\n",FILE_APPEND);
 if (isset($_REQUEST['op']) && !empty($_REQUEST['op'])) {
@@ -33,12 +30,7 @@ if (isset($_REQUEST['op']) && !empty($_REQUEST['op'])) {
 	
 }
 
-//查询数据库
-$result = mysqli_query($conn, "SELECT * FROM problem_info where pid = '{$pid}'");
-$tmp_data = [];
-while($row = mysqli_fetch_assoc($result)) {//mysqli_fetch_array
-    $tmp_data[] = $row;
-}
+$tmp_data = $conn->query("SELECT * FROM problem_info where pid = '{$pid}'");
 
 $data = array(
     'problem_name' => $tmp_data[0]['problem_name'],

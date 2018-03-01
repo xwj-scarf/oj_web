@@ -56,15 +56,11 @@ if (!empty($_REQUEST)) {
 	}
 
 	//连接数据库
-	$conn = mysqli_connect($db_config['db_host'],$db_config['db_user'],$db_config['db_password'],$db_config['db_name']) or die('连接数据库失败！');
-	mysqli_set_charset($conn,"utf8");
+	$conn = new Db();
 
 	foreach($problem_id as $k => $v) {
 		$data = [];
-		$result = $conn->query("select pid,problem_name from problem_info where pid = '{$v}'");
-		while($row = mysqli_fetch_assoc($result)) {
-			$data[] = $row;
-		}
+		$data = $conn->query("select pid,problem_name from problem_info where pid = '{$v}'");
 		if (empty($data) || count($data) <= 0) {
 			echo "<script> alert('请确认题目id是否正确');</script>";
 			echo "<meta http-equiv='Refresh' content='0;URL=./add_contest.php'>";
@@ -81,7 +77,7 @@ if (!empty($_REQUEST)) {
 
 	$conn->query($sql);
 	
-	$cid = $conn->insert_id;
+	$cid = $conn->getInsertId();
 
 	foreach($problem_id as $k => $v) {
 		$show_pid = $k + 1000;

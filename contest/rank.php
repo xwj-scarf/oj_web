@@ -6,29 +6,16 @@ require_once (dirname(dirname(__FILE__)) . "/include/include.php");
 $smarty = new Smarty_Oj();
 
 //连接数据库
-$conn = mysqli_connect($db_config['db_host'],$db_config['db_user'],$db_config['db_password'],$db_config['db_name']) or die('连接数据库失败！');
-mysqli_set_charset($conn,"utf8");
+$conn = new Db();
 
+$data = $conn->query("select start_time from contest_info where contest_id = '{$cid}'");
 
-$result = $conn->query("select start_time from contest_info where contest_id = '{$cid}'");
-$data = [];
-while($row = mysqli_fetch_assoc($result)) {
-	$data[] = $row;
-}
 $start_time = $data[0]['start_time'];
 
 //查询数据库
-$result = $conn->query("SELECT a.id,a.contest_id,a.uid,a.pid,a.status,a.add_time,b.user_name FROM contest_submit_info a,user_info b where contest_id = '{$cid}' and a.uid = b.id order by a.id");
+$data = $conn->query("SELECT a.id,a.contest_id,a.uid,a.pid,a.status,a.add_time,b.user_name FROM contest_submit_info a,user_info b where contest_id = '{$cid}' and a.uid = b.id order by a.id");
 
-$data = [];
-while($row = mysqli_fetch_assoc($result)) {//mysqli_fetch_array
-    $data[] = $row;
-}
-
-$result = $conn->query("select show_pid from contest_problem_info where contest_id = '{$cid}'");
-while($row = mysqli_fetch_assoc($result)) {
-	$problem_list[] = $row;
-}
+$problem_list = $conn->query("select show_pid from contest_problem_info where contest_id = '{$cid}'");
 
 $pass = array();   //user => array()
 $submit = array();

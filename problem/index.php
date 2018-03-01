@@ -4,26 +4,13 @@ require_once (dirname(dirname(__FILE__)) . "/include/include.php");
 
 $smarty = new Smarty_Oj();
 
+$conn = new Db();
 
-//连接数据库
-$conn = mysqli_connect($db_config['db_host'],$db_config['db_user'],$db_config['db_password'],$db_config['db_name']) or die('连接数据库失败！');
-mysqli_set_charset($conn,"utf8");
-
-
-//查询数据库
 if (in_array($_SESSION['user_name'],$admin_arr)) {
-    $result = mysqli_query($conn, "SELECT * FROM problem_info");
+    $data = $conn->query("SELECT * FROM problem_info");
 } else {
-	$result = mysqli_query($conn, "SELECT * FROM problem_info where is_show = 1");
+	$data = $conn->query("SELECT * FROM problem_info where is_show = 1");
 }
-
-$data = [];
-while($row = mysqli_fetch_assoc($result)) {//mysqli_fetch_array
-    $data[] = $row;
-}
-
-@file_put_contents('/tmp/weijun.log',var_export($data,true)."\n",FILE_APPEND);
-@file_put_contents('/tmp/weijun.log',var_export(count($data),true)."\n",FILE_APPEND);
 
 if ($data) {
 	foreach($data as $k => $v) {

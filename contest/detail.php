@@ -8,16 +8,9 @@ require_once (dirname(dirname(__FILE__)) . "/include/include.php");
 $smarty = new Smarty_Oj();
 
 //连接数据库
-$conn = mysqli_connect($db_config['db_host'],$db_config['db_user'],$db_config['db_password'],$db_config['db_name']) or die('连接数据库失败！');
-mysqli_set_charset($conn,"utf8");
-
+$conn = new Db();
 //查询数据库
-$result = $conn->query("SELECT * FROM contest_problem_info where contest_id = '{$cid}'");
-
-$data = [];
-while($row = mysqli_fetch_assoc($result)) {//mysqli_fetch_array
-    $data[] = $row;
-}
+$data = $conn->query("SELECT * FROM contest_problem_info where contest_id = '{$cid}'");
 
 if ($data) {
     foreach($data as $k => $v) {
@@ -30,11 +23,7 @@ if ($data) {
     }
 }
 
-$result = $conn->query("select start_time,end_time from contest_info where contest_id = '{$cid}'");
-$tmp = [];
-while($row = mysqli_fetch_assoc($result)) {
-	$tmp[] = $row;
-}
+$tmp = $conn->query("select start_time,end_time from contest_info where contest_id = '{$cid}'");
 
 $now = strtotime(date('Y-m-d H:i:s'));
 if ($now >= $tmp[0]['end_time']) {

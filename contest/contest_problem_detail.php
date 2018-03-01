@@ -7,20 +7,13 @@ require_once (dirname(dirname(__FILE__)) . "/include/include.php");
 
 $smarty = new Smarty_Oj();
 
-//连接数据库
-$conn = mysqli_connect($db_config['db_host'],$db_config['db_user'],$db_config['db_password'],$db_config['db_name']) or die('连接数据库失败！');
-mysqli_set_charset($conn,"utf8");
+$conn = new Db();
 
 //查询数据库
-$result = $conn->query( "SELECT a.problem_name,a.problem_description,a.problem_sample_input,a.problem_sample_output,
+$tmp_data = $conn->query( "SELECT a.problem_name,a.problem_description,a.problem_sample_input,a.problem_sample_output,
 								a.time_limit,a.memory_limit,a.input,a.output  FROM problem_info a,contest_problem_info b
 								where
 								b.contest_id = '{$cid}' and b.show_pid = '{$pid}' and b.pid = a.pid ");
-
-$tmp_data = [];
-while($row = mysqli_fetch_assoc($result)) {//mysqli_fetch_array
-    $tmp_data[] = $row;
-}
 
 $data = array(
     'problem_name' => $tmp_data[0]['problem_name'],
