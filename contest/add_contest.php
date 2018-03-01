@@ -1,8 +1,5 @@
 <?php
-
 require_once (dirname(dirname(__FILE__)) . "/include/include.php");
-
-$smarty = new Smarty_Oj();
 
 if (!empty($_REQUEST)) {
 
@@ -37,54 +34,65 @@ if (!empty($_REQUEST)) {
         exit;
 	}
 
+	//这里不好
 	if (count($_REQUEST) <= 4) {
 		echo "<script> alert('请添加题目');</script>";
         echo "<meta http-equiv='Refresh' content='0;URL=./add_contest.php'>";
         exit;
 	}
 
-			
-}
+	$problem_num = count($_REQUEST) - 4;
+	$problem_id = array();
 
-/*
-//连接数据库
-$conn = mysqli_connect($db_config['db_host'],$db_config['db_user'],$db_config['db_password'],$db_config['db_name']) or die('连接数据库失败！');
-mysqli_set_charset($conn,"utf8");
-
-
-//查询数据库
-$result = $conn->query("SELECT * FROM contest_info");
-
-$data = [];
-while($row = mysqli_fetch_assoc($result)) {//mysqli_fetch_array
-    $data[] = $row;
-}
-
-$type_arr = array(
-	0 => "公开",
-	1 => "私有",
-);
-
-$now = strtotime(date('Y-m-d H:i:s'));
-
-if ($data) {
-    foreach($data as $k => $v) {
-		//@file_put_contents('/tmp/weijun.log',var_export($type_arr['0'],true)."\n",FILE_APPEND);
-
-		$data[$k]['type'] = $type_arr[$v['type']];
-		$data[$k]['start_time'] = date('Y-m-d H:i:s',$v['start_time']);
-		$data[$k]['end_time'] = date('Y-m-d H:i:s',$v['end_time']);
-
-		if ($now > $v['end_time']) {
-			$data[$k]['status'] = "已结束";
-		} else if ($now < $v['end_time'] && $now > $v['start_time']) {
-			$data[$k]['status'] = "进行中";
-		} else {
-			$data[$k]['status'] = "未开始";
+	for ($i = 1;$i<=$problem_num;$i++) {
+		$tmp = "title" . $i;
+		$title = $_REQUEST[$tmp];
+		if (!is_numeric($title)) {
+			echo "<script> alert('请确认题目id是否包含非数字字符');</script>";
+			echo "<meta http-equiv='Refresh' content='0;URL=./add_contest.php'>";
+			exit;
 		}
-    }
+		$problem_id[] = $title;		
+	}
+
+	//连接数据库
+	$conn = mysqli_connect($db_config['db_host'],$db_config['db_user'],$db_config['db_password'],$db_config['db_name']) or die('连接数据库失败！');
+	mysqli_set_charset($conn,"utf8");
+
+	foreach($problem_id as $k => $v) {
+		$data = [];
+		$result = $conn->query("select pid,problem_name from problem_info where pid = '{$v}'");
+		while($row = mysqli_fetch_assoc($result)) {
+			$data[] = $row;
+		}
+		if (empty($data) || count($data) <= 0) {
+			echo "<script> alert('请确认题目id是否正确');</script>";
+			echo "<meta http-equiv='Refresh' content='0;URL=./add_contest.php'>";
+			exit;
+		}
+	}
+	@file_put_contents('/tmp/weijun.log',var_export($data,true)."\n",FILE_APPEND);
+
+	$now = strtotime(date('Y-m-d H:i:s'));
+	$start_time = strtotime($start_time);
+	$end_time = strtotime($end_time);
+	$sql = "insert into contest_info (contest_name,add_time,start_time,end_time,type) values ('{$contest_name}','{$now}','{$start_time}','{$end_time}','{$is_show}') ";
+	
+
+	$conn->query($sql);
+	
+	$cid = $conn->insert_id;
+
+	foreach($problem_id as $k => $v) {
+		$show_pid = $k + 1000;
+		$conn->query("insert into contest_problem_info (contest_id, pid, problem_name,show_pid,total_num,ac_num) values('{$cid}','{$data[$v-1]['pid']}','{$data[$v-1]['problem_name']}',
+						'{$show_pid}','0','0')");
+	}
+	@file_put_contents('/tmp/weijun.log',var_export($problem_id,true)."\n",FILE_APPEND);
+				
 }
-*/
+
+$smarty = new Smarty_Oj();
 
 $is_login = 0;
 if (isset($_SESSION['is_login'])) {
@@ -97,7 +105,7 @@ if (isset($_SESSION['user_name'])) {
 }
 $smarty->assign('is_login',$is_login);
 $smarty->assign('name',$user_name);
-$smarty->assign('data',$data);
+//$smarty->assign('data',$data);
 
 $smarty->display('add_contest.html');
 

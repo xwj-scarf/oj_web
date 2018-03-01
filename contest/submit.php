@@ -17,7 +17,7 @@ if (!isset($_SESSION['user_name']) || empty($_SESSION['user_name'])) {
 $conn = mysqli_connect($db_config['db_host'],$db_config['db_user'],$db_config['db_password'],$db_config['db_name']) or die('连接数据库失败！');
 mysqli_set_charset($conn,"utf8");
 
-$result = $conn->query("select end_time from contest_info where contest_id = '{$cid}'");
+$result = $conn->query("select start_time,end_time from contest_info where contest_id = '{$cid}'");
 
 
 $tmp_data = [];
@@ -29,6 +29,10 @@ $now = strtotime(date('Y-m-d H:i:s'));
 if ($tmp_data) {
 	if ($tmp_data[0]['end_time'] <= $now) {
 		echo "<script> alert('比赛已结束'); </script>";
+		echo "<meta http-equiv='Refresh' content='0;URL=/oj_web/contest/index.php'>";
+		exit;	
+	} else if ($tmp_data[0]['start_time'] > $now) {
+		echo "<script> alert('比赛尚未开始'); </script>";
 		echo "<meta http-equiv='Refresh' content='0;URL=/oj_web/contest/index.php'>";
 		exit;	
 	}

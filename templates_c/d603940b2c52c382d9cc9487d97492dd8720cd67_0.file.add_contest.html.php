@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-28 13:59:10
+/* Smarty version 3.1.32-dev-38, created on 2018-03-01 10:23:00
   from '/home/oj_web/templates/add_contest.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a96452ed4aea9_43125157',
+  'unifunc' => 'content_5a976404686ec7_85749730',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd603940b2c52c382d9cc9487d97492dd8720cd67' => 
     array (
       0 => '/home/oj_web/templates/add_contest.html',
-      1 => 1519797534,
+      1 => 1519870956,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a96452ed4aea9_43125157 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a976404686ec7_85749730 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -115,13 +115,13 @@ function content_5a96452ed4aea9_43125157 (Smarty_Internal_Template $_smarty_tpl)
 		<label><h4> Type</h4> </label>
 		<div class="radio">
 		  <label>
-			<input type="radio" name="is_show" id="optionsRadios1" value="1" checked>
+			<input type="radio" name="is_show" id="optionsRadios1" value="0" checked>
 				公开
 		  </label>
 		</div>
 		<div class="radio">
 		<label>
-			<input type="radio" name="is_show" id="optionsRadios2" value="0">
+			<input type="radio" name="is_show" id="optionsRadios2" value="1">
 				私有
 		</label>
 		</div>
