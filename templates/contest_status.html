@@ -143,6 +143,26 @@
     	<{/foreach}>
      </tbody> 
 </table>
+
+<!-- 分页 -->
+<nav class="pull-right" aria-label="Page navigation">
+  <ul class="pagination">
+    <li>
+      <a href="../contest/status.php?pt=<{$pt-1}>&cid=<{$cid}>" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <{for $i = 1 to $page_num }>
+    <li><a href="../contest/status.php?pt=<{$i}>&cid=<{$cid}>"><{$i}></a></li>
+    <{/for}>
+    <li>
+      <a href="../contest/status.php?pt=<{$pt+1}>&cid=<{$cid}>" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
 </div>
 </div>
 </div>

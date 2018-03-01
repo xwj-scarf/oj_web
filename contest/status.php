@@ -1,13 +1,30 @@
 <?php
+require_once(dirname(dirname(__FILE__)) . "/include/include.php");
 
 $cid = isset($_REQUEST['cid']) && !empty($_REQUEST['cid']) ? $_REQUEST['cid'] : 0;
+$page = 20; //每页显示50条
 
-require_once(dirname(dirname(__FILE__)) . "/include/include.php");
-$smarty = new Smarty_Oj();
-
+$sum = [];
 //连接数据库
 $conn = mysqli_connect($db_config['db_host'],$db_config['db_user'],$db_config['db_password'],$db_config['db_name']) or die('连接数据库失败！');
 mysqli_set_charset($conn,"utf8");
+
+$result = $conn->query("select count(1) as sum from contest_submit_info where contest_id = '{$cid}'");
+while($row = mysqli_fetch_assoc($result)) {
+    $sum[] = $row;
+}
+
+$sum = $sum[0]['sum'];
+
+$page_num = intval($sum / $page) + 1;
+$pt = isset($_REQUEST['pt']) && is_numeric($_REQUEST['pt']) && $_REQUEST['pt']>0 ? $_REQUEST['pt'] : 1;
+if ($pt > $page_num) {
+	$pt = $page_num;
+}
+
+$start_p = ($pt-1)*$page;
+
+$smarty = new Smarty_Oj();
 
 //查询数据库
 $result = mysqli_query($conn, "SELECT DISTINCT(contest_submit_info.id) as id ,contest_problem_info.problem_name as problem_name,contest_problem_info.show_pid as pid,
@@ -16,7 +33,7 @@ $result = mysqli_query($conn, "SELECT DISTINCT(contest_submit_info.id) as id ,co
 									  contest_submit_info.add_time as add_time 
 									 FROM contest_submit_info, contest_problem_info,user_info 
 							   where contest_submit_info.pid = contest_problem_info.show_pid and contest_submit_info.uid = user_info.id  and contest_submit_info.contest_id = '{$cid}'
-					  		   ORDER BY contest_submit_info.id DESC
+					  		   ORDER BY contest_submit_info.id DESC limit {$start_p},$page
 					  ");
 $data = [];
 while($row = mysqli_fetch_assoc($result)) {//mysqli_fetch_array
@@ -38,6 +55,9 @@ $user_name = '游客';
 if (isset($_SESSION['user_name'])) {
     $user_name = $_SESSION['user_name'];
 }
+
+$smarty->assign('pt',$pt);
+$smarty->assign('page_num',$page_num);
 
 $smarty->assign('is_login',$is_login);
 $smarty->assign('name',$user_name);

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-27 17:52:07
+/* Smarty version 3.1.32-dev-38, created on 2018-03-01 11:36:41
   from '/home/oj_web/templates/contest_status.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a952a473095e9_39269385',
+  'unifunc' => 'content_5a9775498b0c49_24756822',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ae9fc828225913bdb9650c910bae57c1b6a6e484' => 
     array (
       0 => '/home/oj_web/templates/contest_status.html',
-      1 => 1519724787,
+      1 => 1519875399,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a952a473095e9_39269385 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a9775498b0c49_24756822 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -187,6 +187,39 @@ foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_var
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
      </tbody> 
 </table>
+
+<!-- 分页 -->
+<nav class="pull-right" aria-label="Page navigation">
+  <ul class="pagination">
+    <li>
+      <a href="../contest/status.php?pt=<?php echo $_smarty_tpl->tpl_vars['pt']->value-1;?>
+&cid=<?php echo $_smarty_tpl->tpl_vars['cid']->value;?>
+" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <?php
+$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? $_smarty_tpl->tpl_vars['page_num']->value+1 - (1) : 1-($_smarty_tpl->tpl_vars['page_num']->value)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
+if ($_smarty_tpl->tpl_vars['i']->total > 0) {
+for ($_smarty_tpl->tpl_vars['i']->value = 1, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
+$_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration === $_smarty_tpl->tpl_vars['i']->total;?>
+    <li><a href="../contest/status.php?pt=<?php echo $_smarty_tpl->tpl_vars['i']->value;?>
+&cid=<?php echo $_smarty_tpl->tpl_vars['cid']->value;?>
+"><?php echo $_smarty_tpl->tpl_vars['i']->value;?>
+</a></li>
+    <?php }
+}
+?>
+    <li>
+      <a href="../contest/status.php?pt=<?php echo $_smarty_tpl->tpl_vars['pt']->value+1;?>
+&cid=<?php echo $_smarty_tpl->tpl_vars['cid']->value;?>
+" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
 </div>
 </div>
 </div>
