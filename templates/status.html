@@ -151,9 +151,15 @@
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
-	<{for $i = 1 to $page_num }>
-    <li><a href="../status/index.php?pt=<{$i}>"><{$i}></a></li>
-	<{/for}>
+	<{if $page_num > 10}>
+		<{for $i = 1 to 10 }>
+		<li><a href="../status/index.php?pt=<{$i}>"><{$i}></a></li>
+		<{/for}>
+	<{else}>
+		<{for $i = 1 to $page_num }>
+		<li><a href="../status/index.php?pt=<{$i}>"><{$i}></a></li>
+		<{/for}>
+	<{/if}>
     <li>
       <a href="../status/index.php?pt=<{$pt+1}>" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>

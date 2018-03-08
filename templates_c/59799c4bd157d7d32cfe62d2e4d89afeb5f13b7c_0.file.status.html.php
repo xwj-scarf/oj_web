@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-03-01 11:14:59
+/* Smarty version 3.1.32-dev-38, created on 2018-03-02 14:41:40
   from '/home/oj_web/templates/status.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a977033164470_97093413',
+  'unifunc' => 'content_5a98f224ad4c00_78986780',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '59799c4bd157d7d32cfe62d2e4d89afeb5f13b7c' => 
     array (
       0 => '/home/oj_web/templates/status.html',
-      1 => 1519874097,
+      1 => 1519972900,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a977033164470_97093413 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a98f224ad4c00_78986780 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -194,17 +194,31 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
-	<?php
+	<?php if ($_smarty_tpl->tpl_vars['page_num']->value > 10) {?>
+		<?php
+$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? 10+1 - (1) : 1-(10)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
+if ($_smarty_tpl->tpl_vars['i']->total > 0) {
+for ($_smarty_tpl->tpl_vars['i']->value = 1, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
+$_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration === $_smarty_tpl->tpl_vars['i']->total;?>
+		<li><a href="../status/index.php?pt=<?php echo $_smarty_tpl->tpl_vars['i']->value;?>
+"><?php echo $_smarty_tpl->tpl_vars['i']->value;?>
+</a></li>
+		<?php }
+}
+?>
+	<?php } else { ?>
+		<?php
 $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? $_smarty_tpl->tpl_vars['page_num']->value+1 - (1) : 1-($_smarty_tpl->tpl_vars['page_num']->value)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
 if ($_smarty_tpl->tpl_vars['i']->total > 0) {
 for ($_smarty_tpl->tpl_vars['i']->value = 1, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
 $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration === $_smarty_tpl->tpl_vars['i']->total;?>
-    <li><a href="../status/index.php?pt=<?php echo $_smarty_tpl->tpl_vars['i']->value;?>
+		<li><a href="../status/index.php?pt=<?php echo $_smarty_tpl->tpl_vars['i']->value;?>
 "><?php echo $_smarty_tpl->tpl_vars['i']->value;?>
 </a></li>
-	<?php }
+		<?php }
 }
 ?>
+	<?php }?>
     <li>
       <a href="../status/index.php?pt=<?php echo $_smarty_tpl->tpl_vars['pt']->value+1;?>
 " aria-label="Next">
