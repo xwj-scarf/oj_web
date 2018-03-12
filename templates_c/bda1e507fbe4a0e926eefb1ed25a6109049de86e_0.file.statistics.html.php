@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-03-12 16:29:35
+/* Smarty version 3.1.32-dev-38, created on 2018-03-12 16:52:23
   from '/home/oj_web/templates/statistics.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5aa63a6f9ce398_96282763',
+  'unifunc' => 'content_5aa63fc7ce5345_76379150',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'bda1e507fbe4a0e926eefb1ed25a6109049de86e' => 
     array (
       0 => '/home/oj_web/templates/statistics.html',
-      1 => 1520843374,
+      1 => 1520844692,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5aa63a6f9ce398_96282763 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5aa63fc7ce5345_76379150 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -140,11 +140,31 @@ function create_statistic(ac_count,wa_count,tle_count,mle_count,ce_count) {
 		</div>
 
 		<div class="col-md-4">
-			<p class="lead pull-left"><h2>Your Statistics</h2></p>
+			<p class="lead"><h2>Your Statistics</h2></p>
 			<table class="table table-striped">
 				<thead>
-					<th>Ac</th>
+					<tr>
+						<th>Ac</th>
+						<th>Wa</th>
+						<th>Tle</th>
+						<th>Mle</th>
+						<th>Ce</th>
+					</tr>
 				</thead>
+				<tbody>
+					<tr>
+						<td><?php echo $_smarty_tpl->tpl_vars['ac_count']->value;?>
+</td>
+						<td><?php echo $_smarty_tpl->tpl_vars['wa_count']->value;?>
+</td>
+						<td><?php echo $_smarty_tpl->tpl_vars['tle_count']->value;?>
+</td>
+						<td><?php echo $_smarty_tpl->tpl_vars['mle_count']->value;?>
+</td>
+						<td><?php echo $_smarty_tpl->tpl_vars['ce_count']->value;?>
+</td>
+					</tr>
+				</tbody>
 			</table>
 
 		</div>

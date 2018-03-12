@@ -103,10 +103,26 @@ function create_statistic(ac_count,wa_count,tle_count,mle_count,ce_count) {
 		</div>
 
 		<div class="col-md-4">
-			<p class="lead pull-left"><h2>Your Statistics</h2></p>
+			<p class="lead"><h2>Your Statistics</h2></p>
 			<table class="table table-striped">
 				<thead>
+					<tr>
+						<th>Ac</th>
+						<th>Wa</th>
+						<th>Tle</th>
+						<th>Mle</th>
+						<th>Ce</th>
+					</tr>
 				</thead>
+				<tbody>
+					<tr>
+						<td><{$ac_count}></td>
+						<td><{$wa_count}></td>
+						<td><{$tle_count}></td>
+						<td><{$mle_count}></td>
+						<td><{$ce_count}></td>
+					</tr>
+				</tbody>
 			</table>
 
 		</div>
