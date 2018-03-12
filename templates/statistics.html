@@ -13,9 +13,31 @@
 
 </head>
 
-<body>
+<script>
+function create_statistic(ac_count,wa_count,tle_count,mle_count,ce_count) {
+	var myChart = echarts.init(document.getElementById('chart'));
+	myChart.setOption({
+		series : [
+			{
+				name: 'statistic',
+				type: 'pie',
+				radius: '55%',
+				data:[
+					{value:ac_count, name:'Ac'},
+					{value:wa_count, name:'Wa'},
+					{value:tle_count, name:'Tle'},
+					{value:mle_count, name:'Mle'},
+					{value:ce_count, name:'Ce'}
+				]
+			}
+		]
+	})
+}
 
-<!-- dao hang lan -->
+</script>
+
+<body onload="create_statistic(<{$ac_count}>,<{$wa_count}>,<{$tle_count}>,<{$mle_count}>,<{$ce_count}>)">
+
 <!-- 导航栏 -->
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -45,10 +67,6 @@
           <ul class="dropdown-menu">
             <li><a href="../problem/add_problem.php">Add Problem</a></li>
             <li><a href="../contest/add_contest.php">Add Context</a></li>
-            <!-- <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li> -->
           </ul>
         </li>
       </ul>
@@ -75,127 +93,27 @@
 </nav>
 
 <div class="container">
-<div class="row">
-<div class="col-md9" role="main">
-<p class="lead text-center">
-<h1 class="text-center">Statistics</h1>
-</p>
+	<p class="lead text-center">
+		<h1 class="text-center">Statistics</h1>
+	</p>
 
-    <div id="chart" style="width: 1200px;height:400px;"></div>
-    <script type="text/javascript">
-		var myChart = echarts.init(document.getElementById('chart'));
-		myChart.setOption({
-			series : [
-				{
-					name: '访问来源',
-					type: 'pie',
-					radius: '55%',
-					data:[
-						{value:100, name:'Ac'},
-						{value:274, name:'Wa'},
-						{value:310, name:'Tle'},
-						{value:335, name:'Mle'},
-						{value:200, name:'Ce'}
-					]
-				}
-			]
-		})
+	<div class="row">
+		<div class="col-md-8" role="main">
+			<div id="chart" style="width:500px;height:400px;"></div>
+		</div>
 
-    </script>
+		<div class="col-md-4">
+			<p class="lead pull-left"><h2>Your Statistics</h2></p>
+			<table class="table table-striped">
+				<thead>
+				</thead>
+			</table>
 
-<!--
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th class="text-center">提交编号</th>
-			<th class="text-center">用户名</th>
-            <th class="text-center">problem_name</th>
-			<th class="text-center">time_use</th>
-			<th class="text-center">memory_use</th>
-			<th class="text-center">status</th>
-			<th class="text-center">提交时间</th>
-        </tr>
-    </thead>
-	
-      <tbody>
-	    <{foreach key=key item=item from=$data}>
+		</div>
 
-        <tr>
-      	  <td><h5 class="text-center"><{$item.id}></h5></td>
-		  <td><h5 class="text-center"><{$item.user_name}></h5></td>
-		  <td><a href="/oj_web/problem/detail.php?pid=<{$item.pid}>"><h5 class="text-center"><{$item.problem_name}></h5></a></td>
-		  <td><h5 class="text-center"><{$item.time_use}> MS</h5></td>
-		  <td><h5 class="text-center"><{$item.memory_use}> KB</h5></td>
-
-	  	  <{if $item.status == 0}>
-			  <td><h5 class="text-center"><span class="label label-default">Judging...</span></h5></td>	
-		  <{/if}>
-
-		  <{if $item.status == 1}>
-			  <td><h5 class="text-center"><span class="label label-info">Complie Error</span></h5></td>	
-		  <{/if}>
-
-		  <{if $item.status == 2}>
-			  <td><h5 class="text-center"><span class="label label-danger">Wrong Answer</span></h5></td>	
-		  <{/if}>
-
-		  <{if $item.status == 3}>
-			  <td><h5 class="text-center"><span class="label label-danger">Time Limit</span></h5></td>	
-		  <{/if}>
-
-		  <{if $item.status == 4}>
-			  <td><h5 class="text-center"><span class="label label-danger">Memory Limit</span></h5></td>	
-		  <{/if}>
-
-		  <{if $item.status == 5}>
-			  <td><h5 class="text-center"><span class="label label-danger">RunTime Error</span></h5></td>	
-		  <{/if}>
-
-		  <{if $item.status == 6}>
-			  <td><h5 class="text-center"><span class="label label-success">Accept</span></h5></td>	
-		  <{/if}>
-
-	  	  <{if $item.status == 404}>
-			  <td><h5 class="text-center"><span class="label label-danger">Submit Failed</span></h5></td>	
-		  <{/if}>
-
-		  <td><h5 class="text-center"><{$item.add_time}></h5></td>
-        </tr>
-
-    	<{/foreach}>
-     </tbody> 
-</table>
--->
-
-<!--
-<!-- 分页 -->
-<nav class="pull-right" aria-label="Page navigation">
-  <ul class="pagination">
-    <li>
-      <a href="../status/index.php?pt=<{$pt-1}>" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-	<{if $page_num > 10}>
-		<{for $i = 1 to 10 }>
-		<li><a href="../status/index.php?pt=<{$i}>"><{$i}></a></li>
-		<{/for}>
-	<{else}>
-		<{for $i = 1 to $page_num }>
-		<li><a href="../status/index.php?pt=<{$i}>"><{$i}></a></li>
-		<{/for}>
-	<{/if}>
-    <li>
-      <a href="../status/index.php?pt=<{$pt+1}>" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
-</nav>
--->
+	</div>
 </div>
-</div>
-</div>
+
 </body>
 
 </html>

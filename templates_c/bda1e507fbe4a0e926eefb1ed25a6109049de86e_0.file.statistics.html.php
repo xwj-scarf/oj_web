@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-03-12 15:07:15
+/* Smarty version 3.1.32-dev-38, created on 2018-03-12 16:29:35
   from '/home/oj_web/templates/statistics.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5aa627239f6b49_48999087',
+  'unifunc' => 'content_5aa63a6f9ce398_96282763',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'bda1e507fbe4a0e926eefb1ed25a6109049de86e' => 
     array (
       0 => '/home/oj_web/templates/statistics.html',
-      1 => 1520838433,
+      1 => 1520843374,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5aa627239f6b49_48999087 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5aa63a6f9ce398_96282763 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -42,9 +42,38 @@ function content_5aa627239f6b49_48999087 (Smarty_Internal_Template $_smarty_tpl)
 
 </head>
 
-<body>
+<?php echo '<script'; ?>
+>
+function create_statistic(ac_count,wa_count,tle_count,mle_count,ce_count) {
+	var myChart = echarts.init(document.getElementById('chart'));
+	myChart.setOption({
+		series : [
+			{
+				name: 'statistic',
+				type: 'pie',
+				radius: '55%',
+				data:[
+					{value:ac_count, name:'Ac'},
+					{value:wa_count, name:'Wa'},
+					{value:tle_count, name:'Tle'},
+					{value:mle_count, name:'Mle'},
+					{value:ce_count, name:'Ce'}
+				]
+			}
+		]
+	})
+}
 
-<!-- dao hang lan -->
+<?php echo '</script'; ?>
+>
+
+<body onload="create_statistic(<?php echo $_smarty_tpl->tpl_vars['ac_count']->value;?>
+,<?php echo $_smarty_tpl->tpl_vars['wa_count']->value;?>
+,<?php echo $_smarty_tpl->tpl_vars['tle_count']->value;?>
+,<?php echo $_smarty_tpl->tpl_vars['mle_count']->value;?>
+,<?php echo $_smarty_tpl->tpl_vars['ce_count']->value;?>
+)">
+
 <!-- 导航栏 -->
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -74,10 +103,6 @@ function content_5aa627239f6b49_48999087 (Smarty_Internal_Template $_smarty_tpl)
           <ul class="dropdown-menu">
             <li><a href="../problem/add_problem.php">Add Problem</a></li>
             <li><a href="../contest/add_contest.php">Add Context</a></li>
-            <!-- <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li> -->
           </ul>
         </li>
       </ul>
@@ -105,161 +130,28 @@ function content_5aa627239f6b49_48999087 (Smarty_Internal_Template $_smarty_tpl)
 </nav>
 
 <div class="container">
-<div class="row">
-<div class="col-md9" role="main">
-<p class="lead text-center">
-<h1 class="text-center">Statistics</h1>
-</p>
+	<p class="lead text-center">
+		<h1 class="text-center">Statistics</h1>
+	</p>
 
-    <div id="chart" style="width: 1200px;height:400px;"></div>
-    <?php echo '<script'; ?>
- type="text/javascript">
-		var myChart = echarts.init(document.getElementById('chart'));
-		myChart.setOption({
-			series : [
-				{
-					name: '访问来源',
-					type: 'pie',
-					radius: '55%',
-					data:[
-						{value:100, name:'Ac'},
-						{value:274, name:'Wa'},
-						{value:310, name:'Tle'},
-						{value:335, name:'Mle'},
-						{value:200, name:'Ce'}
-					]
-				}
-			]
-		})
+	<div class="row">
+		<div class="col-md-8" role="main">
+			<div id="chart" style="width:500px;height:400px;"></div>
+		</div>
 
-    <?php echo '</script'; ?>
->
+		<div class="col-md-4">
+			<p class="lead pull-left"><h2>Your Statistics</h2></p>
+			<table class="table table-striped">
+				<thead>
+					<th>Ac</th>
+				</thead>
+			</table>
 
-<!--
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th class="text-center">提交编号</th>
-			<th class="text-center">用户名</th>
-            <th class="text-center">problem_name</th>
-			<th class="text-center">time_use</th>
-			<th class="text-center">memory_use</th>
-			<th class="text-center">status</th>
-			<th class="text-center">提交时间</th>
-        </tr>
-    </thead>
-	
-      <tbody>
-	    <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['data']->value, 'item', false, 'key');
-if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_vars['item']->value) {
-?>
+		</div>
 
-        <tr>
-      	  <td><h5 class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['id'];?>
-</h5></td>
-		  <td><h5 class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['user_name'];?>
-</h5></td>
-		  <td><a href="/oj_web/problem/detail.php?pid=<?php echo $_smarty_tpl->tpl_vars['item']->value['pid'];?>
-"><h5 class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['problem_name'];?>
-</h5></a></td>
-		  <td><h5 class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['time_use'];?>
- MS</h5></td>
-		  <td><h5 class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['memory_use'];?>
- KB</h5></td>
-
-	  	  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 0) {?>
-			  <td><h5 class="text-center"><span class="label label-default">Judging...</span></h5></td>	
-		  <?php }?>
-
-		  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 1) {?>
-			  <td><h5 class="text-center"><span class="label label-info">Complie Error</span></h5></td>	
-		  <?php }?>
-
-		  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 2) {?>
-			  <td><h5 class="text-center"><span class="label label-danger">Wrong Answer</span></h5></td>	
-		  <?php }?>
-
-		  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 3) {?>
-			  <td><h5 class="text-center"><span class="label label-danger">Time Limit</span></h5></td>	
-		  <?php }?>
-
-		  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 4) {?>
-			  <td><h5 class="text-center"><span class="label label-danger">Memory Limit</span></h5></td>	
-		  <?php }?>
-
-		  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 5) {?>
-			  <td><h5 class="text-center"><span class="label label-danger">RunTime Error</span></h5></td>	
-		  <?php }?>
-
-		  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 6) {?>
-			  <td><h5 class="text-center"><span class="label label-success">Accept</span></h5></td>	
-		  <?php }?>
-
-	  	  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 404) {?>
-			  <td><h5 class="text-center"><span class="label label-danger">Submit Failed</span></h5></td>	
-		  <?php }?>
-
-		  <td><h5 class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['add_time'];?>
-</h5></td>
-        </tr>
-
-    	<?php
-}
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-     </tbody> 
-</table>
--->
-
-<!--
-<!-- 分页 -->
-<nav class="pull-right" aria-label="Page navigation">
-  <ul class="pagination">
-    <li>
-      <a href="../status/index.php?pt=<?php echo $_smarty_tpl->tpl_vars['pt']->value-1;?>
-" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-	<?php if ($_smarty_tpl->tpl_vars['page_num']->value > 10) {?>
-		<?php
-$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? 10+1 - (1) : 1-(10)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
-if ($_smarty_tpl->tpl_vars['i']->total > 0) {
-for ($_smarty_tpl->tpl_vars['i']->value = 1, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
-$_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration === $_smarty_tpl->tpl_vars['i']->total;?>
-		<li><a href="../status/index.php?pt=<?php echo $_smarty_tpl->tpl_vars['i']->value;?>
-"><?php echo $_smarty_tpl->tpl_vars['i']->value;?>
-</a></li>
-		<?php }
-}
-?>
-	<?php } else { ?>
-		<?php
-$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? $_smarty_tpl->tpl_vars['page_num']->value+1 - (1) : 1-($_smarty_tpl->tpl_vars['page_num']->value)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
-if ($_smarty_tpl->tpl_vars['i']->total > 0) {
-for ($_smarty_tpl->tpl_vars['i']->value = 1, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
-$_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration === $_smarty_tpl->tpl_vars['i']->total;?>
-		<li><a href="../status/index.php?pt=<?php echo $_smarty_tpl->tpl_vars['i']->value;?>
-"><?php echo $_smarty_tpl->tpl_vars['i']->value;?>
-</a></li>
-		<?php }
-}
-?>
-	<?php }?>
-    <li>
-      <a href="../status/index.php?pt=<?php echo $_smarty_tpl->tpl_vars['pt']->value+1;?>
-" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
-</nav>
--->
+	</div>
 </div>
-</div>
-</div>
+
 </body>
 
 </html>
