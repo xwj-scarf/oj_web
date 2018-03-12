@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-02-27 13:55:09
+/* Smarty version 3.1.32-dev-38, created on 2018-03-12 14:45:20
   from '/home/oj_web/templates/add_problem.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a94f2bdb000c8_87776798',
+  'unifunc' => 'content_5aa6220086bff1_24306207',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '18a6ba07bba35d5095ce0b9ff48c469384d0592e' => 
     array (
       0 => '/home/oj_web/templates/add_problem.html',
-      1 => 1519710831,
+      1 => 1520836934,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a94f2bdb000c8_87776798 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5aa6220086bff1_24306207 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -63,6 +63,7 @@ function content_5a94f2bdb000c8_87776798 (Smarty_Internal_Template $_smarty_tpl)
         <li><a href="../problem/index.php">Problem</a></li>
 		<li><a href="../status/index.php">Status</a></li> 
 		<li><a href="../contest/index.php">Contest</a></li> 
+        <li><a href="../statistics/index.php">Statistics</a></li>
         <li class="dropdown">
         
 

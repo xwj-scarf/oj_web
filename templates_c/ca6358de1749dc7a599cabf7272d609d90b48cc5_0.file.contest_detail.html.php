@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-03-01 14:32:08
+/* Smarty version 3.1.32-dev-38, created on 2018-03-12 14:45:24
   from '/home/oj_web/templates/contest_detail.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a979e68a212f6_67103696',
+  'unifunc' => 'content_5aa62204695652_95764672',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ca6358de1749dc7a599cabf7272d609d90b48cc5' => 
     array (
       0 => '/home/oj_web/templates/contest_detail.html',
-      1 => 1519885833,
+      1 => 1520836948,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a979e68a212f6_67103696 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5aa62204695652_95764672 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head> <meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -65,7 +65,7 @@ function content_5a979e68a212f6_67103696 (Smarty_Internal_Template $_smarty_tpl)
 		<li><a href="../contest/index.php">Contest</a></li>
 		<li><a href="../contest/rank.php?cid=<?php echo $_smarty_tpl->tpl_vars['cid']->value;?>
 ">Rank</a></li>
-
+        <li><a href="../statistics/index.php">Statistics</a></li>
         <li class="dropdown">
 	
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Add <span class="caret"></span></a>

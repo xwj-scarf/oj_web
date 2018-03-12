@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-03-12 14:45:31
-  from '/home/oj_web/templates/contest_status.html' */
+/* Smarty version 3.1.32-dev-38, created on 2018-03-12 15:07:15
+  from '/home/oj_web/templates/statistics.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5aa6220b2d1e61_64708219',
+  'unifunc' => 'content_5aa627239f6b49_48999087',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'ae9fc828225913bdb9650c910bae57c1b6a6e484' => 
+    'bda1e507fbe4a0e926eefb1ed25a6109049de86e' => 
     array (
-      0 => '/home/oj_web/templates/contest_status.html',
-      1 => 1520837000,
+      0 => '/home/oj_web/templates/statistics.html',
+      1 => 1520838433,
       2 => 'file',
     ),
   ),
@@ -20,18 +20,19 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5aa6220b2d1e61_64708219 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5aa627239f6b49_48999087 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="refresh" content="2">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <title>OJ_WEB</title>
 	<?php echo '<script'; ?>
  src="../bootstrap/jquery-3.2.1.min.js"><?php echo '</script'; ?>
 >
-
+    <?php echo '<script'; ?>
+ src="../bootstrap/echarts.common.min.js"><?php echo '</script'; ?>
+>
     <!-- Bootstrap -->
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../bootstrap/css/bootstrap-theme.css" rel="stylesheet">
@@ -63,11 +64,10 @@ function content_5aa6220b2d1e61_64708219 (Smarty_Internal_Template $_smarty_tpl)
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Head<span class="sr-only">(current)</span></a></li>
         <li><a href="../problem/index.php">Problem</a></li>
-        <li><a href="#">Contest Status</a></li>
+        <li><a href="../status/index.php">Status</a></li>
         <li><a href="../contest/index.php">Contest</a></li>
-        <li><a href="../contest/rank.php?cid=<?php echo $_smarty_tpl->tpl_vars['cid']->value;?>
-">Rank</a></li>
         <li><a href="../statistics/index.php">Statistics</a></li>
+
         <li class="dropdown">
 
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Add <span class="caret"></span></a>
@@ -104,13 +104,38 @@ function content_5aa6220b2d1e61_64708219 (Smarty_Internal_Template $_smarty_tpl)
   </div><!-- /.container-fluid -->
 </nav>
 
-<div class="container ">
+<div class="container">
 <div class="row">
 <div class="col-md9" role="main">
 <p class="lead text-center">
-<h1 class="text-center">Status</h1>
+<h1 class="text-center">Statistics</h1>
 </p>
 
+    <div id="chart" style="width: 1200px;height:400px;"></div>
+    <?php echo '<script'; ?>
+ type="text/javascript">
+		var myChart = echarts.init(document.getElementById('chart'));
+		myChart.setOption({
+			series : [
+				{
+					name: '访问来源',
+					type: 'pie',
+					radius: '55%',
+					data:[
+						{value:100, name:'Ac'},
+						{value:274, name:'Wa'},
+						{value:310, name:'Tle'},
+						{value:335, name:'Mle'},
+						{value:200, name:'Ce'}
+					]
+				}
+			]
+		})
+
+    <?php echo '</script'; ?>
+>
+
+<!--
 <table class="table table-striped">
     <thead>
         <tr>
@@ -136,8 +161,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_var
 </h5></td>
 		  <td><h5 class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['user_name'];?>
 </h5></td>
-		  <td><a href="/oj_web/contest/contest_problem_detail.php?pid=<?php echo $_smarty_tpl->tpl_vars['item']->value['pid'];?>
-&cid=<?php echo $_smarty_tpl->tpl_vars['cid']->value;?>
+		  <td><a href="/oj_web/problem/detail.php?pid=<?php echo $_smarty_tpl->tpl_vars['item']->value['pid'];?>
 "><h5 class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['problem_name'];?>
 </h5></a></td>
 		  <td><h5 class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['time_use'];?>
@@ -157,18 +181,17 @@ foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_var
 			  <td><h5 class="text-center"><span class="label label-danger">Wrong Answer</span></h5></td>	
 		  <?php }?>
 
-          <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 3) {?>
-              <td><h5 class="text-center"><span class="label label-danger">Time Limit</span></h5></td>  
-          <?php }?>
+		  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 3) {?>
+			  <td><h5 class="text-center"><span class="label label-danger">Time Limit</span></h5></td>	
+		  <?php }?>
 
-          <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 4) {?>
-              <td><h5 class="text-center"><span class="label label-danger">Memory Limit</span></h5></td>
-          <?php }?>
+		  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 4) {?>
+			  <td><h5 class="text-center"><span class="label label-danger">Memory Limit</span></h5></td>	
+		  <?php }?>
 
-          <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 5) {?>
-              <td><h5 class="text-center"><span class="label label-danger">RunTime Error</span></h5></td>
-          <?php }?>
-
+		  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 5) {?>
+			  <td><h5 class="text-center"><span class="label label-danger">RunTime Error</span></h5></td>	
+		  <?php }?>
 
 		  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 6) {?>
 			  <td><h5 class="text-center"><span class="label label-success">Accept</span></h5></td>	
@@ -188,39 +211,52 @@ foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_var
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
      </tbody> 
 </table>
+-->
 
+<!--
 <!-- 分页 -->
 <nav class="pull-right" aria-label="Page navigation">
   <ul class="pagination">
     <li>
-      <a href="../contest/status.php?pt=<?php echo $_smarty_tpl->tpl_vars['pt']->value-1;?>
-&cid=<?php echo $_smarty_tpl->tpl_vars['cid']->value;?>
+      <a href="../status/index.php?pt=<?php echo $_smarty_tpl->tpl_vars['pt']->value-1;?>
 " aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
-    <?php
+	<?php if ($_smarty_tpl->tpl_vars['page_num']->value > 10) {?>
+		<?php
+$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? 10+1 - (1) : 1-(10)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
+if ($_smarty_tpl->tpl_vars['i']->total > 0) {
+for ($_smarty_tpl->tpl_vars['i']->value = 1, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
+$_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration === $_smarty_tpl->tpl_vars['i']->total;?>
+		<li><a href="../status/index.php?pt=<?php echo $_smarty_tpl->tpl_vars['i']->value;?>
+"><?php echo $_smarty_tpl->tpl_vars['i']->value;?>
+</a></li>
+		<?php }
+}
+?>
+	<?php } else { ?>
+		<?php
 $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? $_smarty_tpl->tpl_vars['page_num']->value+1 - (1) : 1-($_smarty_tpl->tpl_vars['page_num']->value)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
 if ($_smarty_tpl->tpl_vars['i']->total > 0) {
 for ($_smarty_tpl->tpl_vars['i']->value = 1, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
 $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration === $_smarty_tpl->tpl_vars['i']->total;?>
-    <li><a href="../contest/status.php?pt=<?php echo $_smarty_tpl->tpl_vars['i']->value;?>
-&cid=<?php echo $_smarty_tpl->tpl_vars['cid']->value;?>
+		<li><a href="../status/index.php?pt=<?php echo $_smarty_tpl->tpl_vars['i']->value;?>
 "><?php echo $_smarty_tpl->tpl_vars['i']->value;?>
 </a></li>
-    <?php }
+		<?php }
 }
 ?>
+	<?php }?>
     <li>
-      <a href="../contest/status.php?pt=<?php echo $_smarty_tpl->tpl_vars['pt']->value+1;?>
-&cid=<?php echo $_smarty_tpl->tpl_vars['cid']->value;?>
+      <a href="../status/index.php?pt=<?php echo $_smarty_tpl->tpl_vars['pt']->value+1;?>
 " aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
       </a>
     </li>
   </ul>
 </nav>
-
+-->
 </div>
 </div>
 </div>
