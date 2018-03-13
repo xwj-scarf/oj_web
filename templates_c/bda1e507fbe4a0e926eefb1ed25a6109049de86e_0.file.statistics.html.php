@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-03-12 17:18:30
+/* Smarty version 3.1.32-dev-38, created on 2018-03-13 17:21:23
   from '/home/oj_web/templates/statistics.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5aa645e6371d96_54187509',
+  'unifunc' => 'content_5aa79813365777_49199132',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'bda1e507fbe4a0e926eefb1ed25a6109049de86e' => 
     array (
       0 => '/home/oj_web/templates/statistics.html',
-      1 => 1520846307,
+      1 => 1520932881,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5aa645e6371d96_54187509 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5aa79813365777_49199132 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -44,9 +44,13 @@ function content_5aa645e6371d96_54187509 (Smarty_Internal_Template $_smarty_tpl)
 
 <?php echo '<script'; ?>
 >
-function create_statistic(ac_count,wa_count,tle_count,mle_count,ce_count) {
+function create_statistic(ac_count,wa_count,tle_count,mle_count,ce_count,re_count,c_ac,c_wa,c_tle,c_mle,c_ce,c_re) {
 	var myChart = echarts.init(document.getElementById('chart'));
 	myChart.setOption({
+            title: {
+                text: '                     Your Nomarl Statistic'
+            },
+
 		series : [
 			{
 				name: 'statistic',
@@ -57,11 +61,35 @@ function create_statistic(ac_count,wa_count,tle_count,mle_count,ce_count) {
 					{value:wa_count, name:'Wa'},
 					{value:tle_count, name:'Tle'},
 					{value:mle_count, name:'Mle'},
-					{value:ce_count, name:'Ce'}
+					{value:ce_count, name:'Ce'},
+					{value:re_count,name:'Re'},
 				]
 			}
 		]
 	})
+
+	var myChart_c = echarts.init(document.getElementById('chart_contest'));
+	myChart_c.setOption({
+		title: {
+			text: '                       Your Contest Statistic'
+		},
+		series : [
+			{
+				name: 'statistic',
+				type: 'pie',
+				radius: '55%',
+				data:[
+					{value:c_ac, name:'Ac'},
+					{value:c_wa, name:'Wa'},
+					{value:c_tle, name:'Tle'},
+					{value:c_mle, name:'Mle'},
+					{value:c_ce, name:'Ce'},
+					{value:c_re,name:'Re'},
+				]
+			}
+		]
+	})
+
 }
 
 <?php echo '</script'; ?>
@@ -72,6 +100,13 @@ function create_statistic(ac_count,wa_count,tle_count,mle_count,ce_count) {
 ,<?php echo $_smarty_tpl->tpl_vars['tle_count']->value;?>
 ,<?php echo $_smarty_tpl->tpl_vars['mle_count']->value;?>
 ,<?php echo $_smarty_tpl->tpl_vars['ce_count']->value;?>
+,<?php echo $_smarty_tpl->tpl_vars['re_count']->value;?>
+,<?php echo $_smarty_tpl->tpl_vars['c_ac']->value;?>
+,<?php echo $_smarty_tpl->tpl_vars['c_wa']->value;?>
+,<?php echo $_smarty_tpl->tpl_vars['c_tle']->value;?>
+,<?php echo $_smarty_tpl->tpl_vars['c_mle']->value;?>
+,<?php echo $_smarty_tpl->tpl_vars['c_ce']->value;?>
+,<?php echo $_smarty_tpl->tpl_vars['c_re']->value;?>
 )">
 
 <!-- 导航栏 -->
@@ -135,12 +170,15 @@ function create_statistic(ac_count,wa_count,tle_count,mle_count,ce_count) {
 	</p>
 
 	<div class="row">
-		<div class="col-md-8" role="main">
+		<div class="col-md-7" role="main">
 			<div id="chart" style="width:400px;height:400px;"></div>
+
+			<div id="chart_contest" style="width:400px;height:400px;"></div>
+
 		</div>
 
-		<div class="col-md-4">
-			<p class="lead"><h2>Your Statistics</h2></p>
+		<div class="col-md-5">
+			<p class="lead"><h2>Your Normal Statistics</h2></p>
 			<table class="table table-striped">
 				<thead>
 					<tr>
@@ -149,6 +187,9 @@ function create_statistic(ac_count,wa_count,tle_count,mle_count,ce_count) {
 						<th>Tle</th>
 						<th>Mle</th>
 						<th>Ce</th>
+						<th>Re</th>
+						<th>Total</th>
+
 					</tr>
 				</thead>
 				<tbody>
@@ -162,6 +203,44 @@ function create_statistic(ac_count,wa_count,tle_count,mle_count,ce_count) {
 						<td><?php echo $_smarty_tpl->tpl_vars['mle_count']->value;?>
 </td>
 						<td><?php echo $_smarty_tpl->tpl_vars['ce_count']->value;?>
+</td>
+						<td><?php echo $_smarty_tpl->tpl_vars['re_count']->value;?>
+</td>
+						<td><?php echo $_smarty_tpl->tpl_vars['total_count']->value;?>
+</td>
+				</tr>
+				</tbody>
+			</table>
+			<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+			<p class="lead"><h2>Your Contest Statistics</h2></p>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Ac</th>
+						<th>Wa</th>
+						<th>Tle</th>
+						<th>Mle</th>
+						<th>Ce</th>
+						<th>Re</th>
+						<th>Total</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><?php echo $_smarty_tpl->tpl_vars['c_ac']->value;?>
+</td>
+						<td><?php echo $_smarty_tpl->tpl_vars['c_wa']->value;?>
+</td>
+						<td><?php echo $_smarty_tpl->tpl_vars['c_tle']->value;?>
+</td>
+						<td><?php echo $_smarty_tpl->tpl_vars['c_mle']->value;?>
+</td>
+						<td><?php echo $_smarty_tpl->tpl_vars['c_ce']->value;?>
+</td>
+						<td><?php echo $_smarty_tpl->tpl_vars['c_re']->value;?>
+</td>
+						<td><?php echo $_smarty_tpl->tpl_vars['c_total']->value;?>
 </td>
 					</tr>
 				</tbody>
