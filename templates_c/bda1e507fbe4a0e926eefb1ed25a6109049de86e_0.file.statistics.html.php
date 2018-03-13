@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-03-12 16:52:23
+/* Smarty version 3.1.32-dev-38, created on 2018-03-12 17:18:30
   from '/home/oj_web/templates/statistics.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5aa63fc7ce5345_76379150',
+  'unifunc' => 'content_5aa645e6371d96_54187509',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'bda1e507fbe4a0e926eefb1ed25a6109049de86e' => 
     array (
       0 => '/home/oj_web/templates/statistics.html',
-      1 => 1520844692,
+      1 => 1520846307,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5aa63fc7ce5345_76379150 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5aa645e6371d96_54187509 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -136,7 +136,7 @@ function create_statistic(ac_count,wa_count,tle_count,mle_count,ce_count) {
 
 	<div class="row">
 		<div class="col-md-8" role="main">
-			<div id="chart" style="width:500px;height:400px;"></div>
+			<div id="chart" style="width:400px;height:400px;"></div>
 		</div>
 
 		<div class="col-md-4">
