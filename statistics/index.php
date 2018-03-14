@@ -38,7 +38,6 @@ $smarty->assign('c_ce',$data['ce_count']);
 $smarty->assign('c_re',$data['re_count']);
 $smarty->assign('c_total',$data['total_count']);
 
-
 $smarty->assign('name',$user_name);
 $smarty->assign('is_login',$is_login);
 $smarty->display('statistics.html');
