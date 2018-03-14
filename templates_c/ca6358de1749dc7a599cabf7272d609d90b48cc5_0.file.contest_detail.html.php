@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-03-12 14:45:24
+/* Smarty version 3.1.32-dev-38, created on 2018-03-14 16:22:15
   from '/home/oj_web/templates/contest_detail.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5aa62204695652_95764672',
+  'unifunc' => 'content_5aa8dbb74ef4b5_64795319',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ca6358de1749dc7a599cabf7272d609d90b48cc5' => 
     array (
       0 => '/home/oj_web/templates/contest_detail.html',
-      1 => 1520836948,
+      1 => 1521015734,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5aa62204695652_95764672 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5aa8dbb74ef4b5_64795319 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head> <meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -101,6 +101,35 @@ function content_5aa62204695652_95764672 (Smarty_Internal_Template $_smarty_tpl)
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+<?php if ($_smarty_tpl->tpl_vars['is_securt']->value == 1) {?>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">请输入密码</h4>
+                </div>
+                <div class="modal-body">
+<form action="/oj_web/contest/index.php" method="post" enctype="multipart/form-data">
+
+                    <div class="form-group">
+                        <label for="txt_departmentname">密码</label>
+                        <input type="text" name="password" class="form-control" id="contest_password" placeholder="密码">
+                    </div>
+</form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" id="btn_submit" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+	<?php echo '<script'; ?>
+>$('#myModal').modal();<?php echo '</script'; ?>
+>
+<?php }?>
 
 <!-- 题目-->
 <div class="container ">

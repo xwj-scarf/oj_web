@@ -1,5 +1,6 @@
 <?php
 
+@file_put_contents('/tmp/weijun.log',var_export($_REQUEST,true)."\n",FILE_APPEND);
 require_once (dirname(dirname(__FILE__)) . "/include/include.php");
 
 $smarty = new Smarty_Oj();
