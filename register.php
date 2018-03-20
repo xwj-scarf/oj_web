@@ -19,10 +19,13 @@ if (!empty($_REQUEST)) {
 			$_SESSION['user_id'] = $db->getInsertId();
 			$_SESSION['is_login'] = 1;
 			$_SESSION['user_name'] = $user_name;
-			echo "<script> alert('注册成功'); </script>";
-			echo "<meta http-equiv='Refresh' content='0;URL=.'>";	
-			exit;
 		}
+		$uid = $db->getInsertId();
+		$result = $db->query("insert into user_statistic (uid,is_contest) values('{$uid}',0)");
+		$result1 = $db->query("insert into user_statistic (uid,is_contest) values('{$uid}',1)");
+		echo "<script> alert('注册成功'); </script>";
+		echo "<meta http-equiv='Refresh' content='0;URL=.'>";	
+		exit;
 	}
 
 	if (!empty($user_name) || !empty($password) || !empty($sec_password)) {
