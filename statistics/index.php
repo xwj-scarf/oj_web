@@ -19,16 +19,19 @@ $user_id = $_SESSION['user_id'];
 $sql = "select * from user_statistic where uid = '{$user_id}' and is_contest = 0";
 $data = $db->query($sql)[0];
 
+$total_count = $data['ac_count'] + $data['wa_count'] + $data['tle_count'] + $data['mle_count'] + $data['ce_count'] + $data['re_count'] + $data['other_count'];
 $smarty->assign('ac_count',$data['ac_count']);
 $smarty->assign('wa_count',$data['wa_count']);
 $smarty->assign('tle_count',$data['tle_count']);
 $smarty->assign('mle_count',$data['mle_count']);
 $smarty->assign('ce_count',$data['ce_count']);
 $smarty->assign('re_count',$data['re_count']);
-$smarty->assign('total_count',$data['total_count']);
+$smarty->assign('other_count',$data['other_count']);
+$smarty->assign('total_count',$total_count);
 
 $sql = "select * from user_statistic where uid = '{$user_id}' and is_contest = 1";
 $data = $db->query($sql)[0];
+$total_count = $data['ac_count'] + $data['wa_count'] + $data['tle_count'] + $data['mle_count'] + $data['ce_count'] + $data['re_count'] + $data['other_count'];
 
 $smarty->assign('c_ac',$data['ac_count']);
 $smarty->assign('c_wa',$data['wa_count']);
@@ -36,7 +39,9 @@ $smarty->assign('c_tle',$data['tle_count']);
 $smarty->assign('c_mle',$data['mle_count']);
 $smarty->assign('c_ce',$data['ce_count']);
 $smarty->assign('c_re',$data['re_count']);
-$smarty->assign('c_total',$data['total_count']);
+$smarty->assign('c_other',$data['other_count']);
+
+$smarty->assign('c_total',$total_count);
 
 $smarty->assign('name',$user_name);
 $smarty->assign('is_login',$is_login);

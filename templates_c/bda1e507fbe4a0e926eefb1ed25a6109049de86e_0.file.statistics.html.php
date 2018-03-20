@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-03-13 17:21:23
+/* Smarty version 3.1.32-dev-38, created on 2018-03-20 15:55:34
   from '/home/oj_web/templates/statistics.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5aa79813365777_49199132',
+  'unifunc' => 'content_5ab0be760cadd8_60778703',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'bda1e507fbe4a0e926eefb1ed25a6109049de86e' => 
     array (
       0 => '/home/oj_web/templates/statistics.html',
-      1 => 1520932881,
+      1 => 1521532529,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5aa79813365777_49199132 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ab0be760cadd8_60778703 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -44,7 +44,7 @@ function content_5aa79813365777_49199132 (Smarty_Internal_Template $_smarty_tpl)
 
 <?php echo '<script'; ?>
 >
-function create_statistic(ac_count,wa_count,tle_count,mle_count,ce_count,re_count,c_ac,c_wa,c_tle,c_mle,c_ce,c_re) {
+function create_statistic(ac_count,wa_count,tle_count,mle_count,ce_count,re_count,other_count,c_ac,c_wa,c_tle,c_mle,c_ce,c_re,c_other) {
 	var myChart = echarts.init(document.getElementById('chart'));
 	myChart.setOption({
             title: {
@@ -63,6 +63,7 @@ function create_statistic(ac_count,wa_count,tle_count,mle_count,ce_count,re_coun
 					{value:mle_count, name:'Mle'},
 					{value:ce_count, name:'Ce'},
 					{value:re_count,name:'Re'},
+					{value:other_count,name:'Other'},
 				]
 			}
 		]
@@ -85,6 +86,7 @@ function create_statistic(ac_count,wa_count,tle_count,mle_count,ce_count,re_coun
 					{value:c_mle, name:'Mle'},
 					{value:c_ce, name:'Ce'},
 					{value:c_re,name:'Re'},
+					{value:c_other,name:'Other'},
 				]
 			}
 		]
@@ -101,12 +103,14 @@ function create_statistic(ac_count,wa_count,tle_count,mle_count,ce_count,re_coun
 ,<?php echo $_smarty_tpl->tpl_vars['mle_count']->value;?>
 ,<?php echo $_smarty_tpl->tpl_vars['ce_count']->value;?>
 ,<?php echo $_smarty_tpl->tpl_vars['re_count']->value;?>
+,<?php echo $_smarty_tpl->tpl_vars['other_count']->value;?>
 ,<?php echo $_smarty_tpl->tpl_vars['c_ac']->value;?>
 ,<?php echo $_smarty_tpl->tpl_vars['c_wa']->value;?>
 ,<?php echo $_smarty_tpl->tpl_vars['c_tle']->value;?>
 ,<?php echo $_smarty_tpl->tpl_vars['c_mle']->value;?>
 ,<?php echo $_smarty_tpl->tpl_vars['c_ce']->value;?>
 ,<?php echo $_smarty_tpl->tpl_vars['c_re']->value;?>
+,<?php echo $_smarty_tpl->tpl_vars['c_other']->value;?>
 )">
 
 <!-- 导航栏 -->
@@ -188,6 +192,7 @@ function create_statistic(ac_count,wa_count,tle_count,mle_count,ce_count,re_coun
 						<th>Mle</th>
 						<th>Ce</th>
 						<th>Re</th>
+						<th>Other</th>
 						<th>Total</th>
 
 					</tr>
@@ -206,6 +211,8 @@ function create_statistic(ac_count,wa_count,tle_count,mle_count,ce_count,re_coun
 </td>
 						<td><?php echo $_smarty_tpl->tpl_vars['re_count']->value;?>
 </td>
+						<td><?php echo $_smarty_tpl->tpl_vars['other_count']->value;?>
+</td>
 						<td><?php echo $_smarty_tpl->tpl_vars['total_count']->value;?>
 </td>
 				</tr>
@@ -223,6 +230,7 @@ function create_statistic(ac_count,wa_count,tle_count,mle_count,ce_count,re_coun
 						<th>Mle</th>
 						<th>Ce</th>
 						<th>Re</th>
+						<th>Other</th>
 						<th>Total</th>
 					</tr>
 				</thead>
@@ -239,6 +247,8 @@ function create_statistic(ac_count,wa_count,tle_count,mle_count,ce_count,re_coun
 						<td><?php echo $_smarty_tpl->tpl_vars['c_ce']->value;?>
 </td>
 						<td><?php echo $_smarty_tpl->tpl_vars['c_re']->value;?>
+</td>
+						<td><?php echo $_smarty_tpl->tpl_vars['c_other']->value;?>
 </td>
 						<td><?php echo $_smarty_tpl->tpl_vars['c_total']->value;?>
 </td>
