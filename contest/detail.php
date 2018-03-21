@@ -25,7 +25,13 @@ if ($data) {
     }
 }
 
-$tmp = $conn->query("select start_time,end_time from contest_info where contest_id = '{$cid}'");
+$tmp = $conn->query("select start_time,end_time,type from contest_info where contest_id = '{$cid}'");
+
+if ($_SESSION['cid'] != 1 && $tmp[0]['type'] == 1) {
+    echo "<script> alert('请先验证密码'); </script>";
+    echo "<meta http-equiv='Refresh' content='0;URL=/oj_web/contest/check_password.php?cid=$cid'>";
+	exit;	
+}
 
 $now = strtotime(date('Y-m-d H:i:s'));
 if ($now >= $tmp[0]['end_time']) {

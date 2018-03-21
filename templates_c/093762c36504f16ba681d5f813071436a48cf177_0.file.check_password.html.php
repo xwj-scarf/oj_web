@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-03-21 16:22:52
+/* Smarty version 3.1.32-dev-38, created on 2018-03-21 16:28:34
   from '/home/oj_web/templates/contest/check_password.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5ab2165c3edcd3_37536641',
+  'unifunc' => 'content_5ab217b2d33983_01172235',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '093762c36504f16ba681d5f813071436a48cf177' => 
     array (
       0 => '/home/oj_web/templates/contest/check_password.html',
-      1 => 1521620568,
+      1 => 1521620577,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ab2165c3edcd3_37536641 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ab217b2d33983_01172235 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -104,7 +104,6 @@ function content_5ab2165c3edcd3_37536641 (Smarty_Internal_Template $_smarty_tpl)
 <div class="row">
 <div class="col-md-4 col-md-offset-4" role="main">
 
-<h2>Tex</h2>
 <form action="/oj_web/contest/check_password.php?cid=<?php echo $_smarty_tpl->tpl_vars['cid']->value;?>
 " method="post">
   <div class="form-group">
