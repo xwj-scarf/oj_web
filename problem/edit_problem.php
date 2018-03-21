@@ -66,5 +66,5 @@ if (isset($_SESSION['user_name'])) {
 $smarty->assign('is_login',$is_login);
 $smarty->assign('name',$user_name);
 $smarty->assign('problem_id',$pid);
-$smarty->display('problem_edit.html');
+$smarty->display('problem/problem_edit.html');
 ?>

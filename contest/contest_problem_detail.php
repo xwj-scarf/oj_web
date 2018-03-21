@@ -41,5 +41,5 @@ $smarty->assign('cid',$cid);
 $smarty->assign('is_login',$is_login);
 $smarty->assign('name',$user_name);
 $smarty->assign('problem_id',$pid);
-$smarty->display('contest_problem_detail.html');
+$smarty->display('contest/contest_problem_detail.html');
 ?>

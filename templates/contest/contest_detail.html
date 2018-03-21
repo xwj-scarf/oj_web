@@ -1,15 +1,15 @@
 <html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
+<head> <meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <title>OJ_WEB</title>
 	<script src="../bootstrap/jquery-3.2.1.min.js"></script>
-
+    <meta http-equiv="refresh" content="60">
     <!-- Bootstrap -->
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../bootstrap/css/bootstrap-theme.css" rel="stylesheet">
-    <script src="../bootstrap/js/bootstrap.min.js"></script>
+	<script src="../bootstrap/js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
@@ -32,9 +32,10 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Head<span class="sr-only">(current)</span></a></li>
-        <li><a href="../problem/index.php">Problem</a></li>
-		<li><a href="../status/index.php">Status</a></li>
+        <li><a href="#">Problem</a></li>
+		<li><a href="../contest/status.php?cid=<{$cid}>">Contest Status</a></li>
 		<li><a href="../contest/index.php">Contest</a></li>
+		<li><a href="../contest/rank.php?cid=<{$cid}>">Rank</a></li>
         <li><a href="../statistics/index.php">Statistics</a></li>
         <li class="dropdown">
 	
@@ -71,40 +72,76 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-<!-- 比赛列表-->
+<{if $is_securt == 1}>
+<form method="post" action="" class="form-horizontal" role="form" id="form_data" onsubmit="return check_form()" style="margin: 20px;">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">请输入密码</h4>
+                </div>
+                <div class="modal-body">
+					<form class="form-horizontal" role="form">
+						<div class="form-group">
+							<input type="text" name="password" class="form-control" id="contest_password" placeholder="密码">
+						</div>
+					</form>
+                </div>
+				<div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">
+                        提交
+                    </button><span id="tip"> </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+	<script>$('#myModal').modal();</script>
+<{/if}>
+
+<!-- 题目-->
 <div class="container ">
 <div class="row">
 <div class="col-md9" role="main"> 
 
-<p class="lead text-center">
-<h1 class="text-center">Contest</h1>
+<p>
+<h1 class="text-center"><{$contest_name}>
+<{if $time_rate == 100}>(已结束)
+<{/if}>
+</h1>
 </p>
 
+<div class="row">
+<div class="col-md-6">
+<h4>开始时间: <{$start_time}></h4></div>
+<div class=" pull-right">
+<h4>结束时间: <{$end_time}></h4></div>
+</div>
+
+<div class="progress">
+  <div class="progress-bar progress-bar-striped progress-bar-success active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: <{$time_rate}>%">
+    <span class="sr-only"></span>
+  </div>
+</div>
 
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th class="text-center">比赛编号</th>	
-			<th class="text-center">比赛名称</th>	
-			<th class="text-center">开始时间</th>
-			<th class="text-center">结束时间</th>
-			<th class="text-center">类型</th>
-			<th class="text-center">状态</th>	
+			<th class="text-center">题目编号</th>	
+			<th class="text-center">题目名称</th>	
+			<th class="text-center">通过率</th>	
 		</tr>
 	</thead>
 
 	<tbody>
-		<{foreach key=key item=item from=$data}>
+	<{foreach key=key item=item from=$data}>
         <tr>
-	  	  <td class="text-center"><{$item.contest_id}></td>
-          <td class="text-center"><a href="detail.php?cid=<{$item.contest_id}>&cname=<{$item.contest_name}>"><{$item.contest_name}></a></td>
-		  <td class="text-center"><{$item.start_time}></td>
-		  <td class="text-center"><{$item.end_time}></td>
-		  <td class="text-center"><{$item.type}></td>
-		  <td class="text-center"><{$item.status}></td>
-
+	  	  <td class="text-center"><{$item.pid}></td>
+          <td class="text-center"><a href="contest_problem_detail.php?pid=<{$item.pid}>&cid=<{$cid}>"><{$item.problem_name}></a></td>
+          <td class="text-center"><{$item.ac_num}>/<{$item.total_num}> (<{$item.pass_percent}>%)</td>
         </tr>
-		<{/foreach}>
+	<{/foreach}>
      </tbody>
 
 </table>

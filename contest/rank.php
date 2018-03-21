@@ -67,7 +67,7 @@ $smarty->assign('rank',$rank);
 $smarty->assign('submit',$submit);
 $smarty->assign('pass_time',$pass_time);
 $smarty->assign('problem_list',$problem_list);
-$smarty->display('contest_rank.html');
+$smarty->display('contest/contest_rank.html');
 
 
 function compare($a,$b) {

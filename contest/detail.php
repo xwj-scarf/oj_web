@@ -51,12 +51,11 @@ if (in_array($_SESSION['user_name'],$admin_arr)) {
     $smarty->assign('is_admin',1);
 }
 
-$smarty->assign('is_securt',1);
 $smarty->assign('start_time',date('Y-m-d H:i:s',$tmp[0]['start_time']));
 $smarty->assign('end_time',date('Y-m-d H:i:s',$tmp[0]['end_time']));
 $smarty->assign('cid',$cid);
 $smarty->assign('is_login',$is_login);
 $smarty->assign('name',$user_name);
-$smarty->display('contest_detail.html');
+$smarty->display('contest/contest_detail.html');
 
 ?>

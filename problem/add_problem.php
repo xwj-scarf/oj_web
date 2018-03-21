@@ -162,5 +162,5 @@ $user_name = $_SESSION['user_name'];
 $smarty->assign('is_login',$is_login);
 $smarty->assign('name',$user_name);
 $smarty->assign('request',$_REQUEST);
-$smarty->display('add_problem.html');
+$smarty->display('problem/add_problem.html');
 ?>

@@ -35,7 +35,7 @@ $smarty->assign('is_login',$is_login);
 $smarty->assign('name',$user_name);
 $smarty->assign('data',$data);
 
-$smarty->display('problem.html');
+$smarty->display('problem/problem.html');
 
 
 ?>

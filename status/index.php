@@ -49,6 +49,6 @@ $smarty->assign('name',$user_name);
 $smarty->assign('pt',$pt);
 $smarty->assign('page_num',$page_num);
 $smarty->assign('data',$data);
-$smarty->display('status.html');
+$smarty->display('status/status.html');
 
 ?>

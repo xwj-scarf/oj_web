@@ -21,7 +21,7 @@ $now = strtotime(date('Y-m-d H:i:s'));
 if ($data) {
     foreach($data as $k => $v) {
 		//@file_put_contents('/tmp/weijun.log',var_export($type_arr['0'],true)."\n",FILE_APPEND);
-
+		$data[$k]['is_private'] = $v['type'];
 		$data[$k]['type'] = $type_arr[$v['type']];
 		$data[$k]['start_time'] = date('Y-m-d H:i:s',$v['start_time']);
 		$data[$k]['end_time'] = date('Y-m-d H:i:s',$v['end_time']);
@@ -36,8 +36,6 @@ if ($data) {
     }
 }
 
-//@file_put_contents('/tmp/weijun.log',var_export($data,true)."\n",FILE_APPEND);
-
 $is_login = 0;
 if (isset($_SESSION['is_login'])) {
     $is_login = 1;
@@ -51,6 +49,6 @@ $smarty->assign('is_login',$is_login);
 $smarty->assign('name',$user_name);
 $smarty->assign('data',$data);
 
-$smarty->display('contest.html');
+$smarty->display('contest/contest.html');
 
 ?>

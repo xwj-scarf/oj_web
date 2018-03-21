@@ -45,7 +45,7 @@ $smarty->assign('c_total',$total_count);
 
 $smarty->assign('name',$user_name);
 $smarty->assign('is_login',$is_login);
-$smarty->display('statistics.html');
+$smarty->display('statistic/statistics.html');
 
 
 ?>

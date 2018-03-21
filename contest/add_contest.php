@@ -103,6 +103,6 @@ $smarty->assign('is_login',$is_login);
 $smarty->assign('name',$user_name);
 //$smarty->assign('data',$data);
 
-$smarty->display('add_contest.html');
+$smarty->display('contest/add_contest.html');
 
 ?>

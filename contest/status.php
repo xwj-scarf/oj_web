@@ -54,6 +54,6 @@ $smarty->assign('is_login',$is_login);
 $smarty->assign('name',$user_name);
 $smarty->assign('cid',$cid);
 $smarty->assign('data',$data);
-$smarty->display('contest_status.html');
+$smarty->display('contest/contest_status.html');
 
 ?>

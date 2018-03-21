@@ -40,6 +40,6 @@ if (in_array($_SESSION['user_name'],$admin_arr)) {
 $smarty->assign('is_login',$is_login);
 $smarty->assign('name',$user_name);
 $smarty->assign('problem_id',$pid);
-$smarty->display('problem_detail.html');
+$smarty->display('problem/problem_detail.html');
 
 ?>
