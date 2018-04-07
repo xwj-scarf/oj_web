@@ -72,34 +72,6 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-<{if $is_securt == 1}>
-<form method="post" action="" class="form-horizontal" role="form" id="form_data" onsubmit="return check_form()" style="margin: 20px;">
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">请输入密码</h4>
-                </div>
-                <div class="modal-body">
-					<form class="form-horizontal" role="form">
-						<div class="form-group">
-							<input type="text" name="password" class="form-control" id="contest_password" placeholder="密码">
-						</div>
-					</form>
-                </div>
-				<div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">
-                        提交
-                    </button><span id="tip"> </span>
-                </div>
-            </div>
-        </div>
-    </div>
-</form>
-	<script>$('#myModal').modal();</script>
-<{/if}>
-
 <!-- 题目-->
 <div class="container ">
 <div class="row">
@@ -125,6 +97,13 @@
   </div>
 </div>
 
+<{if $is_create_user}>
+添加参加名单
+<form action="/oj_web/contest/add_user.php?cid=<{$cid}>" method="post" enctype="multipart/form-data">
+<input type="file" name="add_user" value="上传文件"/>
+<button type="submit" class="btn btn-default">添加</button>
+</form>
+<{/if}>
 <table class="table table-striped">
 	<thead>
 		<tr>

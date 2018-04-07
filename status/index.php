@@ -5,12 +5,12 @@ $smarty = new Smarty_Oj();
 $conn = new Db();
 
 $pt = isset($_REQUEST['pt']) && is_numeric($_REQUEST['pt']) && $_REQUEST['pt']>0 ? $_REQUEST['pt'] : 1;
-$page = 20; //每页显示50条
-
+$page = 20; //每页显示20条
+$page_num = 5; //5页
 $sum = $conn->query("select count(1) as sum from submit_info");
 $sum = $sum[0]['sum'];
 
-$page_num = intval($sum / $page) + 1;
+$page_num = intval($sum / $page) + 1; //一共能显示多少页
 
 if ($pt > $page_num) {
 	$pt = $page_num;
@@ -44,6 +44,10 @@ if (isset($_SESSION['user_name'])) {
     $user_name = $_SESSION['user_name'];
 }
 
+$page_begin = intval($pt / 5) * 5;
+$page_end = $page_begin + 5;
+$smarty->assign('page_begin',$page_begin);
+$smarty->assign('page_end',$page_end);
 $smarty->assign('is_login',$is_login);
 $smarty->assign('name',$user_name);
 $smarty->assign('pt',$pt);

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-03-21 10:54:53
+/* Smarty version 3.1.32-dev-38, created on 2018-03-24 22:58:22
   from '/home/oj_web/templates/problem/problem.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5ab1c97d630226_45453535',
+  'unifunc' => 'content_5ab6678e70bbf4_43838822',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a0daa90f67af5519244913ba7039e7dfea1e345a' => 
     array (
       0 => '/home/oj_web/templates/problem/problem.html',
-      1 => 1520837058,
+      1 => 1521903499,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ab1c97d630226_45453535 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ab6678e70bbf4_43838822 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -110,10 +110,10 @@ function content_5ab1c97d630226_45453535 (Smarty_Internal_Template $_smarty_tpl)
 		<h1 class="text-center">Problem</h1>
 		</p>
 
-		<table class="table table-striped table-bordered table-condensed table-hover">
+		<table class="table table-striped table-hover">
 			<thead>
 				<tr>
-					<th class="text-center">题目编号</th>	
+					<th width="10px">题目编号</th>	
 					<th class="text-center">题目名称</th>	
 					<th class="text-center">通过率</th>	
 				</tr>

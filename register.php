@@ -7,10 +7,25 @@ if (!empty($_REQUEST)) {
 	$user_name = $_REQUEST['user_name'];
 	$password = $_REQUEST['password'];
 	$sec_password = $_REQUEST['sec_password'];
+	$unickname = $_REQUEST['unickname'];
 
+	if (empty($unickname)) {
+		echo "<script> alert('请设置昵称'); </script>";
+		echo "<meta http-equiv='Refresh' content='0;URL=/oj_web/register.php'>";
+		exit;	
+	}
+
+	$db = new Db();
+	$sql = "select unick_name from user_info where unick_name = '{$unickname}'";
+	$result = $db->query($sql);
+	if (!empty($result)) {
+		echo "<script> alert('昵称重复'); </script>";
+		echo "<meta http-equiv='Refresh' content='0;URL=/oj_web/register.php'>";
+		exit;	
+	}
+		
 	if (!empty($password) && !empty($sec_password) && !empty($user_name) && $password == $sec_password) {
-		$db = new Db();
-		$result = $db->query("insert into user_info (user_name,password) values('{$user_name}','{$password}')");
+		$result = $db->query("insert into user_info (user_name,password,unick_name) values('{$user_name}','{$password}','{$unickname}')");
 		if (!$result) {
 			echo "<script> alert('注册失败,用户名重复'); </script>";
 			echo "<meta http-equiv='Refresh' content='0;URL=/oj_web/register.php'>";

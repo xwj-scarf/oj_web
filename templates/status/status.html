@@ -152,7 +152,10 @@
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
-	<{if $page_num > 10}>
+	<{for $i = $page_begin to $page_end }>
+		<li><a href="../status/index.php?pt=<{$i}>"><{$i}></a></li>
+	<{/for}>
+<!--	<{if $page_num > 10}>
 		<{for $i = 1 to 10 }>
 		<li><a href="../status/index.php?pt=<{$i}>"><{$i}></a></li>
 		<{/for}>
@@ -160,7 +163,7 @@
 		<{for $i = 1 to $page_num }>
 		<li><a href="../status/index.php?pt=<{$i}>"><{$i}></a></li>
 		<{/for}>
-	<{/if}>
+	<{/if}> -->
     <li>
       <a href="../status/index.php?pt=<{$pt+1}>" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
