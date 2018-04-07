@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-04-07 15:41:47
+/* Smarty version 3.1.32-dev-38, created on 2018-04-07 17:22:58
   from '/home/oj_web/templates/contest/contest_detail.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5ac8763beda3f2_10529376',
+  'unifunc' => 'content_5ac88df2066f35_73996909',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0c2548537638add24692424d258048a2d9be9ca4' => 
     array (
       0 => '/home/oj_web/templates/contest/contest_detail.html',
-      1 => 1523086900,
+      1 => 1523092976,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ac8763beda3f2_10529376 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ac88df2066f35_73996909 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head> <meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -136,9 +136,57 @@ function content_5ac8763beda3f2_10529376 (Smarty_Internal_Template $_smarty_tpl)
 <form action="/oj_web/contest/add_user.php?cid=<?php echo $_smarty_tpl->tpl_vars['cid']->value;?>
 " method="post" enctype="multipart/form-data">
 <input type="file" name="add_user" value="上传文件"/>
-<button type="submit" class="btn btn-default">添加</button>
+<div>
+	<button type="submit" class="btn btn-default">添加</button>
+	<!-- Button trigger modal -->
+	<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
+	已导入名单
+	</button>
+</div>
 </form>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">已导入名单</h4>
+      </div>
+      <div class="modal-body">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th class="text-center">账号</th>
+				</tr>
+			</thead>
+			<tbody>
+			<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['register_data']->value, 'item1', false, 'key');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_vars['item1']->value) {
+?>
+				<tr>
+					<td class="text-center"><?php echo $_smarty_tpl->tpl_vars['item1']->value['user_name'];?>
+</td>
+				</tr>
+			<?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+			</tbody>
+		</table> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <?php }?>
+
+
 <table class="table table-striped">
 	<thead>
 		<tr>

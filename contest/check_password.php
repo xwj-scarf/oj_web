@@ -19,6 +19,15 @@ if ($_SESSION['cid'][$cid] == 1) {
     echo "<meta http-equiv='Refresh' content='0;URL=/oj_web/contest/detail.php?cid=$cid'>";
 }
 
+$db = new Db();
+$sql = "select id from contest_register_user_info where contest_id = '{$cid}' and user_name = '{$user_name}'";
+$data = $db->query($sql);
+if (!empty($data)) {
+	$_SESSION['cid'][$cid] = 1;
+	echo "<meta http-equiv='Refresh' content='0;URL=/oj_web/contest/detail.php?cid=$cid'>";
+	exit;
+}
+
 if (!isset($_REQUEST['password']) || empty($_REQUEST['password'])) {
 	$smarty->assign('cid',$cid);
 	$smarty->display("contest/check_password.html");
@@ -35,7 +44,6 @@ $data = $db->query($sql)[0];
 
 if ($data['password'] == $password) {
 	$_SESSION['cid'][$cid] = 1;
-@file_put_contents('/tmp/weijun.log',var_export($_SESSION,true)."\n",FILE_APPEND);
 
     echo "<script> alert('密码正确'); </script>";
     echo "<meta http-equiv='Refresh' content='0;URL=/oj_web/contest/detail.php?cid=$cid'>";

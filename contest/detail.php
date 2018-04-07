@@ -45,6 +45,12 @@ if ($tmp[0]['add_user'] == $_SESSION['user_name'] && $tmp[0]['type'] == 1) {
 	$is_create_user = 0;
 }
 
+if ($is_create_user) {
+	$sql = "select user_name from contest_register_user_info where contest_id = '{$cid}'";
+	$register_data = $conn->query($sql);
+	$smarty->assign('register_data',$register_data);
+}
+
 $smarty->assign('time_rate',$time_rate);
 $smarty->assign('contest_name',$contest_name);
 $smarty->assign('data',$data);
