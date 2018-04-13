@@ -72,7 +72,7 @@ if (!empty($_REQUEST)) {
 	$now = strtotime(date('Y-m-d H:i:s'));
 	$start_time = strtotime($start_time);
 	$end_time = strtotime($end_time);
-	$sql = "insert into contest_info (contest_name,add_time,start_time,end_time,type) values ('{$contest_name}','{$now}','{$start_time}','{$end_time}','{$is_show}') ";
+	$sql = "insert into contest_info (contest_name,add_time,start_time,end_time,type,add_user) values ('{$contest_name}','{$now}','{$start_time}','{$end_time}','{$is_show}','{$_SESSION['user_name']}') ";
 	
 
 	$conn->query($sql);

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-03-21 11:38:20
+/* Smarty version 3.1.32-dev-38, created on 2018-04-13 22:38:45
   from '/home/oj_web/templates/contest/contest.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5ab1d3ac4f5c66_77629750',
+  'unifunc' => 'content_5ad0c0f55e59d4_01685847',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8a66d572b00244cefa953be8882aa76beba46e73' => 
     array (
       0 => '/home/oj_web/templates/contest/contest.html',
-      1 => 1521603489,
+      1 => 1523630300,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ab1d3ac4f5c66_77629750 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ad0c0f55e59d4_01685847 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -117,7 +117,8 @@ function content_5ab1d3ac4f5c66_77629750 (Smarty_Internal_Template $_smarty_tpl)
 			<th class="text-center">开始时间</th>
 			<th class="text-center">结束时间</th>
 			<th class="text-center">类型</th>
-			<th class="text-center">状态</th>	
+			<th class="text-center">状态</th>
+			<th class="text-center">添加用户</th>	
 		</tr>
 	</thead>
 
@@ -148,7 +149,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_var
 </td>
 		  <td class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['status'];?>
 </td>
-
+		  <td class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['add_user'];?>
+</td>
         </tr>
 		<?php
 }
