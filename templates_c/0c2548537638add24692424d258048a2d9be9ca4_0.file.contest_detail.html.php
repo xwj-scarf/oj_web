@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-04-07 17:22:58
+/* Smarty version 3.1.32-dev-38, created on 2018-04-07 17:25:35
   from '/home/oj_web/templates/contest/contest_detail.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5ac88df2066f35_73996909',
+  'unifunc' => 'content_5ac88e8fe6e516_46959341',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0c2548537638add24692424d258048a2d9be9ca4' => 
     array (
       0 => '/home/oj_web/templates/contest/contest_detail.html',
-      1 => 1523092976,
+      1 => 1523093103,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ac88df2066f35_73996909 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ac88e8fe6e516_46959341 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head> <meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1">
