@@ -11,11 +11,20 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_name']) || empty($_SE
     exit;
 }
 
+$can_see_code = 0;
+
 $db = new Db();
+
+$sql = "select type from user_info where id = '{$_SESSION['user_id']}'";
+$data = $db->query($sql);
+if (isset($data[0]['type']) && $data[0]['type'] != 0) {
+	$can_see_code = 1;
+}
+
 $sql = "select uid,code_path from contest_submit_info where id = '{$sid}'";
 $data = $db->query($sql);
 
-if ($data[0]['uid'] != $_SESSION['user_id']) {
+if ($data[0]['uid'] != $_SESSION['user_id'] && $can_see_code == 0 ) {
     echo "<script> alert('你尚无权限查看别人的代码');</script>";
     echo "<meta http-equiv='Refresh' content='0;URL=.'>";
     exit;
