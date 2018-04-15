@@ -22,15 +22,21 @@ $start_p = ($pt-1)*$page;
 $data = $conn->query( "SELECT submit_info.id as id ,problem_info.problem_name as problem_name,problem_info.pid as pid,
 									  user_info.user_name as user_name, submit_info.time_use as time_use,
 									  submit_info.memory_use as memory_use, submit_info.status as status,
-									  submit_info.add_time as add_time  
+									  submit_info.add_time as add_time,
+									  submit_info.language as language , submit_info.code_path as code_path  
 									 FROM submit_info, problem_info,user_info 
 							   where submit_info.pid = problem_info.pid and submit_info.uid = user_info.id
 					  		   ORDER BY submit_info.id DESC limit {$start_p},$page
 					  ");
 
+$language_type = array(
+	0 => "C++",
+);
+
 if ($data) {
 	foreach($data as $k => $v) {
 		$data[$k]['add_time'] = date("Y-m-d H:i:s",intval($v['add_time']));
+		$data[$k]['language'] = $language_type[$v['language']];
 	}
 }
 

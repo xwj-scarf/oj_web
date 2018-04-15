@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-03-24 22:58:22
+/* Smarty version 3.1.32-dev-38, created on 2018-04-15 18:36:20
   from '/home/oj_web/templates/problem/problem.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5ab6678e70bbf4_43838822',
+  'unifunc' => 'content_5ad32b24b2cf36_30858048',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a0daa90f67af5519244913ba7039e7dfea1e345a' => 
     array (
       0 => '/home/oj_web/templates/problem/problem.html',
-      1 => 1521903499,
+      1 => 1523788576,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ab6678e70bbf4_43838822 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ad32b24b2cf36_30858048 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -115,7 +115,7 @@ function content_5ab6678e70bbf4_43838822 (Smarty_Internal_Template $_smarty_tpl)
 				<tr>
 					<th width="10px">题目编号</th>	
 					<th class="text-center">题目名称</th>	
-					<th class="text-center">通过率</th>	
+					<th class="text-center">通过率</th>
 				</tr>
 			</thead>
 
@@ -139,6 +139,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_var
 /<?php echo $_smarty_tpl->tpl_vars['item']->value['total_num'];?>
  (<?php echo $_smarty_tpl->tpl_vars['item']->value['pass_percent'];?>
 %)</td>
+
         </tr>
 		<?php
 }

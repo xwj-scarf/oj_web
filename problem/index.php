@@ -34,7 +34,7 @@ if (isset($_SESSION['user_name'])) {
 $smarty->assign('is_login',$is_login);
 $smarty->assign('name',$user_name);
 $smarty->assign('data',$data);
-
+$smarty->assign('is_author',1);
 $smarty->display('problem/problem.html');
 
 

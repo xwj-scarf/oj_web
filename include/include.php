@@ -8,7 +8,8 @@ require_once(INCLUDE_PATH . 'smarty.php');
 session_start();
 
 define('UTILS_PATH','/home/oj_web/utils/');
-
+define('CONTEST_CODE_STORGE_PATH','/home/oj_contest_code_storge/');
+define('CODE_STORGE_PATH','/home/oj_code_storge/');
 require_once(UTILS_PATH . 'db.php');
 require_once(UTILS_PATH . 'file.php');
 require_once(UTILS_PATH . 'utils.php');

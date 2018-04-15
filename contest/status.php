@@ -25,15 +25,21 @@ $smarty = new Smarty_Oj();
 $data = $conn->query("SELECT DISTINCT(contest_submit_info.id) as id ,contest_problem_info.problem_name as problem_name,contest_problem_info.show_pid as pid,
 									  user_info.user_name as user_name,  contest_submit_info.time_use as time_use,
 									  contest_submit_info.memory_use as memory_use, contest_submit_info.status as status,
-									  contest_submit_info.add_time as add_time 
+									  contest_submit_info.add_time as add_time,
+										contest_submit_info.language as language , contest_submit_info.code_path as code_path 
 									 FROM contest_submit_info, contest_problem_info,user_info 
 							   where contest_submit_info.pid = contest_problem_info.show_pid and contest_submit_info.uid = user_info.id  and contest_submit_info.contest_id = '{$cid}'
 					  		   ORDER BY contest_submit_info.id DESC limit {$start_p},$page
 					  ");
 
+$language_type = array(
+    0 => "C++",
+);
+
 if ($data) {
 	foreach($data as $k => $v) {
 		$data[$k]['add_time'] = date("Y-m-d H:i:s",intval($v['add_time']));
+        $data[$k]['language'] = $language_type[$v['language']];
 	}
 }
 

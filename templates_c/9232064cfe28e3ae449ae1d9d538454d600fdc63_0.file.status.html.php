@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-04-06 22:56:19
+/* Smarty version 3.1.32-dev-38, created on 2018-04-15 19:33:57
   from '/home/oj_web/templates/status/status.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5ac78a93eb79e2_54166413',
+  'unifunc' => 'content_5ad338a516ff12_00786364',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9232064cfe28e3ae449ae1d9d538454d600fdc63' => 
     array (
       0 => '/home/oj_web/templates/status/status.html',
-      1 => 1523026579,
+      1 => 1523792036,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ac78a93eb79e2_54166413 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ad338a516ff12_00786364 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -116,6 +116,7 @@ function content_5ac78a93eb79e2_54166413 (Smarty_Internal_Template $_smarty_tpl)
             <th class="text-center">提交编号</th>
 			<th class="text-center">用户名</th>
             <th class="text-center">problem_name</th>
+			<th class="text-center">language</th>
 			<th class="text-center">time_use</th>
 			<th class="text-center">memory_use</th>
 			<th class="text-center">status</th>
@@ -137,6 +138,9 @@ foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_var
 </h5></td>
 		  <td><a href="/oj_web/problem/detail.php?pid=<?php echo $_smarty_tpl->tpl_vars['item']->value['pid'];?>
 "><h5 class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['problem_name'];?>
+</h5></a></td>
+		  <td><a href="/oj_web/status/show_code.php?sid=<?php echo $_smarty_tpl->tpl_vars['item']->value['id'];?>
+"><h5 class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['language'];?>
 </h5></a></td>
 		  <td><h5 class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['time_use'];?>
  MS</h5></td>

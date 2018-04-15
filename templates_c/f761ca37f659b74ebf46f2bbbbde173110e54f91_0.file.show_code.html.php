@@ -1,20 +1,48 @@
-<html>
+<?php
+/* Smarty version 3.1.32-dev-38, created on 2018-04-15 20:20:54
+  from '/home/oj_web/templates/status/show_code.html' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.32-dev-38',
+  'unifunc' => 'content_5ad343a6cb5093_87583103',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'f761ca37f659b74ebf46f2bbbbde173110e54f91' => 
+    array (
+      0 => '/home/oj_web/templates/status/show_code.html',
+      1 => 1523794523,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5ad343a6cb5093_87583103 (Smarty_Internal_Template $_smarty_tpl) {
+?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <title>OJ_WEB</title>
-	<script src="../bootstrap/jquery-3.2.1.min.js"></script>
+	<?php echo '<script'; ?>
+ src="../bootstrap/jquery-3.2.1.min.js"><?php echo '</script'; ?>
+>
 
     <!-- Bootstrap -->
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../bootstrap/css/bootstrap-theme.css" rel="stylesheet">
-	<script src="../bootstrap/js/bootstrap.min.js"></script>
+	<?php echo '<script'; ?>
+ src="../bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
+>
 
 </head>
 
 <body>
 
+<!-- dao hang lan -->
 <!-- 导航栏 -->
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -33,12 +61,13 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Head<span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Problem</a></li>
-		<li><a href="../status/index.php">Status</a></li>
-		<li><a href="../contest/index.php">Contest</a></li>
+        <li><a href="../problem/index.php">Problem</a></li>
+        <li><a href="../status/index.php">Status</a></li>
+        <li><a href="../contest/index.php">Contest</a></li>
         <li><a href="../statistics/index.php">Statistics</a></li>
+
         <li class="dropdown">
-	
+
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Add <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="../problem/add_problem.php">Add Problem</a></li>
@@ -48,7 +77,7 @@
             <li role="separator" class="divider"></li>
             <li><a href="#">One more separated link</a></li> -->
           </ul>
-		</li>
+        </li>
       </ul>
       <form class="navbar-form navbar-left">
         <div class="form-group">
@@ -57,13 +86,14 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><{$name}></a></li>
+        <li><a href="#"><?php echo $_smarty_tpl->tpl_vars['name']->value;?>
+</a></li>
         <li>
-        <{if $is_login == 1}>
+        <?php if ($_smarty_tpl->tpl_vars['is_login']->value == 1) {?>
             <a href="../logout.php">退出</a>
-        <{else}>
+        <?php } else { ?>
             <a href="../login.php"> 注册/登录</a>
-        <{/if}>
+        <?php }?>
         </li>
       </ul>
 
@@ -72,45 +102,23 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-<!-- 题目-->
-<section class="content-wrap">
 <div class="container ">
 <div class="row">
+<div class="col-md9" role="main">
+<p class="lead text-center">
+<h1 class="text-center">Code</h1>
+</p>
 
-	<div class="col-md-9" role="main"> 
-		<p class="lead text-center">
-		<h1 class="text-center">Problem</h1>
-		</p>
+<h5>
+<?php echo $_smarty_tpl->tpl_vars['data']->value;?>
 
-		<table class="table table-striped table-hover">
-			<thead>
-				<tr>
-					<th width="10px">题目编号</th>	
-					<th class="text-center">题目名称</th>	
-					<th class="text-center">通过率</th>
-				</tr>
-			</thead>
+</h5>
 
-		<tbody>
-		<{foreach key=key item=item from=$data}>
-		<{if $item.pid % 2 == 1}>
-		<tr class="active">
-		<{else}>
-		<tr>
-		<{/if}>
-	  	  <td class="text-center"><{$item.pid}></td>
-          <td class="text-center"><a href="detail.php?pid=<{$item.pid}>"><{$item.problem_name}></a></td>
-          <td class="text-center"><{$item.ac_num}>/<{$item.total_num}> (<{$item.pass_percent}>%)</td>
-
-        </tr>
-		<{/foreach}>
-		</tbody>
-
-		</table>
-	</div>
 </div>
 </div>
-</section>
+</div>
 </body>
 
 </html>
+<?php }
+}

@@ -36,9 +36,17 @@ if ($tmp_data) {
 $redis = new Redis();
 $redis->connect('127.0.0.1',6379);
 
+$code_root_path = CONTEST_CODE_STORGE_PATH . date('Y-m-d');
+if (!is_dir($code_root_path)) {
+    mkdir($code_root_path,0777,true);
+}
+
+$code_path = $code_root_path . "/" . $_SESSION['user_id'] . "_" . $now;
+file_put_contents($code_path,$submit_code,FILE_APPEND);
+
 $code = json_encode($submit_code);
 
-$conn->query("insert into contest_submit_info (contest_id,uid,pid,status,time_use,memory_use,add_time,update_time) values('{$cid}','{$_SESSION['user_id']}','{$_REQUEST['pid']}',0,0,0,'{$now}','{$now}')");
+$conn->query("insert into contest_submit_info (contest_id,uid,pid,status,time_use,memory_use,add_time,update_time,language,code_path) values('{$cid}','{$_SESSION['user_id']}','{$_REQUEST['pid']}',0,0,0,'{$now}','{$now}',0,'{$code_path}')");
 
 $sid = $conn->getInsertId();
 
