@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-03-21 10:54:54
+/* Smarty version 3.1.32-dev-38, created on 2018-04-15 21:29:18
   from '/home/oj_web/templates/problem/problem_detail.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5ab1c97e56d337_69506646',
+  'unifunc' => 'content_5ad353aea82418_48243634',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '414657743fc2a66a1da13edb45d2575ef2444ff4' => 
     array (
       0 => '/home/oj_web/templates/problem/problem_detail.html',
-      1 => 1520837040,
+      1 => 1523798957,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ab1c97e56d337_69506646 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ad353aea82418_48243634 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -182,10 +182,16 @@ function content_5ab1c97e56d337_69506646 (Smarty_Internal_Template $_smarty_tpl)
 	</form>
 
 	<?php if ($_smarty_tpl->tpl_vars['is_admin']->value == 1) {?>
+	<div>
 	<form action="/oj_web/problem/edit_problem.php?problem_id=<?php echo $_smarty_tpl->tpl_vars['problem_id']->value;?>
 " method="post">
   		<button type="submit" class="btn btn-default">编辑题目</button>
 	</form>
+	<form action="/oj_web/problem/del_problem.php?problem_id=<?php echo $_smarty_tpl->tpl_vars['problem_id']->value;?>
+" method="post">
+  		<button type="submit" class="btn btn-default">删除该题目</button>
+	</form>
+	</div>
 	<?php }?>
 
 </div>

@@ -51,4 +51,8 @@ class Db
 	function commit() {
 		return $this->mysqli->commit();
 	}
+
+	function getAffectedRows() {
+		return $this->mysqli->affected_rows;
+	}
 }

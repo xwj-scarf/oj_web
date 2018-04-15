@@ -145,9 +145,14 @@
 	</form>
 
 	<{if $is_admin == 1}>
+	<div>
 	<form action="/oj_web/problem/edit_problem.php?problem_id=<{$problem_id}>" method="post">
   		<button type="submit" class="btn btn-default">编辑题目</button>
 	</form>
+	<form action="/oj_web/problem/del_problem.php?problem_id=<{$problem_id}>" method="post">
+  		<button type="submit" class="btn btn-default">删除该题目</button>
+	</form>
+	</div>
 	<{/if}>
 
 </div>
