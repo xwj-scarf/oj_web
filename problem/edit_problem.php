@@ -18,10 +18,11 @@ if (isset($_REQUEST['op']) && !empty($_REQUEST['op'])) {
 
 	$time = is_numeric($_REQUEST['time']) ? $_REQUEST['time'] : 0;
 	$memory = is_numeric($_REQUEST['memory']) ? $_REQUEST['memory'] : 0;
-	
+    $remark = $_REQUEST['remark'];	
 	$conn->query("update problem_info set problem_name = '{$_REQUEST['problem_name']}', problem_description = '{$description}',
-					input = '{$input}' , output = '{$output}',
-				problem_sample_input = '{$sample_input}', problem_sample_output = '{$sample_output}',time_limit = '{$time}',memory_limit = '{$memory}',is_show = '{$_REQUEST['is_show']}' 
+                    input = '{$input}' , output = '{$output}',
+                problem_sample_input = '{$sample_input}', problem_sample_output = '{$sample_output}',
+                time_limit = '{$time}',memory_limit = '{$memory}',is_show = '{$_REQUEST['is_show']}' , remark = '{$remark}'
 				 where pid = '{$_REQUEST['problem_id']}'");
 
 	echo "<script> alert('编辑成功'); </script>";
@@ -40,7 +41,8 @@ $data = array(
 	'time_limit' => $tmp_data[0]['time_limit'],
 	'memory_limit' => $tmp_data[0]['memory_limit'],
 	'input' => $tmp_data[0]['input'],
-	'output' => $tmp_data[0]['output'],
+    'output' => $tmp_data[0]['output'],
+    'remark' => $tmp_data[0]['remark'],
 ); 
 
 if ($data) {

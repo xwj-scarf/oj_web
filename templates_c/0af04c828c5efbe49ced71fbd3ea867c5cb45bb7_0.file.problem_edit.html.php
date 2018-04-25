@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-04-25 10:41:21
-  from '/home/oj_web/templates/problem/add_problem.html' */
+/* Smarty version 3.1.32-dev-38, created on 2018-04-25 10:44:34
+  from '/home/oj_web/templates/problem/problem_edit.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5adfead1c7a709_75412524',
+  'unifunc' => 'content_5adfeb92b79609_20867399',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'f8a59a7dfbfac7e8b637839e6fdaabfaa01d420f' => 
+    '0af04c828c5efbe49ced71fbd3ea867c5cb45bb7' => 
     array (
-      0 => '/home/oj_web/templates/problem/add_problem.html',
-      1 => 1524624016,
+      0 => '/home/oj_web/templates/problem/problem_edit.html',
+      1 => 1524624263,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5adfead1c7a709_75412524 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5adfeb92b79609_20867399 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -61,8 +61,8 @@ function content_5adfead1c7a709_75412524 (Smarty_Internal_Template $_smarty_tpl)
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Head<span class="sr-only">(current)</span></a></li>
         <li><a href="../problem/index.php">Problem</a></li>
-		<li><a href="../status/index.php">Status</a></li> 
-		<li><a href="../contest/index.php">Contest</a></li> 
+		<li><a href="../status/index.php">Status</a></li>
+ 		<li><a href="../contest/index.php">Contest</a></li> 
         <li><a href="../statistics/index.php">Statistics</a></li>
         <li class="dropdown">
         
@@ -106,44 +106,33 @@ function content_5adfead1c7a709_75412524 (Smarty_Internal_Template $_smarty_tpl)
 <div class="row">
 <div class="col-md9" role="main">
 
-<h1 class="text-center">Add Problem</h1>
+<form action="/oj_web/problem/edit_problem.php?problem_id=<?php echo $_smarty_tpl->tpl_vars['problem_id']->value;?>
+&op=edit" method="post">
 
-<form action="/oj_web/problem/add_problem.php" method="post" enctype="multipart/form-data">
+<div class="form-group">
 	<div class="panel panel-primary">
   		<div class="panel-heading">
-    		<h3 class="panel-title">请输入题目</h3>
+    		<h3 class="panel-title">题目</h3>
   		</div>
-  		<div class="panel-body">
-    	<textarea class="form-control" name="title"><?php echo $_smarty_tpl->tpl_vars['request']->value['title'];?>
+		<div class="panel-body">
+    	<textarea class="form-control" name="problem_name"><?php echo $_smarty_tpl->tpl_vars['data']->value['problem_name'];?>
 </textarea>
   		</div>
 	</div>
+
+    <div class="alert alert-danger" role="alert">Time Limit <textarea class="form-control" name="time"><?php echo $_smarty_tpl->tpl_vars['data']->value['time_limit'];?>
+</textarea>MS</div>
+    <div class="alert alert-warning" role="alert">Memory Limit <textarea class="form-control" name="memory"><?php echo $_smarty_tpl->tpl_vars['data']->value['memory_limit'];?>
+</textarea> KB</div>
 
 	<div class="panel panel-success">
   		<div class="panel-heading">
     		<h3 class="panel-title">描述</h3>
   		</div>
   		<div class="panel-body">
-  		        <textarea class="form-control" rows="8" name="description"></textarea>
-		</div>
-	</div>
-
-	<div class="panel panel-success">
-  		<div class="panel-heading">
-    		<h3 class="panel-title">time_limit (单位MS)</h3>
+    	<textarea class="form-control" name="description"><?php echo $_smarty_tpl->tpl_vars['data']->value['description'];?>
+</textarea>
   		</div>
-  		<div class="panel-body">
-  		        <textarea class="form-control" name="time_limit"></textarea>
-		</div>
-	</div>
-
-	<div class="panel panel-success">
-  		<div class="panel-heading">
-    		<h3 class="panel-title">memory_limit (单位KB)</h3>
-  		</div>
-  		<div class="panel-body">
-  		        <textarea class="form-control" name="memory_limit"></textarea>
-		</div>
 	</div>
 
 	<div class="panel panel-info">
@@ -151,7 +140,8 @@ function content_5adfead1c7a709_75412524 (Smarty_Internal_Template $_smarty_tpl)
     		<h3 class="panel-title">Input</h3>
   		</div>
   		<div class="panel-body">
-    	        <textarea class="form-control" rows="6" name="input"></textarea>
+    	<textarea class="form-control" name="input"><?php echo $_smarty_tpl->tpl_vars['data']->value['input'];?>
+</textarea>
   		</div>
 	</div>
 
@@ -160,7 +150,8 @@ function content_5adfead1c7a709_75412524 (Smarty_Internal_Template $_smarty_tpl)
     		<h3 class="panel-title">Output</h3>
   		</div>
   		<div class="panel-body">
-    	        <textarea class="form-control" rows="6" name="output"></textarea>
+    	<textarea class="form-control" name="output"><?php echo $_smarty_tpl->tpl_vars['data']->value['output'];?>
+</textarea>
   		</div>
 	</div>
 
@@ -169,7 +160,8 @@ function content_5adfead1c7a709_75412524 (Smarty_Internal_Template $_smarty_tpl)
     		<h3 class="panel-title">Sample Input</h3>
   		</div>
   		<div class="panel-body">
-    	        <textarea class="form-control" rows="6" name="sample_input"></textarea>
+    	<textarea class="form-control" name="sample_input"><?php echo $_smarty_tpl->tpl_vars['data']->value['problem_input'];?>
+</textarea>
   		</div>
 	</div>
 
@@ -179,38 +171,37 @@ function content_5adfead1c7a709_75412524 (Smarty_Internal_Template $_smarty_tpl)
     		<h3 class="panel-title">Sample Output</h3>
   		</div>
   		<div class="panel-body">
-    	        <textarea class="form-control" rows="6" name="sample_output"></textarea>
+    	<textarea class="form-control" name="sample_output"><?php echo $_smarty_tpl->tpl_vars['data']->value['problem_output'];?>
+</textarea>
   		</div>
 	</div>
 
 	<div class="panel panel-info">
   		<div class="panel-heading">
-    		<h3 class="panel-title">Judge Input</h3>
+    		<h3 class="panel-title">备注</h3>
   		</div>
   		<div class="panel-body">
-			<input type="file" name="judge_input" value="上传文件"/>
+    	<textarea class="form-control" name="remark"><?php echo $_smarty_tpl->tpl_vars['data']->value['remark'];?>
+</textarea>
   		</div>
 	</div>
 
-	<div class="panel panel-info">
-  		<div class="panel-heading">
-    		<h3 class="panel-title">Judge Output</h3>
-  		</div>
-  		<div class="panel-body">
-			<input type="file" name="judge_output" value="上传文件"/>
-  		</div>
+	<div class="radio">
+	  <label>
+		<input type="radio" name="is_show" id="optionsRadios1" value="1" checked>
+			显示该题目
+	  </label>
+	</div>
+	<div class="radio">
+	<label>
+		<input type="radio" name="is_show" id="optionsRadios2" value="0">
+			隐藏该题目
+	</label>
 	</div>
 
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            <h3 class="panel-title">备注</h3>
-        </div>
-        <div class="panel-body">
-                <textarea class="form-control" rows="6" name="remark"></textarea>
-        </div>
-	</div>
+	<button type="submit" class="btn btn-default">Submit</button>
+</div>
 
-  	<button type="submit" class="btn btn-default">Submit</button>
 </form>
 
 </div>

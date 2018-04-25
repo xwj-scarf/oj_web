@@ -63,8 +63,10 @@ if (!empty($_REQUEST)) {
 	$conn = new Db();
 	$conn->begin_transaction();
 
-	$result = $conn->query("insert into problem_info (problem_name,problem_description,time_limit,memory_limit,input,output,problem_sample_input,problem_sample_output) 
-							values('{$title}','{$desc}','{$time_limit}','{$memory_limit}','{$input}','{$output}','{$sample_input}','{$sample_output}')");
+    $remark = $_REQUEST['remark'];
+    $author = $_SESSION['user_name'];
+	$result = $conn->query("insert into problem_info (problem_name,problem_description,time_limit,memory_limit,input,output,problem_sample_input,problem_sample_output,remark,author) 
+							values('{$title}','{$desc}','{$time_limit}','{$memory_limit}','{$input}','{$output}','{$sample_input}','{$sample_output}','{$remark}','{$author}')");
 	
 	if (!$result) {
 		$conn->rollback();

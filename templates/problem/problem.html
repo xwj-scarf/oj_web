@@ -85,8 +85,10 @@
 		<table class="table table-striped table-hover">
 			<thead>
 				<tr>
-					<th width="10px">题目编号</th>	
+					<th class="text-center" width="10px">id</th>	
 					<th class="text-center">题目名称</th>	
+                    <th class="text-center">备注</th>
+                    <th class="text-center">出题人</th>
 					<th class="text-center">通过率</th>
 				</tr>
 			</thead>
@@ -97,9 +99,11 @@
 		<tr class="active">
 		<{else}>
 		<tr>
-		<{/if}>
+            <{/if}>
 	  	  <td class="text-center"><{$item.pid}></td>
           <td class="text-center"><a href="detail.php?pid=<{$item.pid}>"><{$item.problem_name}></a></td>
+          <td class="text-center"><{$item.remark}></td>
+          <td class="text-center"><{$item.author}></td>
           <td class="text-center"><{$item.ac_num}>/<{$item.total_num}> (<{$item.pass_percent}>%)</td>
 
         </tr>

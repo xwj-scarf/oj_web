@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-04-15 18:36:20
+/* Smarty version 3.1.32-dev-38, created on 2018-04-25 10:34:46
   from '/home/oj_web/templates/problem/problem.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5ad32b24b2cf36_30858048',
+  'unifunc' => 'content_5adfe9466e98f4_48413642',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a0daa90f67af5519244913ba7039e7dfea1e345a' => 
     array (
       0 => '/home/oj_web/templates/problem/problem.html',
-      1 => 1523788576,
+      1 => 1524623685,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ad32b24b2cf36_30858048 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5adfe9466e98f4_48413642 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -113,8 +113,10 @@ function content_5ad32b24b2cf36_30858048 (Smarty_Internal_Template $_smarty_tpl)
 		<table class="table table-striped table-hover">
 			<thead>
 				<tr>
-					<th width="10px">题目编号</th>	
+					<th class="text-center" width="10px">id</th>	
 					<th class="text-center">题目名称</th>	
+                    <th class="text-center">备注</th>
+                    <th class="text-center">出题人</th>
 					<th class="text-center">通过率</th>
 				</tr>
 			</thead>
@@ -129,12 +131,16 @@ foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_var
 		<tr class="active">
 		<?php } else { ?>
 		<tr>
-		<?php }?>
+            <?php }?>
 	  	  <td class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['pid'];?>
 </td>
           <td class="text-center"><a href="detail.php?pid=<?php echo $_smarty_tpl->tpl_vars['item']->value['pid'];?>
 "><?php echo $_smarty_tpl->tpl_vars['item']->value['problem_name'];?>
 </a></td>
+          <td class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['remark'];?>
+</td>
+          <td class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['author'];?>
+</td>
           <td class="text-center"><?php echo $_smarty_tpl->tpl_vars['item']->value['ac_num'];?>
 /<?php echo $_smarty_tpl->tpl_vars['item']->value['total_num'];?>
  (<?php echo $_smarty_tpl->tpl_vars['item']->value['pass_percent'];?>
