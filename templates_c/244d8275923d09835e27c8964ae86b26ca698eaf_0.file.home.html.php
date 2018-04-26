@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-03-24 22:45:07
+/* Smarty version 3.1.32-dev-38, created on 2018-04-26 21:51:38
   from '/home/oj_web/templates/home.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5ab66473d4dad9_88856196',
+  'unifunc' => 'content_5ae1d96a776554_42433545',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '244d8275923d09835e27c8964ae86b26ca698eaf' => 
     array (
       0 => '/home/oj_web/templates/home.html',
-      1 => 1521902695,
+      1 => 1524750618,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ab66473d4dad9_88856196 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ae1d96a776554_42433545 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -100,8 +100,65 @@ function content_5ab66473d4dad9_88856196 (Smarty_Internal_Template $_smarty_tpl)
 <p class="lead text-center">
 Welcome to OJ!
 </p>
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+                <form id="updateform" action="test.php" >
+                    <div class="form-group">
+                        <label for="loginname" class="control-label">用户名:</label>
+                        <input type="text" class="form-control" id="loginname" name="loginname">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="control-label">Email:</label>
+                        <input type="text" class="form-control" id="email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" class="control-label">电话:</label>
+                        <input type="text" class="form-control" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="address" class="control-label">收货地址:</label>
+                        <textarea class="form-control" id="address" name="address"></textarea>
+                    </div>
+                    <div class="text-right">
+                        <span id="returnMessage" class="glyphicon"> </span>
+                        <button type="button" class="btn btn-default right" data-dismiss="modal">关闭</button>
+                        <button id="submitBtn" type="button" class="btn btn-primary" onclick="add_info()" >修改</button>
+                    </div>
+                </form>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 
+<?php echo '<script'; ?>
+>
+    function add_info()
+    {
+   		var form = document.getElementById('updateform');
+		form.submit();
+		$("#myModal").on("hidden.bs.modal", function() {
+			$(this).removeData("bs.modal");
+		});
+
+    }
+<?php echo '</script'; ?>
+>
 </html>
 <?php }
 }

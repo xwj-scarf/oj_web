@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-04-15 21:29:18
+/* Smarty version 3.1.32-dev-38, created on 2018-04-26 20:47:48
   from '/home/oj_web/templates/problem/problem_detail.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5ad353aea82418_48243634',
+  'unifunc' => 'content_5ae1ca742431b5_47420321',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '414657743fc2a66a1da13edb45d2575ef2444ff4' => 
     array (
       0 => '/home/oj_web/templates/problem/problem_detail.html',
-      1 => 1523798957,
+      1 => 1524746866,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ad353aea82418_48243634 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ae1ca742431b5_47420321 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -171,7 +171,8 @@ function content_5ad353aea82418_48243634 (Smarty_Internal_Template $_smarty_tpl)
 
   		</div>
 	</div>
-	
+
+<div>	
 	<h3>提交代码</h3>
 	<form action="/oj_web/problem/submit.php?problem_id=<?php echo $_smarty_tpl->tpl_vars['problem_id']->value;?>
 " method="post">
@@ -193,7 +194,7 @@ function content_5ad353aea82418_48243634 (Smarty_Internal_Template $_smarty_tpl)
 	</form>
 	</div>
 	<?php }?>
-
+</div>
 </div>
 </div>
 </div>
