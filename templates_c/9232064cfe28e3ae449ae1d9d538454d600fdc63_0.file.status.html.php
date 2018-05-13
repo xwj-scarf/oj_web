@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-04-15 19:33:57
+/* Smarty version 3.1.32-dev-38, created on 2018-05-13 19:18:18
   from '/home/oj_web/templates/status/status.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5ad338a516ff12_00786364',
+  'unifunc' => 'content_5af81efa3e7ab2_94700151',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9232064cfe28e3ae449ae1d9d538454d600fdc63' => 
     array (
       0 => '/home/oj_web/templates/status/status.html',
-      1 => 1523792036,
+      1 => 1526210296,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ad338a516ff12_00786364 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5af81efa3e7ab2_94700151 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
@@ -160,15 +160,15 @@ foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_var
 		  <?php }?>
 
 		  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 3) {?>
-			  <td><h5 class="text-center"><span class="label label-danger">Time Limit</span></h5></td>	
+			  <td><h5 class="text-center"><span class="label label-warning">Time Limit</span></h5></td>	
 		  <?php }?>
 
 		  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 4) {?>
-			  <td><h5 class="text-center"><span class="label label-danger">Memory Limit</span></h5></td>	
+			  <td><h5 class="text-center"><span class="label label-warning">Memory Limit</span></h5></td>	
 		  <?php }?>
 
 		  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 5) {?>
-			  <td><h5 class="text-center"><span class="label label-danger">RunTime Error</span></h5></td>	
+			  <td><h5 class="text-center"><span class="label label-warning">RunTime Error</span></h5></td>	
 		  <?php }?>
 
 		  <?php if ($_smarty_tpl->tpl_vars['item']->value['status'] == 6) {?>
